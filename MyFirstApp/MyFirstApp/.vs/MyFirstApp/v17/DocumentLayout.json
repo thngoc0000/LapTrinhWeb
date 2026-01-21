@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MyFirstApp\\MyFirstApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{989D102C-0F52-482F-8284-F8D4FE48051E}|MyFirstApp.HRM\\MyFirstApp.HRM.csproj|g:\\github_space\\_hk8\\laptrinhweb\\myfirstapp\\myfirstapp\\myfirstapp.hrm\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{989D102C-0F52-482F-8284-F8D4FE48051E}|MyFirstApp.HRM\\MyFirstApp.HRM.csproj|solutionrelative:myfirstapp.hrm\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{989D102C-0F52-482F-8284-F8D4FE48051E}|MyFirstApp.HRM\\MyFirstApp.HRM.csproj|g:\\github_space\\_hk8\\laptrinhweb\\myfirstapp\\myfirstapp\\myfirstapp.hrm\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{989D102C-0F52-482F-8284-F8D4FE48051E}|MyFirstApp.HRM\\MyFirstApp.HRM.csproj|solutionrelative:myfirstapp.hrm\\controllers\\employeecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{989D102C-0F52-482F-8284-F8D4FE48051E}|MyFirstApp.HRM\\MyFirstApp.HRM.csproj|g:\\github_space\\_hk8\\laptrinhweb\\myfirstapp\\myfirstapp\\myfirstapp.hrm\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{989D102C-0F52-482F-8284-F8D4FE48051E}|MyFirstApp.HRM\\MyFirstApp.HRM.csproj|solutionrelative:myfirstapp.hrm\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmployeeController.cs",
+              "DocumentMoniker": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MyFirstApp\\MyFirstApp\\MyFirstApp.HRM\\Controllers\\EmployeeController.cs",
+              "RelativeDocumentMoniker": "MyFirstApp.HRM\\Controllers\\EmployeeController.cs",
+              "ToolTip": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MyFirstApp\\MyFirstApp\\MyFirstApp.HRM\\Controllers\\EmployeeController.cs",
+              "RelativeToolTip": "MyFirstApp.HRM\\Controllers\\EmployeeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T02:56:26.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "site.js",
+              "DocumentMoniker": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MyFirstApp\\MyFirstApp\\MyFirstApp.HRM\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "MyFirstApp.HRM\\wwwroot\\js\\site.js",
+              "ToolTip": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MyFirstApp\\MyFirstApp\\MyFirstApp.HRM\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "MyFirstApp.HRM\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-01-21T02:47:26.471Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MyFirstApp\\MyFirstApp\\MyFirstApp.HRM\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "MyFirstApp.HRM\\Views\\Home\\Index.cshtml",
+              "ToolTip": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MyFirstApp\\MyFirstApp\\MyFirstApp.HRM\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "MyFirstApp.HRM\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-21T02:28:45.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{56df62a4-05a3-4e5b-aa1a-99371ccfb997}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
