@@ -20,3 +20,15 @@ G:\GitHub_Space\HK8\MySolution\MySolution.DomainModel\obj\Release\net8.0\MySolut
 G:\GitHub_Space\HK8\MySolution\MySolution.DomainModel\obj\Release\net8.0\refint\MySolution.DomainModel.dll
 G:\GitHub_Space\HK8\MySolution\MySolution.DomainModel\obj\Release\net8.0\MySolution.DomainModel.pdb
 G:\GitHub_Space\HK8\MySolution\MySolution.DomainModel\obj\Release\net8.0\ref\MySolution.DomainModel.dll
+G:\GitHub_Space\_HK8\LapTrinhWeb\MySolution\MySolution.DomainModel\bin\Release\net8.0\MySolution.DomainModel.deps.json
+G:\GitHub_Space\_HK8\LapTrinhWeb\MySolution\MySolution.DomainModel\bin\Release\net8.0\MySolution.DomainModel.dll
+G:\GitHub_Space\_HK8\LapTrinhWeb\MySolution\MySolution.DomainModel\bin\Release\net8.0\MySolution.DomainModel.pdb
+G:\GitHub_Space\_HK8\LapTrinhWeb\MySolution\MySolution.DomainModel\obj\Release\net8.0\MySolution.DomainModel.GeneratedMSBuildEditorConfig.editorconfig
+G:\GitHub_Space\_HK8\LapTrinhWeb\MySolution\MySolution.DomainModel\obj\Release\net8.0\MySolution.DomainModel.AssemblyInfoInputs.cache
+G:\GitHub_Space\_HK8\LapTrinhWeb\MySolution\MySolution.DomainModel\obj\Release\net8.0\MySolution.DomainModel.AssemblyInfo.cs
+G:\GitHub_Space\_HK8\LapTrinhWeb\MySolution\MySolution.DomainModel\obj\Release\net8.0\MySolution.DomainModel.csproj.CoreCompileInputs.cache
+G:\GitHub_Space\_HK8\LapTrinhWeb\MySolution\MySolution.DomainModel\obj\Release\net8.0\MySolution.DomainModel.sourcelink.json
+G:\GitHub_Space\_HK8\LapTrinhWeb\MySolution\MySolution.DomainModel\obj\Release\net8.0\MySolution.DomainModel.dll
+G:\GitHub_Space\_HK8\LapTrinhWeb\MySolution\MySolution.DomainModel\obj\Release\net8.0\refint\MySolution.DomainModel.dll
+G:\GitHub_Space\_HK8\LapTrinhWeb\MySolution\MySolution.DomainModel\obj\Release\net8.0\MySolution.DomainModel.pdb
+G:\GitHub_Space\_HK8\LapTrinhWeb\MySolution\MySolution.DomainModel\obj\Release\net8.0\ref\MySolution.DomainModel.dll

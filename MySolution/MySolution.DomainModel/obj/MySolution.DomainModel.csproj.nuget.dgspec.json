@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.DomainModel\\MySolution.DomainModel.csproj": {}
+    "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.DomainModel\\MySolution.DomainModel.csproj": {}
   },
   "projects": {
-    "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.DomainModel\\MySolution.DomainModel.csproj": {
+    "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.DomainModel\\MySolution.DomainModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.DomainModel\\MySolution.DomainModel.csproj",
+        "projectUniqueName": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.DomainModel\\MySolution.DomainModel.csproj",
         "projectName": "MySolution.DomainModel",
-        "projectPath": "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.DomainModel\\MySolution.DomainModel.csproj",
+        "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.DomainModel\\MySolution.DomainModel.csproj",
         "packagesPath": "C:\\Users\\TTTTTTTT\\.nuget\\packages\\",
-        "outputPath": "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.DomainModel\\obj\\",
+        "outputPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.DomainModel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

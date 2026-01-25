@@ -13,6 +13,25 @@ namespace MySolution.HRM.Controllers
             return View(model);
         }
 
+        // GET: /Employee/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: /Employee/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Employee model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            await HRMDataService.AddEmployeeAsync(model);
+            return RedirectToAction(nameof(Index));
+        }
+
+
         public async Task<IActionResult> Details(string id)
         {
             if (string.IsNullOrEmpty(id)) return NotFound();

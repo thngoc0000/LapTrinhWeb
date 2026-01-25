@@ -47,6 +47,18 @@ namespace MySolution.BusinessLayers
             return Repo.GetAsync(id);
         }
 
+        // =====================================
+        // ✅ THÊM NHÂN VIÊN
+        // =====================================
+        public static async Task AddEmployeeAsync(Employee employee)
+        {
+            if (_employeeRepo == null)
+                throw new Exception("HRMDataService chưa được Initialize");
+
+            // (Có thể thêm nghiệp vụ tại đây nếu cần)
+            await _employeeRepo.AddAsync(employee);
+        }
+
         // 3️⃣ Cập nhật nhân viên (Business rule kiểm tra trước)
         public static async Task<bool> UpdateEmployeeAsync(Employee emp)
         {

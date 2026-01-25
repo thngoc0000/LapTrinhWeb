@@ -6675,11 +6675,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.HRM\\MySolution.HRM.csproj",
+      "projectUniqueName": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.HRM\\MySolution.HRM.csproj",
       "projectName": "MySolution.HRM",
-      "projectPath": "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.HRM\\MySolution.HRM.csproj",
+      "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.HRM\\MySolution.HRM.csproj",
       "packagesPath": "C:\\Users\\TTTTTTTT\\.nuget\\packages\\",
-      "outputPath": "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.HRM\\obj\\",
+      "outputPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.HRM\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6700,14 +6700,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.BusinessLayers\\MySolution.BusinessLayers.csproj": {
-              "projectPath": "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.BusinessLayers\\MySolution.BusinessLayers.csproj"
+            "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.BusinessLayers\\MySolution.BusinessLayers.csproj": {
+              "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.BusinessLayers\\MySolution.BusinessLayers.csproj"
             },
-            "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.DataLayers\\MySolution.DataLayers.csproj": {
-              "projectPath": "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.DataLayers\\MySolution.DataLayers.csproj"
+            "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.DataLayers\\MySolution.DataLayers.csproj": {
+              "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.DataLayers\\MySolution.DataLayers.csproj"
             },
-            "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.DomainModel\\MySolution.DomainModel.csproj": {
-              "projectPath": "G:\\GitHub_Space\\HK8\\MySolution\\MySolution.DomainModel\\MySolution.DomainModel.csproj"
+            "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.DomainModel\\MySolution.DomainModel.csproj": {
+              "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\MySolution\\MySolution.DomainModel\\MySolution.DomainModel.csproj"
             }
           }
         }
