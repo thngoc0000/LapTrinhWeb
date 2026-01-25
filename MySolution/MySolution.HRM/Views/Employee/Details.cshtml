@@ -1,0 +1,16 @@
+﻿@model MySolution.DomainModels.Employee
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Chi tiết nhân viên</h2>
+
+<p><b>Mã:</b> @Model.EmployeeId</p>
+<p><b>Họ tên:</b> @Model.FullName</p>
+<p><b>Ngày sinh:</b> @Model.BirthDate?.ToShortDateString()</p>
+<p><b>Email:</b> @Model.Email</p>
+<p><b>Phòng ban:</b> @Model.Department</p>
+
+<a asp-action="Index">Quay lại</a>
