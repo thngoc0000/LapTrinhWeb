@@ -1,0 +1,105 @@
+﻿@model CustomerAccount
+@{
+    ViewBag.Title = "Đăng ký tài khoản";
+
+    var error = ViewBag.Error as string;
+    var message = ViewBag.Message as string;
+}
+@if (!string.IsNullOrEmpty(error))
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @error
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+@if (message != null)
+{
+    <div class="alert alert-info alert-dismissible fade show" role="alert">
+        @message
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="row g-0">
+                    <div class="card-body p-4 p-sm-5">
+                        <div class="text-center mb-4">
+                            <h3 class="fw-bold">Tạo tài khoản mới</h3>
+                            <p class="text-muted small">Trở thành thành viên để nhận nhiều ưu đãi hơn.</p>
+                        </div>
+
+                        <form asp-action="Register" asp-controller="Account" method="post">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <input type="hidden" asp-for="CustomerID" />
+
+                            <div class="row g-3">
+                                <div class="col-md-12">
+                                    <label class="form-label small fw-bold">Họ và Tên</label>
+                                    <input type="text" class="form-control bg-light border-0 rounded-3 shadow-none"
+                                           asp-for="CustomerName"
+                                           placeholder="Nguyễn Văn A" required>
+                                        <span asp-validation-for="CustomerName" class="text-danger"></span>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label class="form-label small fw-bold">Email</label>
+                                    <input type="email" class="form-control bg-light border-0 rounded-3 shadow-none"
+                                               asp-for="Email" placeholder="example@mail.com" required>
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                                @* <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Số điện thoại</label>
+                                    <input type="tel" class="form-control bg-light border-0 rounded-3 shadow-none"
+                                           name="Phone" placeholder="090x xxx xxx" required>
+                                </div> *@
+
+                                @* <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Tỉnh / Thành phố</label>
+                                    <select class="form-select bg-light border-0 rounded-3 shadow-none" name="City" asp-items="await SelectListHelper.Categories()">
+                                        <option selected>Chọn tỉnh thành</option>
+                                        <option>Hà Nội</option>
+                                        <option>TP. Hồ Chí Minh</option>
+                                        <option>Đà Nẵng</option>
+                                        <option>Huế</option>
+                                    </select>
+                                </div> *@
+                                @* <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Địa chỉ chi tiết</label>
+                                    <input type="text" class="form-control bg-light border-0 rounded-3 shadow-none"
+                                           name="Address" placeholder="Số nhà, tên đường...">
+                                </div> *@
+
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Mật khẩu</label>
+                                            <input type="password"
+                                                   class="form-control bg-light border-0 rounded-3 shadow-none"
+                                                   asp-for="Password"
+                                                   required>
+                                                <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                                @* <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Xác nhận mật khẩu</label>
+                                    <input type="password" class="form-control bg-light border-0 rounded-3 shadow-none"
+                                           name="ConfirmPassword" required>
+                                </div> *@
+                            </div>
+
+                            <div class="d-grid mb-3 mt-3">
+                                <button type="submit" class="btn btn-primary btn-lg rounded-3 fw-bold shadow-sm">Đăng ký tài khoản</button>
+                            </div>
+                        </form>
+
+                        <div class="text-center">
+                            <p class="small text-muted mb-0 ">
+                                Đã có tài khoản?
+                                <a href="@Url.Action("Login", "Account")" class="fw-bold text-decoration-none">Đăng nhập</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

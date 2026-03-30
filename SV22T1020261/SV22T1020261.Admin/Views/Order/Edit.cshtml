@@ -1,0 +1,157 @@
+﻿@{
+    ViewBag.Title = "Chỉnh sửa đơn hàng #12345";
+}
+
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h4 class="mb-0 text-primary fw-bold">
+                <i class="bi bi-pencil-square me-2"></i>Cập nhật đơn hàng #12345
+            </h4>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb small mb-0">
+                    <li class="breadcrumb-item"><a href="~/Order">Đơn hàng</a></li>
+                    <li class="breadcrumb-item active">Chỉnh sửa</li>
+                </ol>
+            </nav>
+        </div>
+        <div>
+            <a href="~/Order" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Quay lại
+            </a>
+        </div>
+    </div>
+
+    <form>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-header bg-white py-3">
+                        <h6 class="mb-0 fw-bold"><i class="bi bi-person-lines-fill me-2 text-primary"></i>Thông tin khách hàng & Giao hàng</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <label class="form-label fw-semibold small">Tên khách hàng</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light"><i class="bi bi-person"></i></span>
+                                    <input type="text" class="form-control" value="Nguyễn Văn A" placeholder="Nhập tên khách hàng...">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">Tỉnh / Thành phố</label>
+                                <select class="form-select">
+                                    <option value="Huế" selected>Thừa Thiên Huế</option>
+                                    <option value="Hà Nội">Hà Nội</option>
+                                    <option value="HCM">TP. Hồ Chí Minh</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold small">Số điện thoại (nếu có)</label>
+                                <input type="text" class="form-control" value="0905 123 456">
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label fw-semibold small">Địa chỉ chi tiết</label>
+                                <textarea class="form-control" rows="2">12 Lê Lợi</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-header bg-white py-3">
+                        <h6 class="mb-0 fw-bold"><i class="bi bi-info-circle me-2 text-primary"></i>Ghi chú nội bộ</h6>
+                    </div>
+                    <div class="card-body">
+                        <textarea class="form-control" rows="3" placeholder="Ghi chú về yêu cầu đặc biệt hoặc chỉ dẫn giao hàng..."></textarea>
+                        <div class="form-text text-muted italic small">* Ghi chú này chỉ Admin và nhân viên nhìn thấy.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card shadow-sm border-0 mb-4 border-top border-primary border-4">
+                    <div class="card-body">
+                        <label class="form-label fw-bold text-uppercase small text-muted mb-3">Trạng thái đơn hàng</label>
+                        <select class="form-select form-select-lg mb-3 border-primary">
+                            <option value="1">Đang chờ</option>
+                            <option value="2">Đang xử lý</option>
+                            <option value="3">Đang giao</option>
+                            <option value="4" selected>Hoàn thành</option>
+                            <option value="5">Đã huỷ</option>
+                        </select>
+                        <div class="form-check form-switch mb-0">
+                            <input class="form-check-input" type="checkbox" id="notifyCustomer" checked>
+                            <label class="form-check-label small" for="notifyCustomer">Gửi email thông báo cho khách</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm border-0 mb-4">
+                    <div class="card-header bg-white py-3">
+                        <h6 class="mb-0 fw-bold"><i class="bi bi-people me-2 text-primary"></i>Phân công nhân sự</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label small fw-semibold">Nhân viên xử lý</label>
+                            <select class="form-select">
+                                <option value="">-- Chọn nhân viên --</option>
+                                <option selected>Trần Thị B</option>
+                                <option>Nguyễn Văn D</option>
+                            </select>
+                        </div>
+                        <div class="mb-0">
+                            <label class="form-label small fw-semibold">Người giao hàng (Shipper)</label>
+                            <select class="form-select">
+                                <option value="">-- Chọn người giao --</option>
+                                <option selected>Lê Văn C</option>
+                                <option>Phạm Văn E</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-body">
+                        <button type="submit" class="btn btn-primary w-100 mb-2">
+                            <i class="bi bi-save me-1"></i> Lưu thay đổi
+                        </button>
+                        <button type="button" class="btn btn-light w-100 text-danger">
+                            <i class="bi bi-trash me-1"></i> Xóa đơn hàng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<style>
+    body {
+        background-color: #f4f7f6;
+    }
+
+    .card {
+        border-radius: 10px;
+    }
+
+    .form-label {
+        color: #495057;
+    }
+
+    .form-control:focus, .form-select:focus {
+        border-color: #0d6efd;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+    }
+
+    .input-group-text {
+        border-right: none;
+    }
+
+    .form-control {
+        border-left: none;
+    }
+</style>

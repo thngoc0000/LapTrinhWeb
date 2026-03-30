@@ -1,0 +1,92 @@
+﻿@model ProductPhoto
+
+@section PageToolBar {
+    <button type="submit" form="formEdit" class="btn btn-primary">
+        <i class="bi bi-save"></i>
+        Lưu ảnh
+    </button>
+
+    <a href="~/Product/Edit/@Model.ProductID#photos"
+           class="btn btn-secondary ms-1">
+        <i class="bi bi-arrow-left"></i>
+        Quay lại
+    </a>
+}
+
+<div class="row justify-content-center">
+    <div class="col-12">
+        <div class="card card-outline card-info">
+            <div class="card-header">
+                <h5 class="mb-0">Thông tin ảnh mặt hàng</h5>
+            </div>
+
+            <div class="card-body">
+
+                <form id="formEdit" method="post"
+                      enctype="multipart/form-data"
+                      action="~/Product/SavePhoto">
+
+                    <input type="hidden" asp-for="PhotoID" />
+                    <input type="hidden" asp-for="ProductID" />
+
+                    <div class="row mb-3">
+                        <label class="col-sm-3 col-form-label">Ảnh</label>
+                        <div class="col-sm-9">
+
+                            <!-- Giữ lại tên ảnh hiện tại -->
+                            <input type="hidden" asp-for="Photo" />
+
+                            <!-- Upload ảnh mới -->
+                            <input type="file"
+                                   name="uploadPhoto"
+                                   class="form-control"
+                                   accept="image/*"
+                                   data-img-preview="imgPreview"
+                                   onchange="previewImage(this)" />
+
+                            <div class="mt-2">
+                                <img id="imgPreview"
+                                     src="~/images/productphotos/@(string.IsNullOrEmpty(Model.Photo) ? "nophoto.png" : Model.Photo)"
+                                     class="img-thumbnail"
+                                     style="max-height:160px;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-3">Mô tả</label>
+                        <div class="col-sm-9">
+                            <input asp-for="Description"
+                                   class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-3">Thứ tự</label>
+                        <div class="col-sm-3">
+                            <input asp-for="DisplayOrder"
+                                   type="number"
+                                   class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-3">Trạng thái</label>
+                        <div class="col-sm-9">
+                            <div class="form-check">
+                                <input asp-for="IsHidden"
+                                       class="form-check-input"
+                                       type="checkbox" />
+                                <label class="form-check-label">
+                                    Ẩn ảnh
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

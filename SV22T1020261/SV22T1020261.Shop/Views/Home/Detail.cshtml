@@ -1,0 +1,144 @@
+﻿@model Product
+@{
+    ViewBag.Title = "Chi tiết sản phẩm";
+
+    var category = ViewBag.Category as Category ?? new Category();
+
+    var attributes = ViewBag.Attributes as List<ProductAttribute> ?? new List<ProductAttribute>();
+    var photos = ViewBag.Photos as List<ProductPhoto> ?? new List<ProductPhoto>();
+
+    var mainPhoto = photos
+        .Where(p => !p.IsHidden)
+        .OrderBy(p => p.DisplayOrder)
+        .FirstOrDefault();
+}
+
+<div class="container py-5">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="~/" class="text-decoration-none">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a href="~/Home/Index?CategoryID=@category.CategoryID" class="text-decoration-none">@category.CategoryName</a></li>
+            <li class="breadcrumb-item active" aria-current="page">@Model.ProductName</li>
+        </ol>
+    </nav>
+
+    <div class="row g-5">
+        <div class="col-md-6">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden py-3">
+                <div class="text-center p-3">
+                    <img src="~/images/products/@(Model?.Photo ?? "nophoto.png")"
+                         class="img-fluid rounded-4 shadow-sm"
+                         id="mainImg">
+                    </div>
+
+                    <div class="card-body">
+                        <h6 class="fw-bold mb-3">Hình ảnh chi tiết</h6>
+                        <div class="row g-2">
+                            <div class="col-3">
+                                <img src="~/images/products/@(Model?.Photo ?? "nophoto.png")"
+                                     class="img-thumbnail rounded-3"
+                                     style="cursor:pointer"
+                                     onclick="document.getElementById('mainImg').src = this.src">
+                                </div>
+                                @foreach (var photo in photos.Where(p => !p.IsHidden).OrderBy(p => p.DisplayOrder))
+                                {
+                                    <div class="col-3">
+                                        <img src="~/images/products/@photo.Photo"
+                                             class="img-thumbnail rounded-3"
+                                             style="cursor:pointer"
+                                             onclick="document.getElementById('mainImg').src = this.src">
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        @if (Model != null)
+                        {
+                            <!-- Trạng thái -->
+                            <div class="mb-3">
+                                @if (Model.IsSelling)
+                                {
+                                    <span class="badge rounded-pill bg-success-subtle text-success px-3 mb-2">
+                                        <i class="bi bi-check-circle-fill"></i> Đang bán
+                                    </span>
+                                }
+                                else
+                                {
+                                    <span class="badge rounded-pill bg-danger-subtle text-danger px-3 mb-2">
+                                        <i class="bi bi-x-circle-fill"></i> Ngừng bán
+                                    </span>
+                                }
+
+                                <h1 class="fw-bold text-dark display-6">@Model.ProductName</h1>
+
+                                <p class="text-muted">
+                                    Đơn vị tính:
+                                    <span class="fw-medium text-dark">@Model.Unit</span>
+                                </p>
+                            </div>
+
+                            <!-- Giá -->
+                            <div class="mb-4">
+                                <h3 class="text-primary fw-bold">
+                                    @Model.Price.ToString("N0")
+                                    <small class="text-decoration-underline">đ</small>
+                                </h3>
+                            </div>
+
+                            <!-- Mô tả -->
+                            @if (!string.IsNullOrEmpty(Model.ProductDescription))
+                            {
+                                <div class="p-3 bg-light rounded-4 mb-4 border-start border-primary border-4">
+                                    <h6 class="fw-bold mb-2 text-primary">Mô tả sản phẩm</h6>
+                                    <p class="small text-muted mb-0">@Model.ProductDescription</p>
+                                </div>
+                            }
+                            <div class="mb-4">
+                                <h6 class="fw-bold mb-3 border-bottom pb-2">
+                                    <i class="bi bi-gear-wide-connected"></i> Thông số kỹ thuật
+                                </h6>
+
+                                <div class="card border-0 shadow-sm rounded-4">
+                                    <table class="table table-striped table-hover mb-0">
+                                        <tbody>
+                                            @foreach (var attr in attributes.OrderBy(a => a.DisplayOrder))
+                                            {
+                                                <tr>
+                                                    <td class="text-muted ps-4" style="width:40%;">
+                                                        @attr.AttributeName
+                                                    </td>
+                                                    <td class="fw-medium">
+                                                        @attr.AttributeValue
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-md-8">
+                                    <button class="btn btn-primary btn-lg w-100 rounded-3 fw-bold shadow">
+                                        <i class="bi bi-cart-plus-fill"></i> Thêm vào giỏ hàng
+                                    </button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn btn-outline-danger btn-lg w-100 rounded-3">
+                                        <i class="bi bi-heart"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                Mặt hàng không tồn tại hoặc đã bị xóa.
+                                < button type = "button" class= "btn-close" data - bs - dismiss = "alert" aria - label = "Close" ></ button >
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>

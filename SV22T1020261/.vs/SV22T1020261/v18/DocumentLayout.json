@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\l\u1EADp tr\u00ECnh web\\sv22t1020261\\sv22t1020261.shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|e:\\_hk8\\l\u1EADp tr\u00ECnh web\\sv22t1020261\\sv22t1020261.admin\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\l\u1EADp tr\u00ECnh web\\sv22t1020261\\sv22t1020261.shop\\views\\account\\editprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\views\\account\\editprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\l\u1EADp tr\u00ECnh web\\sv22t1020261\\sv22t1020261.shop\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\l\u1EADp tr\u00ECnh web\\sv22t1020261\\sv22t1020261.shop\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\l\u1EADp tr\u00ECnh web\\sv22t1020261\\sv22t1020261.shop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 302,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\SV22T1020261.Shop\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "SV22T1020261.Shop\\Controllers\\AccountController.cs",
+              "ToolTip": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\SV22T1020261.Shop\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "SV22T1020261.Shop\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAAArwMEAAACAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T09:02:54.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EditProfile.cshtml",
+              "DocumentMoniker": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\SV22T1020261.Shop\\Views\\Account\\EditProfile.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020261.Shop\\Views\\Account\\EditProfile.cshtml",
+              "ToolTip": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\SV22T1020261.Shop\\Views\\Account\\EditProfile.cshtml",
+              "RelativeToolTip": "SV22T1020261.Shop\\Views\\Account\\EditProfile.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAEgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-30T08:55:56.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\SV22T1020261.Shop\\Views\\Account\\Profile.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020261.Shop\\Views\\Account\\Profile.cshtml",
+              "ToolTip": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\SV22T1020261.Shop\\Views\\Account\\Profile.cshtml",
+              "RelativeToolTip": "SV22T1020261.Shop\\Views\\Account\\Profile.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-30T08:44:32.257Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomerController.cs",
+              "DocumentMoniker": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\CustomerController.cs",
+              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Controllers\\CustomerController.cs",
+              "ToolTip": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\CustomerController.cs",
+              "RelativeToolTip": "SV22T1020261.Admin\\Controllers\\CustomerController.cs",
+              "ViewState": "AgIAAFQAAAAAAAAAAAArwG4AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T08:38:37.273Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\SV22T1020261.Shop\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "SV22T1020261.Shop\\Controllers\\OrderController.cs",
+              "ToolTip": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\SV22T1020261.Shop\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "SV22T1020261.Shop\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-30T08:04:25.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\SV22T1020261.Shop\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "SV22T1020261.Shop\\Controllers\\HomeController.cs",
+              "ToolTip": "E:\\_HK8\\L\u1EADp tr\u00ECnh Web\\SV22T1020261\\SV22T1020261.Shop\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "SV22T1020261.Shop\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-29T07:32:15.108Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

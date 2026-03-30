@@ -1,0 +1,76 @@
+﻿@model Customer
+@{
+    ViewBag.Title = "Chỉnh sửa hồ sơ";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <div class="card border-0 shadow-sm rounded-4">
+                <div class="card-header bg-white py-3 border-bottom border-light">
+                    <h5 class="fw-bold m-0 text-dark">Chỉnh sửa thông tin cá nhân</h5>
+                </div>
+
+                <div class="card-body p-4">
+                    <form asp-action="EditProfile" method="post">
+
+                        <input type="hidden" asp-for="CustomerID" />
+
+                        <div class="row g-4">
+
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-uppercase">Họ và Tên</label>
+                                <input asp-for="CustomerName"
+                                       class="form-control form-control-lg rounded-3" />
+                                <span asp-validation-for="CustomerName" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-uppercase">Số điện thoại</label>
+                                <input asp-for="Phone"
+                                       class="form-control form-control-lg rounded-3" />
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label small fw-bold text-uppercase">Tỉnh / Thành phố</label>
+                                <select asp-for="Province"
+                                        asp-items="await SelectListHelper.Provinces()"
+                                        class="form-select form-select-lg rounded-3">
+                                </select>
+                                <span asp-validation-for="Province" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-md-12">
+                                <label class="form-label small fw-bold text-uppercase">Địa chỉ cụ thể</label>
+                                <textarea asp-for="Address"
+                                          class="form-control form-control-lg rounded-3"></textarea>
+                                <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+
+                        </div>
+
+                        <hr class="my-4">
+
+                        <div class="d-flex justify-content-end gap-2">
+                            <a href="~/Account/Profile"
+                               class="btn btn-light rounded-3 px-4">Hủy bỏ</a>
+
+                            <button type="submit"
+                                    class="btn btn-primary rounded-3 px-4 fw-bold shadow-sm">
+                                Lưu thay đổi
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
