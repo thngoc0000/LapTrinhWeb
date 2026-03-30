@@ -44,7 +44,7 @@
                         <div class="col-md-6">
                             <label class="form-label small fw-bold text-uppercase">Số điện thoại</label>
                             <input class="form-control form-control-lg border-0 bg-light rounded-3"
-                                   value="@Model.Phone" readonly>
+                                   asp-for="Phone" readonly>
                         </div>
 
                         <div class="col-md-6">
@@ -55,8 +55,8 @@
 
                         <div class="col-md-12">
                             <label class="form-label small fw-bold text-uppercase">Địa chỉ cụ thể</label>
-                            <textarea class="form-control form-control-lg border-0 bg-light rounded-3" asp-for="Address"
-                                      readonly></textarea>
+                            <textarea class="form-control form-control-lg border-0 bg-light rounded-3"
+                                      asp-for="Address" readonly></textarea>
                         </div>
 
                     </div>

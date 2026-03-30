@@ -154,5 +154,7 @@ namespace SV22T1020261.Shop
         /// Gets the session key used to store or retrieve customer account information.
         /// </summary>
         public static string CustomerSessionKey => "CustomerAccount";
+
+        public static string CartSessionKey => "Carts";
     }
 }

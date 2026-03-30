@@ -29,3 +29,19 @@ E:\_HK8\Lập trình Web\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\S
 E:\_HK8\Lập trình Web\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\refint\SV22T1020261.DataLayers.dll
 E:\_HK8\Lập trình Web\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\SV22T1020261.DataLayers.pdb
 E:\_HK8\Lập trình Web\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\ref\SV22T1020261.DataLayers.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\bin\Debug\net8.0\SV22T1020261.DataLayers.deps.json
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\bin\Debug\net8.0\SV22T1020261.DataLayers.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\bin\Debug\net8.0\SV22T1020261.DataLayers.pdb
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\bin\Debug\net8.0\SV22T1020261.Models.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\bin\Debug\net8.0\SV22T1020261.Models.pdb
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\SV22T1020261.DataLayers.csproj.AssemblyReference.cache
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\SV22T1020261.DataLayers.GeneratedMSBuildEditorConfig.editorconfig
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\SV22T1020261.DataLayers.AssemblyInfoInputs.cache
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\SV22T1020261.DataLayers.AssemblyInfo.cs
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\SV22T1020261.DataLayers.csproj.CoreCompileInputs.cache
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\SV22T1020261.DataLayers.sourcelink.json
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\SV22T102.BB9095BE.Up2Date
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\SV22T1020261.DataLayers.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\refint\SV22T1020261.DataLayers.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\SV22T1020261.DataLayers.pdb
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.DataLayers\obj\Debug\net8.0\ref\SV22T1020261.DataLayers.dll

@@ -21,3 +21,15 @@ E:\_HK8\Lập trình Web\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T
 E:\_HK8\Lập trình Web\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\refint\SV22T1020261.Models.dll
 E:\_HK8\Lập trình Web\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.pdb
 E:\_HK8\Lập trình Web\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\ref\SV22T1020261.Models.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\bin\Debug\net8.0\SV22T1020261.Models.deps.json
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\bin\Debug\net8.0\SV22T1020261.Models.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\bin\Debug\net8.0\SV22T1020261.Models.pdb
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.GeneratedMSBuildEditorConfig.editorconfig
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.AssemblyInfoInputs.cache
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.AssemblyInfo.cs
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.csproj.CoreCompileInputs.cache
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.sourcelink.json
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\refint\SV22T1020261.Models.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.pdb
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\ref\SV22T1020261.Models.dll

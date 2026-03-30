@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RIwwaD3aFrc=",
+  "dgSpecHash": "7FP1iZIm0s8=",
   "success": true,
-  "projectFilePath": "E:\\_HK8\\Lập trình Web\\SV22T1020261\\SV22T1020261.Admin\\SV22T1020261.Admin.csproj",
+  "projectFilePath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\SV22T1020261.Admin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lemon\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\Lemon\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",

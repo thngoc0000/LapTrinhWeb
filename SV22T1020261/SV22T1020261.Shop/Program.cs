@@ -18,7 +18,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
                 {
                     option.Cookie.Name = "LiteCommerce.Shop";
                     option.LoginPath = "/Account/Login";
-                    option.AccessDeniedPath = "/Account/AccessDenied";
+                    option.AccessDeniedPath = "/Account/Login";
                     option.ExpireTimeSpan = TimeSpan.FromDays(7);
                     option.SlidingExpiration = true;
                     option.Cookie.HttpOnly = true;

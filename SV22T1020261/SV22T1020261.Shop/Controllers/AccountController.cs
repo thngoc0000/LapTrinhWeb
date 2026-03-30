@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SV22T1020261.BusinessLayers;
 using SV22T1020261.Models.Catalog;
 using SV22T1020261.Models.Partner;
@@ -12,6 +13,9 @@ namespace SV22T1020261.Shop.Controllers
     /// </summary>
     public class AccountController : Controller
     {
+
+        CustomerAccount? customerAccount = ApplicationContext
+            .GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
         /// <summary>
         /// Đăng ký tài khoản
         /// </summary>
@@ -72,9 +76,9 @@ namespace SV22T1020261.Shop.Controllers
                 ViewBag.Message = "Đăng ký thành công. Vui lòng đăng nhập.";
                 return RedirectToAction("Login");
             }
-            catch (Exception ex)
+            catch
             {
-                ModelState.AddModelError("Error", "Hệ thống hiện đang bận, vui lòng thử lại sau vài phút\n" + ex.StackTrace);
+                ModelState.AddModelError("Error", "Hệ thống hiện đang bận, vui lòng thử lại sau vài phút");
                 return View(data);
             }
         }
@@ -134,6 +138,7 @@ namespace SV22T1020261.Shop.Controllers
         /// Hồ sơ cá nhân
         /// </summary>
         /// <returns></returns>
+        [CustomerAuthorize]
         public async Task<IActionResult> Profile()
         {
             var customerAccount = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
@@ -147,7 +152,12 @@ namespace SV22T1020261.Shop.Controllers
             return RedirectToAction("Login");
         }
 
+        /// <summary>
+        /// Chỉnh sửa hồ sơ cá nhân GET
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
+        [CustomerAuthorize]
         public async Task<IActionResult> EditProfile()
         {
             var customerAccount = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
@@ -166,6 +176,7 @@ namespace SV22T1020261.Shop.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
+        [CustomerAuthorize]
         public async Task<IActionResult> EditProfile(Customer data)
         {
             try
@@ -210,9 +221,159 @@ namespace SV22T1020261.Shop.Controllers
         /// Đổi mật khẩu
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
+        [CustomerAuthorize]
         public IActionResult ChangePassword()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [CustomerAuthorize]
+        public async Task<IActionResult> ChangePassword(string CurrentPassword, string NewPassword, string ConfirmPassword)
+        {
+            try
+            {
+                var customerAccount = ApplicationContext
+                    .GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
+
+                if (customerAccount == null)
+                    return RedirectToAction("Login");
+
+                // ===== VALIDATION =====
+
+                if (string.IsNullOrWhiteSpace(CurrentPassword))
+                    ModelState.AddModelError("CurrentPassword", "Vui lòng nhập mật khẩu hiện tại");
+
+                if (string.IsNullOrWhiteSpace(NewPassword))
+                    ModelState.AddModelError("NewPassword", "Vui lòng nhập mật khẩu mới");
+
+                if (string.IsNullOrWhiteSpace(ConfirmPassword))
+                    ModelState.AddModelError("ConfirmPassword", "Vui lòng xác nhận mật khẩu");
+
+                if (NewPassword != ConfirmPassword)
+                    ModelState.AddModelError("ConfirmPassword", "Mật khẩu xác nhận không khớp");
+
+                if (CurrentPassword == NewPassword)
+                    ModelState.AddModelError("NewPassword", "Mật khẩu mới phải khác mật khẩu cũ");
+
+                if (!ModelState.IsValid)
+                    return View();
+
+                // ===== KIỂM TRA MẬT KHẨU CŨ =====
+
+                var isValid = await SecurityDataService
+                    .AuthorizeCustomerAccountAsync(customerAccount.Email, CurrentPassword);
+
+                if (isValid == null)
+                {
+                    ModelState.AddModelError("CurrentPassword", "Mật khẩu hiện tại không đúng");
+                    return View();
+                }
+
+                // ===== CẬP NHẬT MẬT KHẨU =====
+
+                bool result = await SecurityDataService
+                    .ChangeCustomerPasswordAsync(customerAccount.Email, NewPassword);
+
+                if (!result)
+                {
+                    ModelState.AddModelError("Error", "Đổi mật khẩu thất bại");
+                    return View();
+                }
+
+                ViewBag.Message = "Đổi mật khẩu thành công";
+                return View();
+            }
+            catch
+            {
+                ModelState.AddModelError("Error",
+                    "Hệ thống hiện đang bận, vui lòng thử lại sau vài phút");
+                return View();
+            }
+        }
+
+        /// <summary>
+        /// Quên mật khẩu GET
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// Quên mật khẩu POST
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [CustomerAuthorize]
+        public async Task<IActionResult> ForgotPassword(string Phone)
+        {
+            try
+            {
+                if(customerAccount == null)
+                    return RedirectToAction("login");
+
+                if (string.IsNullOrWhiteSpace(Phone))
+                {
+                    ModelState.AddModelError("Phone", "Vui lòng nhập Phone");
+                    return View();
+                }
+
+                var customer = await PartnerDataService.GetCustomerAsync(customerAccount.CustomerID);
+
+                //Tuỳ chọn
+                //Cách 1: lấy từ DB, nếu không có thì báo lỗi
+                if (customer == null)
+                {
+                    ModelState.AddModelError("Phone", "Phone không tồn tại trong hệ thống");
+                    return View();
+                }
+
+                //Cách 2: lấy từ session, nếu session không có thì báo lỗi
+                if (customer.Phone != Phone)
+                {
+                    ModelState.AddModelError("Phone", "Số điện thoại không khớp với thông tin của tài khoản");
+                    return View();
+                }
+
+                // ===== TẠO MẬT KHẨU MỚI =====
+                string newPassword = GenerateRandomPassword();
+
+                bool result = await SecurityDataService
+                    .ChangeCustomerPasswordAsync(customer.Email, newPassword);
+
+                if (!result)
+                {
+                    ModelState.AddModelError("Error", "Không thể đặt lại mật khẩu");
+                    return View();
+                }
+
+                ViewBag.NewPassword = newPassword;
+                ViewBag.Success = true;
+
+                ApplicationContext.RemoveSessionData(ApplicationContext.CustomerSessionKey);
+
+                return View();
+            }
+            catch
+            {
+                ModelState.AddModelError("Error",
+                    "Hệ thống hiện đang bận, vui lòng thử lại sau vài phút");
+                return View();
+            }
+        }
+
+        private string GenerateRandomPassword()
+        {
+            const string chars = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            Random random = new Random();
+            return new string(Enumerable.Repeat(chars, 8)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }

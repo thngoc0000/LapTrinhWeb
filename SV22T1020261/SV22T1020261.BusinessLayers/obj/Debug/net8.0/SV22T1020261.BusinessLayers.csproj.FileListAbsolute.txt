@@ -33,3 +33,21 @@ E:\_HK8\Lập trình Web\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8
 E:\_HK8\Lập trình Web\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\refint\SV22T1020261.BusinessLayers.dll
 E:\_HK8\Lập trình Web\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\SV22T1020261.BusinessLayers.pdb
 E:\_HK8\Lập trình Web\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\ref\SV22T1020261.BusinessLayers.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\bin\Debug\net8.0\SV22T1020261.BusinessLayers.deps.json
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\bin\Debug\net8.0\SV22T1020261.BusinessLayers.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\bin\Debug\net8.0\SV22T1020261.BusinessLayers.pdb
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\bin\Debug\net8.0\SV22T1020261.DataLayers.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\bin\Debug\net8.0\SV22T1020261.Models.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\bin\Debug\net8.0\SV22T1020261.DataLayers.pdb
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\bin\Debug\net8.0\SV22T1020261.Models.pdb
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\SV22T1020261.BusinessLayers.csproj.AssemblyReference.cache
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\SV22T1020261.BusinessLayers.GeneratedMSBuildEditorConfig.editorconfig
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\SV22T1020261.BusinessLayers.AssemblyInfoInputs.cache
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\SV22T1020261.BusinessLayers.AssemblyInfo.cs
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\SV22T1020261.BusinessLayers.csproj.CoreCompileInputs.cache
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\SV22T1020261.BusinessLayers.sourcelink.json
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\SV22T102.63D68579.Up2Date
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\SV22T1020261.BusinessLayers.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\refint\SV22T1020261.BusinessLayers.dll
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\SV22T1020261.BusinessLayers.pdb
+E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.BusinessLayers\obj\Debug\net8.0\ref\SV22T1020261.BusinessLayers.dll

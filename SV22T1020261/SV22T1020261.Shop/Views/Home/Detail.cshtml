@@ -120,10 +120,13 @@
                                 </div>
                             </div>
                             <div class="row g-3">
-                                <div class="col-md-8">
-                                    <button class="btn btn-primary btn-lg w-100 rounded-3 fw-bold shadow">
+                                <div class="col-md-8">                                    
+                                    <a href="@Url.Action("Add", "Cart", new {
+                                                    id = Model.ProductID
+                                                })"
+                                        class="btn btn-primary btn-lg w-100 rounded-3 fw-bold shadow">
                                         <i class="bi bi-cart-plus-fill"></i> Thêm vào giỏ hàng
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="col-md-4">
                                     <button class="btn btn-outline-danger btn-lg w-100 rounded-3">

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "bK/LVEcMACc=",
+  "dgSpecHash": "sIGQiIntG8c=",
   "success": true,
-  "projectFilePath": "E:\\_HK8\\Lập trình Web\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj",
+  "projectFilePath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lemon\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\Lemon\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",
