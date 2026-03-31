@@ -173,6 +173,26 @@ namespace SV22T1020261.DataLayers.SQLServer
         }
 
         /// <summary>
+        /// Cập nhật thông tin giao hàng của khách hàng
+        /// </summary>
+        public async Task<bool> UpdateDeliveryAsync(Customer data)
+        {
+            using var connection = GetConnection();
+
+            string sql = @"
+                UPDATE Customers
+                SET
+                    CustomerName = @CustomerName,
+                    Address = @Address,
+                    Phone = @Phone
+                WHERE CustomerID = @CustomerID";
+
+            int rows = await connection.ExecuteAsync(sql, data);
+
+            return rows > 0;
+        }
+
+        /// <summary>
         /// Xóa một khách hàng khỏi cơ sở dữ liệu
         /// </summary>
         public async Task<bool> DeleteAsync(int id)

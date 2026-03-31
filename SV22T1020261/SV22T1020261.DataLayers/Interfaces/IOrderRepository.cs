@@ -72,7 +72,16 @@ namespace SV22T1020261.DataLayers.Interfaces
         /// <param name="productID"></param>
         /// <returns></returns>
         Task<bool> DeleteDetailAsync(int orderID, int productID);
-
+        /// <summary>
+        /// Tính tổng tiền của đơn hàng
+        /// </summary>
         Task<decimal> GetTotalAmountAsync(int orderID);
+
+        /// <summary>
+        /// Lấy danh sách đơn hàng theo người dùng
+        /// </summary>
+        /// <param name="customerID">mã người dùng</param>
+        /// <returns></returns>
+        Task<List<OrderViewInfo>> ListByAccountAsync(int customerID);
     }
 }

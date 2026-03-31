@@ -223,5 +223,10 @@ namespace SV22T1020261.BusinessLayers
         {
             return await orderDB.GetTotalAmountAsync(orderID);
         }
+
+        public static async Task<List<OrderViewInfo>> ListOrderByAccountAsync(int customerID)
+        {
+            return await orderDB.ListByAccountAsync(customerID);
+        }
     }
 }

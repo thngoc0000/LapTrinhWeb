@@ -341,5 +341,66 @@ namespace SV22T1020261.DataLayers.SQLServer
 
             return await connection.ExecuteScalarAsync<decimal>(sql, new { orderID });
         }
+
+        public async Task<List<OrderViewInfo>> ListByAccountAsync(int CustomerID)
+        {
+            using var connection = GetConnection();
+
+
+            string sql = @"
+                   SELECT 
+                        o.OrderID,
+                        o.OrderTime,
+                        o.AcceptTime,
+                        o.Status,
+                        o.EmployeeID,
+                        o.CustomerID,
+                        o.ShipperID,
+
+                        e.FullName AS EmployeeName,
+
+                        c.CustomerName,
+                        c.ContactName AS CustomerContactName,
+                        c.Email AS CustomerEmail,
+                        c.Phone AS CustomerPhone,
+                        c.Address AS CustomerAddress,
+
+                        s.ShipperName,
+                        s.Phone AS ShipperPhone,
+
+                        ISNULL(SUM(od.Quantity * od.SalePrice), 0) AS TotalAmount
+
+                    FROM Orders o
+
+                    LEFT JOIN Employees e ON o.EmployeeID = e.EmployeeID
+                    LEFT JOIN Customers c ON o.CustomerID = c.CustomerID
+                    LEFT JOIN Shippers s ON o.ShipperID = s.ShipperID
+                    LEFT JOIN OrderDetails od ON o.OrderID = od.OrderID
+
+                    WHERE @CustomerID = 0 OR o.CustomerID = @CustomerID
+
+                    GROUP BY 
+                        o.OrderID,
+                        o.OrderTime,
+                        o.AcceptTime,
+                        o.Status,
+                        o.EmployeeID,
+                        o.CustomerID,
+                        o.ShipperID,
+                        e.FullName,
+                        c.CustomerName,
+                        c.ContactName,
+                        c.Email,
+                        c.Phone,
+                        c.Address,
+                        s.ShipperName,
+                        s.Phone
+
+                    ORDER BY o.OrderTime DESC";
+
+            var data = await connection.QueryAsync<OrderViewInfo>(sql, new {CustomerID});
+
+            return data.ToList();
+        }
     }
 }

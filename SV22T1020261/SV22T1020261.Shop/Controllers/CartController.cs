@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using SV22T1020261.BusinessLayers;
 using SV22T1020261.Models.Catalog;
+using SV22T1020261.Models.Partner;
 using SV22T1020261.Models.Sales;
 using SV22T1020261.Models.Security;
 
@@ -106,7 +108,7 @@ namespace SV22T1020261.Shop.Controllers
 
         [HttpPost]
         [CustomerAuthorize]
-        public async Task<IActionResult> Checkout(CheckoutModel model)
+        public async Task<IActionResult> Checkout(Customer model)
         {
             var carts = ApplicationContext
                 .GetSessionData<List<Cart>>(ApplicationContext.CartSessionKey);
@@ -114,10 +116,27 @@ namespace SV22T1020261.Shop.Controllers
             if (carts == null || !carts.Any())
                 return RedirectToAction("Index");
 
+            if (string.IsNullOrWhiteSpace(model.CustomerName))
+            {
+                ModelState.AddModelError(nameof(model.CustomerName), "Vui lòng nhập tên khách hàng");
+            }
+
+            if(string.IsNullOrWhiteSpace(model.Phone)){
+                ModelState.AddModelError(nameof(model.Phone), "Vui lòng nhập số điện thoại");
+            }
+
+            if(string.IsNullOrWhiteSpace(model.Address))
+            {
+                ModelState.AddModelError(nameof(model.Address), "Vui lòng nhập địa chỉ");
+            }
+
             if (!ModelState.IsValid)
                 return View(model);
 
             // TODO: Lưu đơn hàng vào database ở đây
+            await PartnerDataService.UpdateDeliveryCustomerAsync(model);
+
+
             var order = new Order
             {
                 CustomerID = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey)?.CustomerID

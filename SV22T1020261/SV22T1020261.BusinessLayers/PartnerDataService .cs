@@ -158,6 +158,11 @@ public static class PartnerDataService
         return await customerDB.UpdateAsync(data);
     }
 
+    public static async Task<bool> UpdateDeliveryCustomerAsync(Customer data)
+    {
+        return await customerDB.UpdateDeliveryAsync(data);
+    }
+
     /// <summary>
     /// Xóa một khách hàng dựa vào mã khách hàng.
     /// </summary>
