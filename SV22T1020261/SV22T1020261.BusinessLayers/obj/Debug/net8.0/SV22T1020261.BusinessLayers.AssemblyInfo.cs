@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SV22T1020261.BusinessLayers")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d50d2474b33b781e6073502dfa408715de30e008")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cc218cbe7ceb0f4c37aa3bd02af1f114c197942c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SV22T1020261.BusinessLayers")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SV22T1020261.BusinessLayers")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

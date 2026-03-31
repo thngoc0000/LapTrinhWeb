@@ -33,6 +33,29 @@ namespace SV22T1020261.BusinessLayers
         }
 
         /// <summary>
+        /// Tìm kiếm và lấy danh sách đơn hàng dưới dạng phân trang
+        /// </summary>
+        public static async Task<PagedResult<OrderViewInfo>> ListOrdersAsync(OrderSearchInput input, int customerID)
+        {
+            if(customerID == 0)
+                return await orderDB.ListAsync(input);
+
+            var result = await orderDB.ListAsync(input);
+
+            PagedResult<OrderViewInfo> lst = new PagedResult<OrderViewInfo>();
+
+            foreach (var item in result.DataItems)
+            {
+                if(item.CustomerID == customerID)
+                {
+                    lst.DataItems.Add(item);
+                }
+            }
+
+            return lst;
+        }
+
+        /// <summary>
         /// Lấy thông tin chi tiết của một đơn hàng
         /// </summary>
         public static async Task<OrderViewInfo?> GetOrderAsync(int orderID)

@@ -156,5 +156,6 @@ namespace SV22T1020261.Shop
         public static string CustomerSessionKey => "CustomerAccount";
 
         public static string CartSessionKey => "Carts";
+        public static string OrderSessionKey => "Orders";
     }
 }

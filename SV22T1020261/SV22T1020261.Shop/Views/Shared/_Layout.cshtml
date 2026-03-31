@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/SV22T1020261.Shop.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body class="layout-fixed fixed-header fixed-footer sidebar-expand-lg sidebar-open bg-body-tertiary">
@@ -40,10 +41,14 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/vn.js"></script>
     <script>
-            document.addEventListener("DOMContentLoaded", function () {
+            document.addEventListener("DOMContentLoaded", function () {          
                 flatpickr(".date-picker", {
-                    dateFormat: "d/m/Y",
+                    dateFormat: "Y-m-d",     // format gửi về server
+                    altInput: true,
+                    altFormat: "d/m/Y",      // format hiển thị cho user
                     locale: "vn",
                     allowInput: false
                 });
@@ -60,6 +65,7 @@
                         openModal(e, this);
                     });
                 });
+                document.querySelectorAll(".money-input:not(.search-money)")
             });
     </script>
     @await RenderSectionAsync("Scripts", required: false)

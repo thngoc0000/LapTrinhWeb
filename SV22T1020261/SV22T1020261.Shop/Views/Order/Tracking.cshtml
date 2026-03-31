@@ -6,17 +6,13 @@
 
 <div class="container py-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-bold m-0"><i class="bi bi-box-seam"></i> Đơn hàng của tôi</h2>
-        @* <div class="btn-group">
-            <button class="btn btn-outline-primary active btn-sm rounded-start-3 px-3">Đang xử lý</button>
-            <button class="btn btn-outline-secondary btn-sm rounded-end-3 px-3">Lịch sử đơn hàng</button>
-        </div> *@
+        <h2 class="fw-bold m-0"><i class="bi bi-box-seam"></i> Đơn hàng của tôi (@Model.Count())</h2>
     </div>
 
     <div class="row g-4">
         @foreach (var order in Model)
         {
-            if(order.Status == OrderStatusEnum.Rejected || order.Status == OrderStatusEnum.Cancelled)
+            if (order.Status == OrderStatusEnum.Rejected || order.Status == OrderStatusEnum.Cancelled)
             {
                 
                 <div class="col-12">
@@ -48,7 +44,8 @@
                     </div>
                 </div>
             }
-            else
+            //Hiển thị các đơn hàng đang xử lý hoặc mới hoàn thành trong vòng 7 ngày
+            else if (order.FinishedTime == null || order.FinishedTime.Value.AddDays(7) > DateTime.Now)
             {
                 <div class="col-12">
                     @{

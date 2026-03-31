@@ -1,5 +1,10 @@
-﻿@{
+﻿@model List<OrderDetailViewInfo>
+@{
     ViewBag.Title = "Chi tiết đơn hàng";
+
+    var order = ViewBag.Order as OrderViewInfo;
+
+    decimal totalAmount = 0;
 }
 
 <div class="container py-5">
@@ -8,51 +13,81 @@
             <i class="bi bi-arrow-left"></i> Quay lại trang trước
         </a>
         <div class="d-flex align-items-center mt-2">
-            <h2 class="fw-bold m-0">Chi tiết đơn hàng <span class="text-primary">#DH-8829</span></h2>
-            <span class="badge bg-success rounded-pill ms-3 px-3 py-2">Đã hoàn thành</span>
+            <h2 class="fw-bold m-0">Chi tiết đơn hàng <span class="text-primary">#@order.OrderID</span></h2>
+                @{
+                    string badgeClass = "", badgeText = "";
+                    switch (order.Status)
+                    {
+                        case OrderStatusEnum.New:
+                            badgeClass = "bg-secondary";
+                            badgeText = "Đơn đang chờ xử lý";
+                            break;
+
+                        case OrderStatusEnum.Accepted:
+                            badgeClass = "bg-primary";
+                            badgeText = "Đơn đã được xác nhận";
+                            break;
+
+                        case OrderStatusEnum.Shipping:
+                            badgeClass = "bg-warning";
+                            badgeText = "Shipper đang giao hàng";
+                            break;
+
+                        case OrderStatusEnum.Completed:
+                            badgeClass = "bg-success";
+                            badgeText = "Giao hàng thành công";
+                            break;
+                    }
+            }
+            <span class="badge @badgeClass rounded-pill ms-3 px-3 py-2">
+                @badgeText
+            </span>
         </div>
     </div>
 
     <div class="row g-4">
-        <div class="col-md-6">
-            <div class="card border-0 shadow-sm rounded-4 h-100">
-                <div class="card-body p-4">
-                    <h5 class="fw-bold mb-4 border-bottom pb-2 text-dark">
-                        <i class="bi bi-info-circle me-2 text-primary"></i>1. Thông tin đơn hàng
-                    </h5>
-                    <div class="row mb-3">
-                        <div class="col-5 text-muted">Ngày đặt hàng:</div>
-                        <div class="col-7 fw-medium text-warning">15/02/2026 14:30</div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-5 text-muted">Địa chỉ:</div>
-                        <div class="col-7 fw-medium">123 Đường Lê Lợi, Thành phố Huế</div>
+        @if (order != null)
+        {
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4 border-bottom pb-2 text-dark">
+                            <i class="bi bi-info-circle me-2 text-primary"></i>1. Thông tin đơn hàng
+                        </h5>
+                        <div class="row mb-3">
+                            <div class="col-5 text-muted">Ngày đặt hàng:</div>
+                            <div class="col-7 fw-medium text-warning">@order.OrderTime</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-5 text-muted">Địa chỉ:</div>
+                            <div class="col-7 fw-medium">@(order.DeliveryAddress + ", " + @order.DeliveryProvince)</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col-md-6">
-            <div class="card border-0 shadow-sm rounded-4 h-100">
-                <div class="card-body p-4">
-                    <h5 class="fw-bold mb-4 border-bottom pb-2 text-dark">
-                        <i class="bi bi-truck me-2 text-primary"></i>2. Thông tin giao hàng
-                    </h5>
-                    <div class="row mb-3">
-                        <div class="col-5 text-muted">Người giao hàng:</div>
-                        <div class="col-7 fw-medium">Trần Văn Shipper</div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-5 text-muted">Số điện thoại:</div>
-                        <div class="col-7 fw-medium">0905 123 456</div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-5 text-muted">Ngày giao:</div>
-                        <div class="col-7 fw-medium text-success">17/02/2026 09:15</div>
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm rounded-4 h-100">
+                    <div class="card-body p-4">
+                        <h5 class="fw-bold mb-4 border-bottom pb-2 text-dark">
+                            <i class="bi bi-truck me-2 text-primary"></i>2. Thông tin giao hàng
+                        </h5>
+                        <div class="row mb-3">
+                            <div class="col-5 text-muted">Người giao hàng:</div>
+                            <div class="col-7 fw-medium">@(string.IsNullOrEmpty(order.ShipperName) ? "Chưa xác định" : order.ShipperName)</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-5 text-muted">Số điện thoại:</div>
+                            <div class="col-7 fw-medium">@(string.IsNullOrEmpty(order.ShipperPhone) ? "Chưa xác định" : order.ShipperPhone)</div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-5 text-muted">Ngày giao:</div>
+                            <div class="col-7 fw-medium text-success">@(order.ShippedTime != null ? order.ShippedTime : "Chưa xác định")</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        }
 
         <div class="col-12">
             <div class="card border-0 shadow-sm rounded-4 overflow-hidden mt-2">
@@ -70,43 +105,32 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="ps-4 py-3">
-                                    <div class="d-flex align-items-center">
-                                        <img src="https://picsum.photos/id/1/60/60" class="rounded-3 me-3 border" alt="Sản phẩm">
-                                        <div>
-                                            <h6 class="fw-bold mb-0">MacBook Air M3</h6>
-                                            <small class="text-muted text-uppercase" style="font-size: 0.7rem;">Màu: Starlight | RAM: 8GB</small>
+                            @foreach (var item in Model)
+                            {
+                                totalAmount += item.TotalPrice;
+                                <tr>
+                                    <td class="ps-4 py-3">
+                                        <div class="d-flex align-items-center">
+                                            <img src="~/images/products/@(string.IsNullOrEmpty(item.Photo) ? "nophoto.png" : item.Photo)"
+                                                  class="rounded-3 me-3"
+                                                  style="width:120px; height:120px; object-fit:cover;"
+                                                  alt="Product">
+                                            <div>
+                                                <h6 class="fw-bold mb-0">@item.ProductName</h6>
+                                                @* <small class="text-muted text-uppercase" style="font-size: 0.7rem;">Màu: Starlight | RAM: 8GB</small> *@
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="text-center fw-medium">28.990.000đ</td>
-                                <td class="text-center fw-medium">01</td>
-                                <td class="pe-4 text-end fw-bold text-dark">28.990.000đ</td>
-                            </tr>
-                            <tr>
-                                <td class="ps-4 py-3">
-                                    <div class="d-flex align-items-center">
-                                        <img src="https://picsum.photos/id/160/60/60" class="rounded-3 me-3 border" alt="Sản phẩm">
-                                        <div>
-                                            <h6 class="fw-bold mb-0">Chuột Magic Mouse 2</h6>
-                                            <small class="text-muted text-uppercase" style="font-size: 0.7rem;">Phụ kiện</small>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="text-center fw-medium">2.500.000đ</td>
-                                <td class="text-center fw-medium">01</td>
-                                <td class="pe-4 text-end fw-bold text-dark">2.500.000đ</td>
-                            </tr>
+                                    </td>
+                                    <td class="text-center fw-medium">@item.SalePrice.ToString("N0") đ</td>
+                                    <td class="text-center fw-medium">@item.Quantity</td>
+                                        <td class="pe-4 text-end fw-bold text-dark">@item.TotalPrice.ToString("N0") đ</td>
+                                </tr>
+                            }
                         </tbody>
                         <tfoot class="bg-light-subtle border-top">
                             <tr>
-                                <td colspan="3" class="text-end py-3 ps-4 text-muted fw-medium">Tổng tiền hàng:</td>
-                                <td class="pe-4 py-3 text-end fw-bold">31.490.000đ</td>
-                            </tr>
-                            <tr>
                                 <td colspan="3" class="text-end py-3 ps-4 fs-5 fw-bold border-0">Tổng thanh toán:</td>
-                                <td class="pe-4 py-3 text-end fs-5 fw-bolder text-primary border-0">30.000.000đ</td>
+                                    <td class="pe-4 py-3 text-end fs-5 fw-bolder text-primary border-0">@totalAmount.ToString("N0") đ</td>
                             </tr>
                         </tfoot>
                     </table>
