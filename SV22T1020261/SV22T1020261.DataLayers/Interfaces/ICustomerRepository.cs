@@ -23,5 +23,7 @@ namespace SV22T1020261.DataLayers.Interfaces
         /// Cập nhật thông tin giao hàng của khách hàng
         /// </summary>
         Task<bool> UpdateDeliveryAsync(Customer data);
+
+        Task<Customer?> GetAsync(string email);
     }
 }

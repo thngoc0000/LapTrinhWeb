@@ -21,13 +21,16 @@
                 
                 <div class="col-12">
                     <div class="card border-0 shadow-sm rounded-4 overflow-hidden opacity-75">
-                        <div class="card-header bg-white py-3 border-bottom border-light">
-                            <div class="row align-items-center text-muted">
-                                <div class="col-md-3">Mã: <strong>@order.OrderID</strong></div>
+                        <div class="card-header bg-gradient py-3 border-bottom border-light">
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <span class="text-muted small d-block">Mã đơn hàng:</span>
+                                    <span class="fw-bold text-primary">@order.OrderID</span>
+                                </div>
                                 <div class="col-md-3">Ngày: @order.OrderTime</div>
                                 <div class="col-md-4 text-truncate">@order.DeliveryAddress, <strong>@order.DeliveryProvince</strong></div>
                                 <div class="col-md-2 text-md-end">
-                                    <button class="btn btn-sm btn-outline-secondary rounded-3">Xem lại</button>
+                                    <a asp-action="Detail" asp-route-id="@order.OrderID" class="btn btn-sm btn-outline-secondary rounded-3">Xem lại</a>
                                 </div>
                             </div>
                         </div>
@@ -35,11 +38,11 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center">
                                     <span class="badge bg-danger rounded-pill px-3 py-2">
-                                        <i class="bi bi-x-circle me-1"></i> @(order.Status == OrderStatusEnum.Rejected ? "Bị từ chối" : "Đã hủy"))
+                                        <i class="bi bi-x-circle me-1"></i> @(order.Status == OrderStatusEnum.Rejected ? "Bị từ chối" : "Đã hủy")
                                     </span>
                                     @* <span class="ms-3 text-muted small italic">Lý do: Hết hàng trong kho</span> *@
                                 </div>
-                                <h6 class="mb-0 fw-bold">@order.TotalAmount.ToString("NO") VNĐ</h6>
+                                <h6 class="mb-0 fw-bold">@order.TotalAmount.ToString("N0") VNĐ</h6>
                             </div>
                         </div>
                     </div>
@@ -49,7 +52,7 @@
             {
                 <div class="col-12">
                     @{
-                        int currentStep = (int)order.Status;
+                        int currentStep = (int)order.Status - 1;
 
                         string GetStepBg(int step)
                         {
@@ -92,7 +95,7 @@
                         }
                     }
                     <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
-                        <div class="card-header bg-white py-3 border-bottom border-light">
+                        <div class="card-header bg-gradient py-3 border-bottom border-light">
                             <div class="row align-items-center">
                                 <div class="col-md-3">
                                     <span class="text-muted small d-block">Mã đơn hàng:</span>
@@ -111,7 +114,7 @@
                                     </span>
                                 </div>
                                 <div class="col-md-2 text-md-end">
-                                    <a asp-action="Details" asp-route-id="@order.OrderID"
+                                    <a asp-action="Detail" asp-route-id="@order.OrderID"
                                            class="btn btn-sm btn-light border rounded-3 px-3">
                                         Xem chi tiết
                                     </a>
@@ -125,8 +128,17 @@
                             <div class="row mb-4">
                                 <div class="col-12">
                                     <div class="d-flex justify-content-between position-relative">
-                                        <div class="position-absolute top-50 start-0 end-0 border-top"
-                                             style="z-index: 0; transform: translateY(-50%);"></div>
+                                        @{
+                                            int totalSteps = 3; // 0 -> 3
+                                            double percent = Math.Ceiling((double)currentStep / totalSteps * 100);
+                                        }
+                                        <div class="position-absolute top-50 start-0 end-0"
+                                             style="z-index:0; transform: translateY(-50%); height:4px; background:#e9ecef; border-radius:4px;">
+    
+                                            <div style="width:@percent%; height:4px;"
+                                                 class="bg-primary rounded-4">
+                                            </div>
+                                        </div>
 
                                         <!-- Step 1 -->
                                         <div class="text-center position-relative bg-white px-2" style="z-index: 1;">

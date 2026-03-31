@@ -258,5 +258,27 @@ namespace SV22T1020261.DataLayers.SQLServer
                 return count == 0;
             }
         }
+
+        /// <summary>
+        /// Lấy thông tin của một khách hàng theo email
+        /// </summary>
+        public async Task<Customer?> GetAsync(string email)
+        {
+            using var connection = GetConnection();
+
+            string sql = @"
+                SELECT CustomerID,
+                       CustomerName,
+                       ContactName,
+                       Province,
+                       Address,
+                       Phone,
+                       Email,
+                       IsLocked
+                FROM Customers
+                WHERE Email = @Email";
+
+            return await connection.QueryFirstOrDefaultAsync<Customer>(sql, new { email });
+        }
     }
 }

@@ -3,16 +3,28 @@
   "WorkspaceRootPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{080B0B11-56B6-4320-898D-084B659E40DA}|SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.datalayers\\sqlserver\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{080B0B11-56B6-4320-898D-084B659E40DA}|SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj|solutionrelative:sv22t1020261.datalayers\\sqlserver\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.shop\\views\\order\\tracking.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\views\\order\\tracking.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.shop\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{080B0B11-56B6-4320-898D-084B659E40DA}|SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.datalayers\\sqlserver\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{080B0B11-56B6-4320-898D-084B659E40DA}|SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj|solutionrelative:sv22t1020261.datalayers\\sqlserver\\customerrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.shop\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\views\\account\\forgotpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.shop\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +34,84 @@
       "DocumentGroups": [
         {
           "DockedHeight": 303,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
+              "Title": "CustomerRepository.cs",
+              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SQLServer\\CustomerRepository.cs",
+              "RelativeDocumentMoniker": "SV22T1020261.DataLayers\\SQLServer\\CustomerRepository.cs",
+              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SQLServer\\CustomerRepository.cs",
+              "RelativeToolTip": "SV22T1020261.DataLayers\\SQLServer\\CustomerRepository.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAjwKIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T11:50:10.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ForgotPassword.cshtml",
+              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Account\\ForgotPassword.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020261.Shop\\Views\\Account\\ForgotPassword.cshtml",
+              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Account\\ForgotPassword.cshtml",
+              "RelativeToolTip": "SV22T1020261.Shop\\Views\\Account\\ForgotPassword.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-31T11:39:51.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "SV22T1020261.Shop\\Controllers\\AccountController.cs",
+              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "SV22T1020261.Shop\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAADMBAAAAAAAAAAAqwEkBAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-31T11:29:39.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020261.Shop\\Views\\Account\\Login.cshtml",
+              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "SV22T1020261.Shop\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAADkAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-03-31T11:28:23.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "Tracking.cshtml",
               "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Order\\Tracking.cshtml",
               "RelativeDocumentMoniker": "SV22T1020261.Shop\\Views\\Order\\Tracking.cshtml",
               "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Order\\Tracking.cshtml",
               "RelativeToolTip": "SV22T1020261.Shop\\Views\\Order\\Tracking.cshtml",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAAAI8AAABTAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAACYAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-03-31T08:12:33.837Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "OrderController.cs",
               "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "SV22T1020261.Shop\\Controllers\\OrderController.cs",
               "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Controllers\\OrderController.cs",
               "RelativeToolTip": "SV22T1020261.Shop\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAQwCIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAQwCUAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-31T08:09:28.865Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SQLServer\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "SV22T1020261.DataLayers\\SQLServer\\OrderRepository.cs",
-              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SQLServer\\OrderRepository.cs*",
-              "RelativeToolTip": "SV22T1020261.DataLayers\\SQLServer\\OrderRepository.cs*",
-              "ViewState": "AgIAAHABAAAAAAAAAAAAAJABAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T09:06:17.135Z",
               "EditorCaption": ""
             }
           ]
@@ -69,6 +120,10 @@
           "DockedHeight": 82,
           "SelectedChildIndex": -1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"

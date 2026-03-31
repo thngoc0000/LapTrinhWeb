@@ -310,34 +310,26 @@ namespace SV22T1020261.Shop.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [CustomerAuthorize]
-        public async Task<IActionResult> ForgotPassword(string Phone)
+        public async Task<IActionResult> ForgotPassword(string Email)
         {
             try
             {
-                if(customerAccount == null)
-                    return RedirectToAction("login");
+                //if(customerAccount == null)
+                //    return RedirectToAction("login");
 
-                if (string.IsNullOrWhiteSpace(Phone))
+                if (string.IsNullOrWhiteSpace(Email))
                 {
-                    ModelState.AddModelError("Phone", "Vui lòng nhập Phone");
+                    ModelState.AddModelError("Email", "Vui lòng nhập Email");
                     return View();
                 }
 
-                var customer = await PartnerDataService.GetCustomerAsync(customerAccount.CustomerID);
+                var customer = await PartnerDataService.GetCustomerAsync(Email);
 
                 //Tuỳ chọn
                 //Cách 1: lấy từ DB, nếu không có thì báo lỗi
                 if (customer == null)
                 {
-                    ModelState.AddModelError("Phone", "Phone không tồn tại trong hệ thống");
-                    return View();
-                }
-
-                //Cách 2: lấy từ session, nếu session không có thì báo lỗi
-                if (customer.Phone != Phone)
-                {
-                    ModelState.AddModelError("Phone", "Số điện thoại không khớp với thông tin của tài khoản");
+                    ModelState.AddModelError("Email", "Email không tồn tại trong hệ thống");
                     return View();
                 }
 

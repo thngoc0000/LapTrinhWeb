@@ -135,6 +135,18 @@ public static class PartnerDataService
     }
 
     /// <summary>
+    /// Lấy thông tin chi tiết của một khách hàng dựa vào email của khách hàng.
+    /// </summary>
+    /// <param name="customerID">Mã khách hàng cần tìm.</param>
+    /// <returns>
+    /// Đối tượng Customer nếu tìm thấy, ngược lại trả về null.
+    /// </returns>
+    public static async Task<Customer?> GetCustomerAsync(string email)
+    {
+        return await customerDB.GetAsync(email);
+    }
+
+    /// <summary>
     /// Bổ sung một khách hàng mới vào hệ thống.
     /// </summary>
     /// <param name="data">Thông tin khách hàng cần bổ sung.</param>
