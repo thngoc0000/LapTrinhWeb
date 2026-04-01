@@ -16,8 +16,4 @@
     <ProjectReference Include="..\SV22T1020261.Models\SV22T1020261.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="AppCodes\" />
-  </ItemGroup>
-
 </Project>

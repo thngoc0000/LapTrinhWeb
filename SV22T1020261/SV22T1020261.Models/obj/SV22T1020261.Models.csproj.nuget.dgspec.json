@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj": {}
+    "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj": {}
   },
   "projects": {
-    "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj": {
+    "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj",
+        "projectUniqueName": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj",
         "projectName": "SV22T1020261.Models",
-        "projectPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj",
-        "packagesPath": "C:\\Users\\Lemon\\.nuget\\packages\\",
-        "outputPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\obj\\",
+        "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj",
+        "packagesPath": "C:\\Users\\TTTTTTTT\\.nuget\\packages\\",
+        "outputPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Lemon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TTTTTTTT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.309/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

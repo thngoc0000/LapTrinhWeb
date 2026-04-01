@@ -33,3 +33,15 @@ E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV2
 E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\refint\SV22T1020261.Models.dll
 E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.pdb
 E:\_HK8\LT_Web\LapTrinhWeb\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\ref\SV22T1020261.Models.dll
+G:\GitHub_Space\_HK8\LapTrinhWeb-1\SV22T1020261\SV22T1020261.Models\bin\Debug\net8.0\SV22T1020261.Models.deps.json
+G:\GitHub_Space\_HK8\LapTrinhWeb-1\SV22T1020261\SV22T1020261.Models\bin\Debug\net8.0\SV22T1020261.Models.dll
+G:\GitHub_Space\_HK8\LapTrinhWeb-1\SV22T1020261\SV22T1020261.Models\bin\Debug\net8.0\SV22T1020261.Models.pdb
+G:\GitHub_Space\_HK8\LapTrinhWeb-1\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.GeneratedMSBuildEditorConfig.editorconfig
+G:\GitHub_Space\_HK8\LapTrinhWeb-1\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.AssemblyInfoInputs.cache
+G:\GitHub_Space\_HK8\LapTrinhWeb-1\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.AssemblyInfo.cs
+G:\GitHub_Space\_HK8\LapTrinhWeb-1\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.csproj.CoreCompileInputs.cache
+G:\GitHub_Space\_HK8\LapTrinhWeb-1\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.sourcelink.json
+G:\GitHub_Space\_HK8\LapTrinhWeb-1\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.dll
+G:\GitHub_Space\_HK8\LapTrinhWeb-1\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\refint\SV22T1020261.Models.dll
+G:\GitHub_Space\_HK8\LapTrinhWeb-1\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\SV22T1020261.Models.pdb
+G:\GitHub_Space\_HK8\LapTrinhWeb-1\SV22T1020261\SV22T1020261.Models\obj\Debug\net8.0\ref\SV22T1020261.Models.dll

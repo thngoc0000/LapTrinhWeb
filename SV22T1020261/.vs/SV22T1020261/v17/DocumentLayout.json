@@ -1,30 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\",
+  "WorkspaceRootPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|g:\\github_space\\_hk8\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{3C6F50FE-5EE4-4158-8220-E929EE5C27EA}|SV22T1020261.BusinessLayers\\SV22T1020261.BusinessLayers.csproj|g:\\github_space\\_hk8\\laptrinhweb-1\\sv22t1020261\\sv22t1020261.businesslayers\\salesdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C6F50FE-5EE4-4158-8220-E929EE5C27EA}|SV22T1020261.BusinessLayers\\SV22T1020261.BusinessLayers.csproj|solutionrelative:sv22t1020261.businesslayers\\salesdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|g:\\github_space\\_hk8\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|g:\\github_space\\_hk8\\laptrinhweb-1\\sv22t1020261\\sv22t1020261.admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|g:\\github_space\\_hk8\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\views\\customer\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\views\\customer\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|g:\\github_space\\_hk8\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\controllers\\customercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|g:\\github_space\\_hk8\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\views\\customer\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\views\\customer\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|g:\\github_space\\_hk8\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\views\\product\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\views\\product\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|g:\\github_space\\_hk8\\laptrinhweb-1\\sv22t1020261\\sv22t1020261.admin\\views\\order\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\views\\order\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,33 +22,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 302,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Customer\\Edit.cshtml",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Views\\Customer\\Edit.cshtml",
-              "ToolTip": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Customer\\Edit.cshtml",
-              "RelativeToolTip": "SV22T1020261.Admin\\Views\\Customer\\Edit.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABsAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-25T00:42:00.489Z",
-              "IsPinned": true
+              "DocumentIndex": 1,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Controllers\\OrderController.cs",
+              "ToolTip": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "SV22T1020261.Admin\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAUBAAAAAAAAAAAYwAgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T00:48:29.498Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CustomerController.cs",
-              "DocumentMoniker": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\CustomerController.cs",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Controllers\\CustomerController.cs",
-              "ToolTip": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\CustomerController.cs",
-              "RelativeToolTip": "SV22T1020261.Admin\\Controllers\\CustomerController.cs",
-              "ViewState": "AgIAAIUAAAAAAAAAAAAcwJ0AAAAfAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "SalesDataService.cs",
+              "DocumentMoniker": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.BusinessLayers\\SalesDataService.cs",
+              "RelativeDocumentMoniker": "SV22T1020261.BusinessLayers\\SalesDataService.cs",
+              "ToolTip": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.BusinessLayers\\SalesDataService.cs",
+              "RelativeToolTip": "SV22T1020261.BusinessLayers\\SalesDataService.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAnwGoAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-25T00:37:04.29Z",
-              "IsPinned": true
+              "WhenOpened": "2026-04-01T03:25:34.054Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Admin\\Views\\Order\\Create.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Views\\Order\\Create.cshtml",
+              "ToolTip": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Admin\\Views\\Order\\Create.cshtml",
+              "RelativeToolTip": "SV22T1020261.Admin\\Views\\Order\\Create.cshtml",
+              "ViewState": "AgIAADsAAAAAAAAAAAAYwEsAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-01T00:54:24.938Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -77,55 +79,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Customer\\Delete.cshtml",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Views\\Customer\\Delete.cshtml",
-              "ToolTip": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Customer\\Delete.cshtml",
-              "RelativeToolTip": "SV22T1020261.Admin\\Views\\Customer\\Delete.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAABwAAABQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-25T02:13:03.676Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Search.cshtml",
-              "DocumentMoniker": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Product\\Search.cshtml",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Views\\Product\\Search.cshtml",
-              "ToolTip": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Product\\Search.cshtml",
-              "RelativeToolTip": "SV22T1020261.Admin\\Views\\Product\\Search.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-25T01:19:20.199Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Product\\Index.cshtml",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Views\\Product\\Index.cshtml",
-              "ToolTip": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Product\\Index.cshtml",
-              "RelativeToolTip": "SV22T1020261.Admin\\Views\\Product\\Index.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACMAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-03-25T01:06:33.719Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Controllers\\ProductController.cs",
-              "ToolTip": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "SV22T1020261.Admin\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACQAAABdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-18T03:11:39.438Z"
             }
           ]
         }

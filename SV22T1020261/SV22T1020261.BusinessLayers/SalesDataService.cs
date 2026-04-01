@@ -63,15 +63,30 @@ namespace SV22T1020261.BusinessLayers
             return await orderDB.GetAsync(orderID);
         }
 
-        /// <summary>
-        /// Tạo đơn hàng mới
-        /// </summary>
-        public static async Task<int> AddOrderAsync(Order data)
-        {
-            data.Status = OrderStatusEnum.New;
-            data.OrderTime = DateTime.Now;
+        ///// <summary>
+        ///// Tạo đơn hàng mới
+        ///// </summary>
+        //public static async Task<int> AddOrderAsync(Order data)
+        //{
+        //    data.Status = OrderStatusEnum.New;
+        //    data.OrderTime = DateTime.Now;
 
-            return await orderDB.AddAsync(data);
+        //    return await orderDB.AddAsync(data);
+        //}
+
+        public static async Task<int> AddOrderAsync(int customerID = 0,
+                                                    string province = "",
+                                                    string address = "")
+        {
+            var order = new Order
+            {
+                CustomerID = customerID == 0 ? null : customerID,
+                DeliveryProvince = province,
+                DeliveryAddress = address,
+                Status = OrderStatusEnum.New,
+                OrderTime = DateTime.Now
+            };
+            return await orderDB.AddAsync(order);
         }
 
         /// <summary>

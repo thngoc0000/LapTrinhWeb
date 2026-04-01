@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\SV22T1020261.Admin.csproj": {}
+    "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Admin\\SV22T1020261.Admin.csproj": {}
   },
   "projects": {
-    "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\SV22T1020261.Admin.csproj": {
+    "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Admin\\SV22T1020261.Admin.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\SV22T1020261.Admin.csproj",
+        "projectUniqueName": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Admin\\SV22T1020261.Admin.csproj",
         "projectName": "SV22T1020261.Admin",
-        "projectPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\SV22T1020261.Admin.csproj",
-        "packagesPath": "C:\\Users\\Lemon\\.nuget\\packages\\",
-        "outputPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\obj\\",
+        "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Admin\\SV22T1020261.Admin.csproj",
+        "packagesPath": "C:\\Users\\TTTTTTTT\\.nuget\\packages\\",
+        "outputPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Admin\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Lemon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TTTTTTTT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,14 +32,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.BusinessLayers\\SV22T1020261.BusinessLayers.csproj": {
-                "projectPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.BusinessLayers\\SV22T1020261.BusinessLayers.csproj"
+              "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.BusinessLayers\\SV22T1020261.BusinessLayers.csproj": {
+                "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.BusinessLayers\\SV22T1020261.BusinessLayers.csproj"
               },
-              "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj": {
-                "projectPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj"
+              "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj": {
+                "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj"
               },
-              "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj": {
-                "projectPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj"
+              "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj": {
+                "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj"
               }
             }
           }
@@ -54,7 +54,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -84,24 +84,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.309/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.BusinessLayers\\SV22T1020261.BusinessLayers.csproj": {
+    "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.BusinessLayers\\SV22T1020261.BusinessLayers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.BusinessLayers\\SV22T1020261.BusinessLayers.csproj",
+        "projectUniqueName": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.BusinessLayers\\SV22T1020261.BusinessLayers.csproj",
         "projectName": "SV22T1020261.BusinessLayers",
-        "projectPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.BusinessLayers\\SV22T1020261.BusinessLayers.csproj",
-        "packagesPath": "C:\\Users\\Lemon\\.nuget\\packages\\",
-        "outputPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.BusinessLayers\\obj\\",
+        "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.BusinessLayers\\SV22T1020261.BusinessLayers.csproj",
+        "packagesPath": "C:\\Users\\TTTTTTTT\\.nuget\\packages\\",
+        "outputPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.BusinessLayers\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Lemon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TTTTTTTT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -116,11 +116,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj": {
-                "projectPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj"
+              "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj": {
+                "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj"
               },
-              "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj": {
-                "projectPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj"
+              "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj": {
+                "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj"
               }
             }
           }
@@ -135,7 +135,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -156,24 +156,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.309/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj": {
+    "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj",
+        "projectUniqueName": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj",
         "projectName": "SV22T1020261.DataLayers",
-        "projectPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj",
-        "packagesPath": "C:\\Users\\Lemon\\.nuget\\packages\\",
-        "outputPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\obj\\",
+        "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj",
+        "packagesPath": "C:\\Users\\TTTTTTTT\\.nuget\\packages\\",
+        "outputPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.DataLayers\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Lemon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TTTTTTTT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -188,8 +188,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj": {
-                "projectPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj"
+              "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj": {
+                "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj"
               }
             }
           }
@@ -204,7 +204,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -239,24 +239,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.309/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj": {
+    "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj",
+        "projectUniqueName": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj",
         "projectName": "SV22T1020261.Models",
-        "projectPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj",
-        "packagesPath": "C:\\Users\\Lemon\\.nuget\\packages\\",
-        "outputPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Models\\obj\\",
+        "projectPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\SV22T1020261.Models.csproj",
+        "packagesPath": "C:\\Users\\TTTTTTTT\\.nuget\\packages\\",
+        "outputPath": "G:\\GitHub_Space\\_HK8\\LapTrinhWeb-1\\SV22T1020261\\SV22T1020261.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Lemon\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\TTTTTTTT\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -283,7 +283,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -304,7 +304,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.309/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

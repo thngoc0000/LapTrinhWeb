@@ -1,4 +1,3 @@
-wwwroot\Layout.html
 wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\images\employees\7c7762de-2351-4c3b-b632-9c0d089abcca.jpg
@@ -18,6 +17,7 @@ wwwroot\images\products\bf1127b1-6a7e-42b9-b78e-17a4f253bbf6.png
 wwwroot\images\products\demo.png
 wwwroot\images\products\nophoto.png
 wwwroot\js\site.js
+wwwroot\Layout.html
 wwwroot\lib\adminlte\assets\img\AdminLTEFullLogo.png
 wwwroot\lib\adminlte\assets\img\AdminLTELogo.png
 wwwroot\lib\adminlte\assets\img\avatar.png
@@ -65,14 +65,14 @@ wwwroot\lib\adminlte\js\adminlte.js.map
 wwwroot\lib\adminlte\js\adminlte.min.js
 wwwroot\lib\adminlte\js\adminlte.min.js.map
 wwwroot\lib\autonumeric\autonumeric.js
-wwwroot\lib\bootstrap\bootstrap-icons.min.css
 wwwroot\lib\bootstrap\bootstrap.bundle.min.js
 wwwroot\lib\bootstrap\bootstrap.min.js
+wwwroot\lib\bootstrap\bootstrap-icons.min.css
 wwwroot\lib\bootstrap\fonts\bootstrap-icons.woff
 wwwroot\lib\bootstrap\fonts\bootstrap-icons.woff2
 wwwroot\lib\flatpickr\esm\index.js
-wwwroot\lib\flatpickr\esm\l10n\ar-dz.js
 wwwroot\lib\flatpickr\esm\l10n\ar.js
+wwwroot\lib\flatpickr\esm\l10n\ar-dz.js
 wwwroot\lib\flatpickr\esm\l10n\at.js
 wwwroot\lib\flatpickr\esm\l10n\az.js
 wwwroot\lib\flatpickr\esm\l10n\be.js
@@ -127,8 +127,8 @@ wwwroot\lib\flatpickr\esm\l10n\si.js
 wwwroot\lib\flatpickr\esm\l10n\sk.js
 wwwroot\lib\flatpickr\esm\l10n\sl.js
 wwwroot\lib\flatpickr\esm\l10n\sq.js
-wwwroot\lib\flatpickr\esm\l10n\sr-cyr.js
 wwwroot\lib\flatpickr\esm\l10n\sr.js
+wwwroot\lib\flatpickr\esm\l10n\sr-cyr.js
 wwwroot\lib\flatpickr\esm\l10n\sv.js
 wwwroot\lib\flatpickr\esm\l10n\th.js
 wwwroot\lib\flatpickr\esm\l10n\tr.js
@@ -136,8 +136,8 @@ wwwroot\lib\flatpickr\esm\l10n\uk.js
 wwwroot\lib\flatpickr\esm\l10n\uz.js
 wwwroot\lib\flatpickr\esm\l10n\uz_latn.js
 wwwroot\lib\flatpickr\esm\l10n\vn.js
-wwwroot\lib\flatpickr\esm\l10n\zh-tw.js
 wwwroot\lib\flatpickr\esm\l10n\zh.js
+wwwroot\lib\flatpickr\esm\l10n\zh-tw.js
 wwwroot\lib\flatpickr\esm\plugins\confirmDate\confirmDate.js
 wwwroot\lib\flatpickr\esm\plugins\labelPlugin\labelPlugin.js
 wwwroot\lib\flatpickr\esm\plugins\minMaxTimePlugin.js
@@ -160,8 +160,8 @@ wwwroot\lib\flatpickr\flatpickr.js
 wwwroot\lib\flatpickr\flatpickr.min.css
 wwwroot\lib\flatpickr\flatpickr.min.js
 wwwroot\lib\flatpickr\ie.css
-wwwroot\lib\flatpickr\l10n\ar-dz.js
 wwwroot\lib\flatpickr\l10n\ar.js
+wwwroot\lib\flatpickr\l10n\ar-dz.js
 wwwroot\lib\flatpickr\l10n\at.js
 wwwroot\lib\flatpickr\l10n\az.js
 wwwroot\lib\flatpickr\l10n\be.js
@@ -216,8 +216,8 @@ wwwroot\lib\flatpickr\l10n\si.js
 wwwroot\lib\flatpickr\l10n\sk.js
 wwwroot\lib\flatpickr\l10n\sl.js
 wwwroot\lib\flatpickr\l10n\sq.js
-wwwroot\lib\flatpickr\l10n\sr-cyr.js
 wwwroot\lib\flatpickr\l10n\sr.js
+wwwroot\lib\flatpickr\l10n\sr-cyr.js
 wwwroot\lib\flatpickr\l10n\sv.js
 wwwroot\lib\flatpickr\l10n\th.js
 wwwroot\lib\flatpickr\l10n\tr.js
@@ -225,8 +225,8 @@ wwwroot\lib\flatpickr\l10n\uk.js
 wwwroot\lib\flatpickr\l10n\uz.js
 wwwroot\lib\flatpickr\l10n\uz_latn.js
 wwwroot\lib\flatpickr\l10n\vn.js
-wwwroot\lib\flatpickr\l10n\zh-tw.js
 wwwroot\lib\flatpickr\l10n\zh.js
+wwwroot\lib\flatpickr\l10n\zh-tw.js
 wwwroot\lib\flatpickr\plugins\confirmDate\confirmDate.css
 wwwroot\lib\flatpickr\plugins\confirmDate\confirmDate.js
 wwwroot\lib\flatpickr\plugins\labelPlugin\labelPlugin.js

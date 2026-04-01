@@ -37,7 +37,7 @@
 
                             @* Sử dụng tạm thời *@
                             @* <td class="text-end">@(await SalesDataService.GetTotalAmountAsync(item.OrderID))</td> *@
-                            <td class="text-end">@item.TotalAmount</td>
+                            <td class="text-end">@item.TotalAmount.ToString("N0") đ</td>
 
                             <td class="text-center">
                                 @switch (item.Status)
