@@ -14,30 +14,40 @@
         </a>
         <div class="d-flex align-items-center mt-2">
             <h2 class="fw-bold m-0">Chi tiết đơn hàng <span class="text-primary">#@order.OrderID</span></h2>
-                @{
-                    string badgeClass = "", badgeText = "";
-                    switch (order.Status)
-                    {
-                        case OrderStatusEnum.New:
-                            badgeClass = "bg-secondary";
-                            badgeText = "Đơn đang chờ xử lý";
-                            break;
+            @{
+                string badgeClass = "", badgeText = "";
+                switch (order.Status)
+                {
+                    case OrderStatusEnum.New:
+                        badgeClass = "bg-secondary";
+                        badgeText = "Đơn đang chờ xử lý";
+                        break;
 
-                        case OrderStatusEnum.Accepted:
-                            badgeClass = "bg-primary";
-                            badgeText = "Đơn đã được xác nhận";
-                            break;
+                    case OrderStatusEnum.Accepted:
+                        badgeClass = "bg-primary";
+                        badgeText = "Đơn đã được xác nhận";
+                        break;
 
-                        case OrderStatusEnum.Shipping:
-                            badgeClass = "bg-warning";
-                            badgeText = "Shipper đang giao hàng";
-                            break;
+                    case OrderStatusEnum.Shipping:
+                        badgeClass = "bg-warning";
+                        badgeText = "Shipper đang giao hàng";
+                        break;
 
-                        case OrderStatusEnum.Completed:
-                            badgeClass = "bg-success";
-                            badgeText = "Giao hàng thành công";
-                            break;
-                    }
+                    case OrderStatusEnum.Completed:
+                        badgeClass = "bg-success";
+                        badgeText = "Giao hàng thành công";
+                        break;
+
+                    case OrderStatusEnum.Cancelled:
+                        badgeClass = "bg-danger";
+                        badgeText = "Đơn đã bị hủy";
+                        break;
+
+                    case OrderStatusEnum.Rejected:
+                        badgeClass = "bg-danger";
+                        badgeText = "Đơn đã bị từ chối";
+                        break;
+                }
             }
             <span class="badge @badgeClass rounded-pill ms-3 px-3 py-2">
                 @badgeText
@@ -60,7 +70,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-5 text-muted">Địa chỉ:</div>
-                            <div class="col-7 fw-medium">@(order.DeliveryAddress + ", " + @order.DeliveryProvince)</div>
+                            <div class="col-7 fw-medium">@order.CustomerAddress</div>
                         </div>
                     </div>
                 </div>

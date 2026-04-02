@@ -21,7 +21,7 @@
             <tbody>
                 @foreach (var order in Model.DataItems)
                 {
-                    if (order.FinishedTime == null)
+                    if (order.Status != OrderStatusEnum.Completed)
                     {
                         continue;
                     }

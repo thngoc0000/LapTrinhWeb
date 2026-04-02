@@ -197,11 +197,17 @@ namespace SV22T1020261.Shop.Controllers
                     }
                 }
 
+                if(string.IsNullOrWhiteSpace(data.CustomerName))
+                {
+                    ModelState.AddModelError(nameof(data.CustomerName), "Tên khách hàng không được để trống");
+                }
+
                 if (!ModelState.IsValid)
                     return View("EditProfile", data);
 
 
-                data.ContactName = data.CustomerName.Split(' ').LastOrDefault() ?? data.CustomerName;
+                var dataArr = data.CustomerName.Split(' ');
+                data.ContactName = dataArr[dataArr.Length - 1];
                 var customerAccount = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
                 if (customerAccount != null)
                     data.Email = customerAccount.Email.Trim();
