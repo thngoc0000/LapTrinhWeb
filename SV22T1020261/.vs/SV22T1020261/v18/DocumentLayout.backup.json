@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\views\\order\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\views\\order\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\views\\order\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\views\\order\\detail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{080B0B11-56B6-4320-898D-084B659E40DA}|SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.datalayers\\sqlserver\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{080B0B11-56B6-4320-898D-084B659E40DA}|SV22T1020261.DataLayers\\SV22T1020261.DataLayers.csproj|solutionrelative:sv22t1020261.datalayers\\sqlserver\\orderrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\views\\order\\cancel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\views\\order\\cancel.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,17 +22,17 @@
       "DocumentGroups": [
         {
           "DockedHeight": 303,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "OrderController.cs",
               "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "SV22T1020261.Admin\\Controllers\\OrderController.cs",
               "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\OrderController.cs",
               "RelativeToolTip": "SV22T1020261.Admin\\Controllers\\OrderController.cs",
-              "ViewState": "AgIAAJsAAAAAAAAAAAAqwK4AAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAIcBAAAAAAAAAAAmwJUBAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-01T05:22:52.765Z",
               "IsPinned": true,
@@ -44,41 +40,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Delete.cshtml",
-              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Order\\Delete.cshtml",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Views\\Order\\Delete.cshtml",
-              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Order\\Delete.cshtml",
-              "RelativeToolTip": "SV22T1020261.Admin\\Views\\Order\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Cancel.cshtml",
+              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Order\\Cancel.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Views\\Order\\Cancel.cshtml",
+              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Order\\Cancel.cshtml",
+              "RelativeToolTip": "SV22T1020261.Admin\\Views\\Order\\Cancel.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-01T08:16:20.805Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "OrderRepository.cs",
-              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SQLServer\\OrderRepository.cs",
-              "RelativeDocumentMoniker": "SV22T1020261.DataLayers\\SQLServer\\OrderRepository.cs",
-              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.DataLayers\\SQLServer\\OrderRepository.cs",
-              "RelativeToolTip": "SV22T1020261.DataLayers\\SQLServer\\OrderRepository.cs",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAtwIgAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-01T08:08:30.56Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Detail.cshtml",
-              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Order\\Detail.cshtml",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Views\\Order\\Detail.cshtml",
-              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Order\\Detail.cshtml",
-              "RelativeToolTip": "SV22T1020261.Admin\\Views\\Order\\Detail.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAACAAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-01T06:07:49.344Z",
+              "WhenOpened": "2026-04-02T04:03:00.473Z",
               "EditorCaption": ""
             },
             {
@@ -88,6 +58,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Detail.cshtml",
+              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Order\\Detail.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Views\\Order\\Detail.cshtml",
+              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Order\\Detail.cshtml",
+              "RelativeToolTip": "SV22T1020261.Admin\\Views\\Order\\Detail.cshtml",
+              "ViewState": "AgIAAAgCAAAAAAAAAAAIwCYCAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-01T06:07:49.344Z",
+              "EditorCaption": ""
             }
           ]
         }

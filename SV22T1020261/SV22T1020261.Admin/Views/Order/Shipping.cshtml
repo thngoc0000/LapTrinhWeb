@@ -1,4 +1,5 @@
-﻿@{
+﻿@model OrderViewInfo
+@{
     Layout = null;
 }
 <div class="modal-header text-bg-info">
@@ -9,18 +10,19 @@
 </div>
 
 <div class="modal-body">
-    <form method="post">
+    <form id="formShippingOrder" onsubmit="shippingOrder(event,this)">
+        <input type="hidden" asp-for="OrderID" />
         <div class="row">
             <div class="col-12">
                 <label class="form-label">Người giao hàng</label>
-                <select class="form-select" name="id" asp-items="await SelectListHelper.Shippers()"></select>
+                <select class="form-select" asp-for="ShipperID" asp-items="await SelectListHelper.Shippers()"></select>
             </div>
         </div>
     </form>
 </div>
 
 <div class="modal-footer">
-    <button type="submit" class="btn btn-primary">
+    <button type="submit" class="btn btn-primary" form="formShippingOrder">
         <i class="bi bi-bicycle"></i> Giao hàng
     </button>
     <button type="button"

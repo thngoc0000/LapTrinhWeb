@@ -1,4 +1,5 @@
-﻿@{
+﻿@model OrderViewInfo
+@{
     Layout = null;
 }
 <div class="modal-header text-bg-info">
@@ -11,12 +12,15 @@
 <div class="modal-body">
     <div class="alert alert-info d-flex align-items-center">
         <i class="bi bi-info-circle me-2"></i>
-        Bạn có chắc chắn muốn duyệt và chấp nhận đơn hàng này không?
+        Bạn có chắc chắn muốn duyệt và chấp nhận đơn hàng
+        <span class="fw-bold text-dark ms-1 me-1">#@Model.OrderID</span>
+        của khách hàng
+        <span class="fw-bold text-dark ms-1">@Model.CustomerName</span>?
     </div>
 </div>
 
 <div class="modal-footer">
-    <button type="submit" class="btn btn-primary">
+    <button type="submit" class="btn btn-primary" onclick="acceptOrder(@Model.OrderID)">
         <i class="bi bi-check"></i> Chấp nhận
     </button>
     <button type="button"

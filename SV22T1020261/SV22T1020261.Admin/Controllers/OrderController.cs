@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SV22T1020261.BusinessLayers;
 using SV22T1020261.Models.Catalog;
 using SV22T1020261.Models.Common;
+using SV22T1020261.Models.Partner;
 using SV22T1020261.Models.Sales;
 using System.Threading.Tasks;
 
@@ -337,9 +338,19 @@ namespace SV22T1020261.Admin.Controllers
         /// </summary>
         /// <param name="id">Mã đơn hàng cần chuyển</param>
         /// <returns></returns>
-        public IActionResult Accept(int id)
+        public async Task<IActionResult> Accept(int id)
         {
-            return View();
+            if (Request.Method == "POST")
+            {
+                // TODO: Cập nhật trạng thái sang Đã chấp nhận
+                // Lưu ý: Cần truyền thêm mã nhân viên xử lý đơn hàng vào hàm AcceptOrderAsync
+                var kt = await SalesDataService.AcceptOrderAsync(id, 1); // Hiện tại chưa có thông tin về nhân viên -> Tạm thời truyền vào mã nhân viên là 1
+                if(!kt)
+                    return Json(new ApiResult(0, "Không thể chấp nhận đơn hàng ở trạng thái hiện tại"));
+                return Json(new ApiResult(1));
+            }
+            var model = await SalesDataService.GetOrderAsync(id);
+            return View(model);
         }
 
         /// <summary>
@@ -347,9 +358,20 @@ namespace SV22T1020261.Admin.Controllers
         /// </summary>
         /// <param name="id">Mã đơn hàng cần chuyển</param>
         /// <returns></returns>
-        public IActionResult Shipping(int id)
+        public async Task<IActionResult> Shipping(int orderID, int shipperID = 0)
         {
-            return View();
+            if (Request.Method == "POST")
+            {
+                if(shipperID <= 0)
+                    return Json(new ApiResult(0, "Vui lòng chọn đơn vị vận chuyển")); 
+
+                var kt = await SalesDataService.ShipOrderAsync(orderID, shipperID);
+                if(!kt)
+                    return Json(new ApiResult(0, string.Empty));
+                return Json(new ApiResult(1));
+            }
+            var model = await SalesDataService.GetOrderAsync(orderID);
+            return View(model);
         }
 
         /// <summary>
@@ -357,35 +379,54 @@ namespace SV22T1020261.Admin.Controllers
         /// </summary>
         /// <param name="id">Mã đơn hàng cần chuyển</param>
         /// <returns></returns>
-        public IActionResult Finish(int id)
+        public async Task<IActionResult> Finish(int id)
         {
-            // TODO: Chuyển trạng thái sang Hoàn tất
-
-            return View();
+            if (Request.Method == "POST")
+            {
+                var kt = await SalesDataService.CompleteOrderAsync(id);
+                if(!kt)
+                    return Json(new ApiResult(0, "Không thể hoàn thành đơn hàng ở trạng thái hiện tại"));
+                return Json(new ApiResult(1));
+            }
+            var model = await SalesDataService.GetOrderAsync(id);
+            return View(model);
         }
 
         /// <summary>
         /// Chuyển trạng thái đơn hàng -> Đã từ chối
         /// </summary>
         /// <param name="id">Mã đơn hàng cần chuyển</param>
-        /// <returns></returns>
-        public IActionResult Reject(int id)
+        public async Task<IActionResult> Reject(int id)
         {
-            // TODO: Từ chối đơn hàng
+            if (Request.Method == "POST")
+            {
+                var kt = await SalesDataService.RejectOrderAsync(id, 1); //Hiện tại chưa có thông tin về nhân viên -> Tạm thời truyền vào mã nhân viên là 1
+                if(!kt)
+                    return Json(new ApiResult(0, "Từ chối đơn hàng thất bại"));
+                return Json(new ApiResult(1));
+            }
 
-            return View();
+            var model = await SalesDataService.GetOrderAsync(id);
+            return View(model);
         }
 
         /// <summary>
         /// Chuyển trạng thái đơn hàng -> Đã huỷ
         /// </summary>
         /// <param name="id">Mã đơn hàng cần chuyển</param>
-        /// <returns></returns>
-        public IActionResult Cancel(int id)
+        public async Task<IActionResult> Cancel(int id)
         {
-            // TODO: Hủy đơn hàng
+            if (Request.Method == "POST")
+            {
+                var kt = await SalesDataService.CancelOrderAsync(id);
+                if(!kt)
+                    return Json(new ApiResult(0, "Hủy đơn hàng thất bại"));
 
-            return View();
+                return Json(new ApiResult(1));
+            }
+
+            var model = await SalesDataService.GetOrderAsync(id);
+            return View(model);
         }
 
     }

@@ -16,22 +16,77 @@
             Xử lý đơn hàng
         </button>
         <ul class="dropdown-menu">
-            <li><a class="dropdown-item open-modal" href="~/Order/Accept/@Model.OrderID">Duyệt đơn hàng</a></li>
-            <li><a class="dropdown-item open-modal" href="~/Order/Shipping/@Model.OrderID">Chuyển giao hàng</a></li>
-            <li><a class="dropdown-item open-modal" href="~/Order/Finish/@Model.OrderID">Hoàn tất đơn hàng</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item text-danger open-modal" href="~/Order/Cancel/@Model.OrderID">Hủy đơn hàng</a></li>
-            <li><a class="dropdown-item text-danger open-modal" href="~/Order/Reject/@Model.OrderID">Từ chối đơn hàng</a></li>
+        @{
+            var id = Model.OrderID;
+
+            switch (Model.Status)
+            {
+                case OrderStatusEnum.New:
+                    <li>
+                        <a class="dropdown-item open-modal"
+                           href="~/Order/Accept?id=@id">
+                            Duyệt đơn hàng
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item text-danger open-modal"
+                           href="~/Order/Reject?id=@id">
+                            Từ chối đơn hàng
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item text-danger open-modal"
+                           href="~/Order/Cancel?id=@id">
+                            Hủy đơn hàng
+                        </a>
+                    </li>
+                    break;
+
+                case OrderStatusEnum.Accepted:
+                    <li>
+                        <a class="dropdown-item open-modal"
+                           href="~/Order/Shipping?orderID=@id">
+                            Chuyển giao hàng
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item text-danger open-modal"
+                           href="~/Order/Cancel?id=@id">
+                            Hủy đơn hàng
+                        </a>
+                    </li>
+                    break;
+
+                case OrderStatusEnum.Shipping:
+                    <li>
+                        <a class="dropdown-item open-modal"
+                           href="~/Order/Finish?id=@id">
+                            Hoàn tất đơn hàng
+                        </a>
+                    </li>
+                    break;
+
+                default:
+                    <li class="dropdown-item text-muted">
+                        Không có thao tác khả dụng
+                    </li>
+                    break;
+            }
+        }
         </ul>
     </div>
 
-    <a asp-controller="Order"
-        asp-action="Delete"
-           asp-route-orderID="@Model.OrderID"
-       class="btn btn-danger ms-1 open-modal">
-        <i class="bi bi-trash"></i>
-        Xóa
-    </a>
+    @if (Model.Status == OrderStatusEnum.New
+       || Model.Status == OrderStatusEnum.Accepted)
+    {
+        <a asp-controller="Order"
+               asp-action="Delete"
+               asp-route-orderID="@Model.OrderID"
+               class="btn btn-danger ms-1 open-modal">
+            <i class="bi bi-trash"></i>
+            Xóa
+        </a>
+    }
 
     <a href="~/Order" class="btn btn-secondary ms-1">
         <i class="bi bi-arrow-left"></i>
@@ -40,12 +95,65 @@
 }
 
 <!-- TRẠNG THÁI ĐƠN HÀNG -->
-<div class="alert alert-success d-flex align-items-center mb-3">
-    <i class="bi bi-check-circle-fill fs-4 me-2"></i>
+@{
+    string alertClass = "alert-secondary";
+    string iconClass = "bi-info-circle-fill";
+    string statusText = "";
+    string timeText = "";
+
+    switch (Model.Status)
+    {
+        case OrderStatusEnum.New:
+            alertClass = "alert-primary";
+            iconClass = "bi-clock-history";
+            statusText = "Đơn hàng mới";
+            timeText = $"Được tạo lúc {Model.OrderTime:dd/MM/yyyy HH:mm}";
+            break;
+
+        case OrderStatusEnum.Accepted:
+            alertClass = "alert-info";
+            iconClass = "bi-check-circle-fill";
+            statusText = "Đã duyệt";
+            timeText = $"Duyệt lúc {Model.AcceptTime:dd/MM/yyyy HH:mm}";
+            break;
+
+        case OrderStatusEnum.Shipping:
+            alertClass = "alert-warning";
+            iconClass = "bi-truck";
+            statusText = "Đang giao hàng";
+            timeText = $"Bắt đầu giao lúc {Model.ShippedTime:dd/MM/yyyy HH:mm}";
+            break;
+
+        case OrderStatusEnum.Completed:
+            alertClass = "alert-success";
+            iconClass = "bi-patch-check-fill";
+            statusText = "Hoàn tất";
+            timeText = $"Hoàn tất lúc {Model.FinishedTime:dd/MM/yyyy HH:mm}";
+            break;
+
+        case OrderStatusEnum.Cancelled:
+            alertClass = "alert-dark";
+            iconClass = "bi-x-circle-fill";
+            statusText = "Đã hủy";
+            break;
+
+        case OrderStatusEnum.Rejected:
+            alertClass = "alert-danger";
+            iconClass = "bi-slash-circle-fill";
+            statusText = "Bị từ chối";
+            break;
+    }
+}
+
+<div class="alert @alertClass d-flex align-items-center mb-3">
+    <i class="bi @iconClass fs-4 me-3"></i>
     <div>
         <strong>Trạng thái đơn hàng:</strong>
-        @Model.Status
-        @* Đã hoàn tất lúc <b>22/12/2022 17:00</b> *@
+        <span class="fw-bold">@statusText</span>
+        @if (!string.IsNullOrEmpty(timeText))
+        {
+            <div class="small mt-1">@timeText</div>
+        }
     </div>
 </div>
 
@@ -184,21 +292,29 @@
                                 @item.TotalPrice.ToString("N0")
                             </td>
                             <td class="text-end">
-                                <a asp-controller="Order"
-                                       asp-action="EditCartItem"
-                                       asp-route-orderID="@item.OrderID"
-                                       asp-route-productId="@item.ProductID"
-                                       class="btn btn-sm btn-primary open-modal">
-                                    <i class="bi bi-pencil"></i>
-                                </a>
+                                @if (Model.Status == OrderStatusEnum.New
+                                        || Model.Status == OrderStatusEnum.Accepted)
+                                {
+                                    <a asp-controller="Order"
+                                            asp-action="EditCartItem"
+                                            asp-route-orderID="@item.OrderID"
+                                            asp-route-productId="@item.ProductID"
+                                            class="btn btn-sm btn-primary open-modal">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
 
-                                <a asp-controller="Order"
-                                       asp-action="DeleteCartItem"
-                                       asp-route-orderID="@item.OrderID"
-                                       asp-route-productId="@item.ProductID"
-                                       class="btn btn-sm btn-danger open-modal">
-                                    <i class="bi bi-trash"></i>
-                                </a>
+                                    <a asp-controller="Order"
+                                            asp-action="DeleteCartItem"
+                                            asp-route-orderID="@item.OrderID"
+                                            asp-route-productId="@item.ProductID"
+                                            class="btn btn-sm btn-danger open-modal">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <span class="text-muted small">Không khả dụng</span>
+                                }
                             </td>
                         </tr>
                         i++;
@@ -347,6 +463,106 @@
             .catch(error => {
                 console.error(error);
                 alert("Có lỗi xảy ra khi xoá đơn hàng!");
+            });
+        }
+        function acceptOrder(orderID) {
+            fetch(`/Order/Accept?id=${orderID}`, {
+                method: "POST"
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.code == 0) {
+                    alert(data.message || "Duyệt đơn hàng thất bại!");
+                    return;
+                }
+
+                // Thành công → reload lại trang
+                location.reload();
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Có lỗi xảy ra khi xử lý đơn hàng!");
+            });
+        }
+        function shippingOrder(event, form) {
+            event.preventDefault(); // chặn submit mặc định
+
+            const formData = new FormData(form);
+
+            fetch("/Order/Shipping", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.code == 0) {
+                    alert(data.message || "Chuyển giao hàng thất bại!");
+                    return;
+                }
+
+                // Thành công → reload trang
+                location.reload();
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Có lỗi xảy ra khi xử lý!");
+            });
+        }
+        function finishOrder(orderID) {
+            fetch(`/Order/Finish?id=${orderID}`, {
+                method: "POST"
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.code == 0) {
+                    alert(data.message || "Hoàn thành đơn hàng thất bại!");
+                    return;
+                }
+
+                // Thành công → reload lại trang
+                location.reload();
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Có lỗi xảy ra khi xử lý đơn hàng!");
+            });
+        }
+        function rejectOrder(orderID) {
+            fetch(`/Order/Reject?id=${orderID}`, {
+                method: "POST"
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.code == 0) {
+                    alert(data.message || "Từ chối đơn hàng thất bại!");
+                    return;
+                }
+
+                // Thành công → reload lại trang
+                location.reload();
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Có lỗi xảy ra khi xử lý đơn hàng!");
+            });
+        }
+        function cancelOrder(orderID) {
+            fetch(`/Order/Cancel?id=${orderID}`, {
+                method: "POST"
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.code == 0) {
+                    alert(data.message || "Huỷ đơn hàng thất bại!");
+                    return;
+                }
+
+                // Thành công → reload lại trang
+                location.reload();
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Có lỗi xảy ra khi xử lý đơn hàng!");
             });
         }
     </script>
