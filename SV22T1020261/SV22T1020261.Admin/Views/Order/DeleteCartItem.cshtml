@@ -17,7 +17,7 @@
 </div>
 
 <div class="modal-footer">
-    <button class="btn btn-primary" data-bs-dismiss="modal" onclick="deleteCartItem(@Model.ProductID)">
+    <button class="btn btn-primary" data-bs-dismiss="modal" onclick="deleteCartItem(@(Model.OrderID != 0 ? Model.OrderID + ",": "")@Model.ProductID)">
         <i class="bi bi-check"></i> Chấp nhận
     </button>
     <button type="button"

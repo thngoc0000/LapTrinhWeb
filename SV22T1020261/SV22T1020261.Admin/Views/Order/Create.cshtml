@@ -63,11 +63,10 @@
                             <div class="row mb-3">
                                 <label class="col-md-2 col-form-label">Khách hàng</label>
                                 <div class="col-md-10">
-                                    <select class="form-select" name="customerID">
-                                        <option value="0">-- Chọn khách hàng --</option>
+                                    <select class="form-select" name="customerID" asp-items="await SelectListHelper.Customers()">
                                     </select>
                                 </div>
-                            </div>
+                            </div>  
 
                             <div class="row mb-3">
                                 <label class="col-md-2 col-form-label">Tỉnh/thành</label>
@@ -239,7 +238,7 @@
                 alert('Không thể cập nhật giỏ hàng.');
             });
         }
-            function createOrder(event, form) {
+        function createOrder(event, form) {
             event.preventDefault(); // chặn submit mặc định
 
             const formData = new FormData(form);

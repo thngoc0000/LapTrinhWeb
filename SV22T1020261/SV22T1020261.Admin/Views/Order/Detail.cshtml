@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Chi tiết đơn hàng";
     var details = ViewBag.ListDetails as List<OrderDetailViewInfo>;
+
+    decimal sumPrice = 0;
 }
 
 @section PageToolBar {
@@ -23,7 +25,9 @@
         </ul>
     </div>
 
-    <a href="~/Order/Delete/@Model.OrderID"
+    <a asp-controller="Order"
+        asp-action="Delete"
+           asp-route-orderID="@Model.OrderID"
        class="btn btn-danger ms-1 open-modal">
         <i class="bi bi-trash"></i>
         Xóa
@@ -161,6 +165,7 @@
                     int i = 1;
                     foreach (var item in details)
                     {
+                        sumPrice += item.TotalPrice;
                         <tr>
                             <td class="text-center">@i</td>
                             <td>
@@ -179,12 +184,18 @@
                                 @item.TotalPrice.ToString("N0")
                             </td>
                             <td class="text-end">
-                                <a href="~/Order/EditCartItem/@item.OrderID?productId=@item.ProductID"
+                                <a asp-controller="Order"
+                                       asp-action="EditCartItem"
+                                       asp-route-orderID="@item.OrderID"
+                                       asp-route-productId="@item.ProductID"
                                        class="btn btn-sm btn-primary open-modal">
                                     <i class="bi bi-pencil"></i>
                                 </a>
 
-                                <a href="~/Order/DeleteCartItem/@item.OrderID?productId=@item.ProductID"
+                                <a asp-controller="Order"
+                                       asp-action="DeleteCartItem"
+                                       asp-route-orderID="@item.OrderID"
+                                       asp-route-productId="@item.ProductID"
                                        class="btn btn-sm btn-danger open-modal">
                                     <i class="bi bi-trash"></i>
                                 </a>
@@ -201,32 +212,11 @@
                         </td>
                     </tr>
                 }
-
-
-                @* @for (int i = 1; i <= 5; i++)
-                {
-                    <tr>
-                        <td class="text-center">@i</td>
-                        <td>Samsung Series 9 NP900X4C</td>
-                        <td class="text-center">Cái</td>
-                        <td class="text-center">2</td>
-                        <td class="text-end">18,700,000</td>
-                        <td class="text-end">37,400,000</td>
-                        <td class="text-end">
-                            <a href="~/Order/EditCartItem/123?productId=456" class="btn btn-sm btn-primary open-modal">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-                            <a href="~/Order/DeleteCartItem/123?productId=456" class="btn btn-sm btn-danger open-modal">
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </td>
-                    </tr>
-                } *@
             </tbody>
             <tfoot>
                 <tr>
                     <th colspan="5" class="text-end">Tổng cộng</th>
-                    <th class="text-end">187,000,000</th>
+                    <th class="text-end">@sumPrice.ToString("N0") đ</th>
                     <th></th>
                 </tr>
             </tfoot>
@@ -240,4 +230,124 @@
             border-bottom: 1px dotted #646464;
         }
     </style>
+    <script>
+        function updateCartItem(event, form) {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+
+            fetch('/Order/UpdateCartItem', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(result => {
+
+                if (result.code === 0) {
+                    // Hiển thị lỗi trong modal
+                    const errorBox = document.getElementById("modal-error");
+                    if (errorBox) {
+                        errorBox.innerText = result.message;
+                        errorBox.classList.remove("d-none");
+                    } else {
+                        alert(result.message);
+                    }
+                    return;
+                }
+
+                // Đóng modal Bootstrap 5
+                const modalElement = document.getElementById('dialogModal');
+                const modalInstance = bootstrap.Modal.getInstance(modalElement);
+                if (modalInstance) {
+                    modalInstance.hide();
+                }
+
+                // Reload lại giỏ hàng
+                location.reload();
+
+            })
+            .catch(error => {
+                console.error('Lỗi:', error);
+                alert('Không thể cập nhật đơn hàng.');
+            });
+        }
+        // function deleteCartItem(orderID, productID) {
+
+        //     fetch(`/Order/DeleteCartItem?productId=${productID}&&orderID=${orderID}`, {
+        //         method: 'POST'
+        //     })
+        //     .then(response => {
+        //         if (!response.ok) {
+        //             throw new Error('Network response was not ok');
+        //         }
+        //         return response.json(); nếu API trả JSON
+        //     })
+        //     .then(result => {
+        //         nếu API có trả code/message thì có thể kiểm tra ở đây
+        //         còn nếu không cần thì gọi luôn
+        //         location.reload();
+        //     })
+        //     .catch(error => {
+        //         console.error('Lỗi:', error);
+        //         alert('Không thể xóa sản phẩm khỏi giỏ hàng.');
+        //     });
+        // }
+        function deleteCartItem(orderID, productID) {
+
+            fetch(`/Order/DeleteCartItem?productId=${productID}&orderID=${orderID}`, {
+                method: "POST"
+            })
+            .then(response => response.json())
+            .then(data => {
+
+                // ❌ Lỗi
+                if (data.code == 0) {
+                    alert(data.message);
+                    return;
+                }
+
+                // ✅ Hết sản phẩm → đơn hàng bị xóa
+                if (data.code == 2) {
+                    if (data.message)
+                        alert(data.message);
+
+                    window.location.href = "/Order/Index";
+                    return;
+                }
+
+                // ✅ Còn sản phẩm → reload
+                location.reload();
+            })
+            .catch(error => {
+                alert("Có lỗi xảy ra khi xóa dữ liệu!");
+                console.error(error);
+            });
+        }
+        function deleteOrder(orderID) {
+            fetch(`/Order/Delete?orderID=${orderID}`, {
+                method: "POST"
+            })
+            .then(response => response.json())
+            .then(data => {
+
+                // Nếu lỗi
+                if (data.code == 0) {
+                    alert(data.message || "Xoá đơn hàng thất bại!");
+                    return;
+                }
+
+                // Thành công → chuyển hướng
+                window.location.href = "/Order/Index";
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Có lỗi xảy ra khi xoá đơn hàng!");
+            });
+        }
+    </script>
 }

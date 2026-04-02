@@ -79,6 +79,52 @@ namespace SV22T1020261.Admin
         }
 
         /// <summary>
+        /// Người giao hàng
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<List<SelectListItem>> Shippers()
+        {
+            var list = new List<SelectListItem>()
+            {
+                new SelectListItem() { Value = "0", Text = "-- Người giao hàng --"}
+            };
+            var input = new PaginationSearchInput() { Page = 1, PageSize = 0, SearchValue = "" };
+            var result = await PartnerDataService.ListShippersAsync(input);
+            foreach (var item in result.DataItems)
+            {
+                list.Add(new SelectListItem()
+                {
+                    Value = item.ShipperID.ToString(),
+                    Text = item.ShipperName
+                });
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// Khách hàng
+        /// </summary>
+        /// <returns></returns>
+        public static async Task<List<SelectListItem>> Customers()
+        {
+            var list = new List<SelectListItem>()
+            {
+                new SelectListItem() { Value = "0", Text = "-- Khách hàng --"}
+            };
+            var input = new PaginationSearchInput() { Page = 1, PageSize = 0, SearchValue = "" };
+            var result = await PartnerDataService.ListCustomersAsync(input);
+            foreach (var item in result.DataItems)
+            {
+                list.Add(new SelectListItem()
+                {
+                    Value = item.CustomerID.ToString(),
+                    Text = item.CustomerName
+                });
+            }
+            return list;
+        }
+
+        /// <summary>
         /// Các trạng thái của đơn hàng
         /// </summary>
         /// <returns></returns>

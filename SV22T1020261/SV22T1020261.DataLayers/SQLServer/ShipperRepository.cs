@@ -49,11 +49,11 @@ namespace SV22T1020261.DataLayers.SQLServer
             };
 
             string countSql = @"
-                SELECT COUNT(*)
-                FROM Shippers
-                WHERE (@SearchValue = '' 
-                OR ShipperName LIKE '%' + @SearchValue + '%'
-                OR Phone LIKE '%' + @SearchValue + '%')";
+        SELECT COUNT(*)
+        FROM Shippers
+        WHERE (@SearchValue = '' 
+        OR ShipperName LIKE '%' + @SearchValue + '%'
+        OR Phone LIKE '%' + @SearchValue + '%')";
 
             result.RowCount = await connection.ExecuteScalarAsync<int>(countSql, new
             {
@@ -63,15 +63,38 @@ namespace SV22T1020261.DataLayers.SQLServer
             if (result.RowCount == 0)
                 return result;
 
+            // ✅ Xử lý lấy toàn bộ dữ liệu khi PageSize = 0
+            if (input.PageSize == 0)
+            {
+                string sqlAll = @"
+            SELECT *
+            FROM Shippers
+            WHERE (@SearchValue = '' 
+            OR ShipperName LIKE '%' + @SearchValue + '%'
+            OR Phone LIKE '%' + @SearchValue + '%')
+            ORDER BY ShipperName";
+
+                var dataAll = await connection.QueryAsync<Shipper>(sqlAll, new
+                {
+                    input.SearchValue
+                });
+
+                result.DataItems = dataAll.ToList();
+                result.RowCount = result.DataItems.Count;
+
+                return result;
+            }
+
+            // ✅ Phân trang bình thường
             string dataSql = @"
-                SELECT *
-                FROM Shippers
-                WHERE (@SearchValue = '' 
-                OR ShipperName LIKE '%' + @SearchValue + '%'
-                OR Phone LIKE '%' + @SearchValue + '%')
-                ORDER BY ShipperName
-                OFFSET @Offset ROWS
-                FETCH NEXT @PageSize ROWS ONLY";
+        SELECT *
+        FROM Shippers
+        WHERE (@SearchValue = '' 
+        OR ShipperName LIKE '%' + @SearchValue + '%'
+        OR Phone LIKE '%' + @SearchValue + '%')
+        ORDER BY ShipperName
+        OFFSET @Offset ROWS
+        FETCH NEXT @PageSize ROWS ONLY";
 
             var data = await connection.QueryAsync<Shipper>(dataSql, new
             {

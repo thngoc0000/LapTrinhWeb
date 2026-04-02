@@ -141,7 +141,8 @@ namespace SV22T1020261.Shop.Controllers
             {
                 CustomerID = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey)?.CustomerID
             };
-            var orderID = await SalesDataService.AddOrderAsync(order);
+
+            var orderID = await SalesDataService.AddOrderAsync(order.CustomerID ?? 0, order.DeliveryProvince ?? "", order.DeliveryAddress ?? "");
 
             try
             {

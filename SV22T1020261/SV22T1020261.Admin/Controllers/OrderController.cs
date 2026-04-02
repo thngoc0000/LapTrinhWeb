@@ -163,11 +163,25 @@ namespace SV22T1020261.Admin.Controllers
         /// <summary>
         /// Xoá đơn hàng
         /// </summary>
-        /// <param name="id">Mã đơn hàng cần xoá</param>
+        /// <param name="orderID">Mã đơn hàng cần xoá</param>
         /// <returns></returns>
-        public IActionResult Delete(int id)
-        {            
-            return View();
+        public async Task<IActionResult> Delete(int orderID)
+        {
+            if(Request.Method == "POST")
+            {
+                try
+                {
+                    await SalesDataService.DeleteOrderAsync(orderID);
+                    return Json(new ApiResult(1));
+                }
+                catch
+                {
+                    return Json(new ApiResult(0, "Xoá đơn hàng thất bại"));
+                }
+            }
+
+            var model = await SalesDataService.GetOrderAsync(orderID);
+            return PartialView(model);
         }
 
         /// <summary>
@@ -184,13 +198,19 @@ namespace SV22T1020261.Admin.Controllers
         /// </summary>
         /// <param name="productId">Mã sản phẩm cần cập nhật</param>
         /// <returns></returns>
-        public IActionResult EditCartItem(int productId = 0)
+        public async Task<IActionResult> EditCartItem(int orderID = 0, int productId = 0)
         {
             var item = ShoppingCartService.GetCartItem(productId);
+
+            // Nếu orderID khác 0 -> Lấy thông tin chi tiết từ CSDL -> Cập nhật cho đơn hàng
+            if (orderID != 0)
+            {
+                item = await SalesDataService.GetDetailAsync(orderID, productId);
+            }
             return View(item);
         }
 
-        public IActionResult UpdateCartItem(int productID, int quantity, decimal salePrice)
+        public async Task<IActionResult> UpdateCartItem(int productID, int quantity, decimal salePrice, int orderID = 0)
         {
             if (quantity <= 0)
                 return Json(new ApiResult(0, "Số lượng không hợp lệ"));
@@ -198,7 +218,17 @@ namespace SV22T1020261.Admin.Controllers
             if(salePrice < 0)
                 return Json(new ApiResult(0, "Giá không hợp lệ"));
 
-            ShoppingCartService.UpdateCartItem(productID, quantity, salePrice);
+            // Nếu orderID khác 0 -> Cập nhật thông tin chi tiết trong CSDL -> Cập nhật cho đơn hàng
+            if (orderID != 0)
+                await SalesDataService.UpdateDetailAsync(new OrderDetail()
+                {
+                    OrderID = orderID,
+                    ProductID = productID,
+                    Quantity = quantity,
+                    SalePrice = salePrice
+                });
+            else
+                ShoppingCartService.UpdateCartItem(productID, quantity, salePrice);
             return Json(new ApiResult(1));
         }
 
@@ -207,15 +237,34 @@ namespace SV22T1020261.Admin.Controllers
         /// </summary>
         /// <param name="productId">Mã sản phẩm cần xoá</param>
         /// <returns></returns>
-        public IActionResult DeleteCartItem(int productId = 0)
+        public async Task<IActionResult> DeleteCartItem(int orderID = 0, int productId = 0)
         {
             if (Request.Method == "POST")
             {
-                ShoppingCartService.RemoveCartItem(productId);
+                // Nếu orderID khác 0 -> Xoá thông tin chi tiết trong CSDL -> Cập nhật cho đơn hàng
+                if (orderID != 0)
+                {
+                    await SalesDataService.DeleteDetailAsync(orderID, productId);
+
+                    var lst = await SalesDataService.ListDetailsAsync(orderID);
+                    if (lst.Count == 0)
+                    {
+                        await SalesDataService.DeleteOrderAsync(orderID);
+                        return Json(new ApiResult(2, "Đơn hàng đã bị xoá do không còn sản phẩm nào"));
+                    }
+                }
+                else
+                    ShoppingCartService.RemoveCartItem(productId);
                 return Json(new ApiResult(1));
             }
 
             var item = ShoppingCartService.GetCartItem(productId);
+
+            // Nếu orderID khác 0 -> Lấy thông tin chi tiết từ CSDL -> Cập nhật cho đơn hàng
+            if (orderID != 0)
+            {
+                item = await SalesDataService.GetDetailAsync(orderID, productId);
+            }
 
             return PartialView(item);
         }

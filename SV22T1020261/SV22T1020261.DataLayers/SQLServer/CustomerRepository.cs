@@ -60,7 +60,34 @@ namespace SV22T1020261.DataLayers.SQLServer
 
             if (result.RowCount == 0)
                 return result;
+            if (input.PageSize == 0)
+            {
+                string sql = @"
+        SELECT CustomerID,
+               CustomerName,
+               ContactName,
+               Province,
+               Address,
+               Phone,
+               Email,
+               IsLocked
+        FROM Customers
+        WHERE (@SearchValue = '' 
+        OR CustomerName LIKE '%' + @SearchValue + '%'
+        OR ContactName LIKE '%' + @SearchValue + '%'
+        OR Phone LIKE '%' + @SearchValue + '%')
+        ORDER BY CustomerName";
 
+                var dataAll = await connection.QueryAsync<Customer>(sql, new
+                {
+                    input.SearchValue
+                });
+
+                result.DataItems = dataAll.ToList();
+                result.RowCount = result.DataItems.Count;
+
+                return result;
+            }
             string dataSql = @"
                 SELECT CustomerID,
                        CustomerName,

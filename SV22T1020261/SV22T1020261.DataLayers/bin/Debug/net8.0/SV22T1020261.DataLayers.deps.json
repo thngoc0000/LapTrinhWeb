@@ -52,9 +52,6 @@
         }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/10.0.5": {
-        "dependencies": {
-          "System.Memory": "4.6.3"
-        },
         "runtime": {
           "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {
             "assemblyVersion": "10.0.0.0",
@@ -288,8 +285,7 @@
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "10.0.5",
           "Microsoft.Extensions.Diagnostics": "10.0.5",
           "Microsoft.Extensions.Logging": "10.0.5",
-          "Microsoft.Extensions.Options": "10.0.5",
-          "System.ComponentModel.Annotations": "5.0.0"
+          "Microsoft.Extensions.Options": "10.0.5"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll": {
@@ -361,8 +357,7 @@
       "Microsoft.Identity.Client/4.80.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Abstractions": "8.14.0",
-          "System.Diagnostics.DiagnosticSource": "10.0.5",
-          "System.ValueTuple": "4.5.0"
+          "System.Diagnostics.DiagnosticSource": "10.0.5"
         },
         "runtime": {
           "lib/net8.0/Microsoft.Identity.Client.dll": {
@@ -467,7 +462,6 @@
           }
         }
       },
-      "System.ComponentModel.Annotations/5.0.0": {},
       "System.Configuration.ConfigurationManager/8.0.1": {
         "dependencies": {
           "System.Diagnostics.EventLog": "8.0.1",
@@ -522,7 +516,6 @@
           }
         }
       },
-      "System.Memory/4.6.3": {},
       "System.Memory.Data/8.0.1": {
         "runtime": {
           "lib/net8.0/System.Memory.Data.dll": {
@@ -555,7 +548,6 @@
           }
         }
       },
-      "System.ValueTuple/4.5.0": {},
       "SV22T1020261.Models/1.0.0": {
         "runtime": {
           "SV22T1020261.Models.dll": {
@@ -803,13 +795,6 @@
       "path": "system.clientmodel/1.8.0",
       "hashPath": "system.clientmodel.1.8.0.nupkg.sha512"
     },
-    "System.ComponentModel.Annotations/5.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-dMkqfy2el8A8/I76n2Hi1oBFEbG1SfxD2l5nhwXV3XjlnOmwxJlQbYpJH4W51odnU9sARCSAgv7S3CyAFMkpYg==",
-      "path": "system.componentmodel.annotations/5.0.0",
-      "hashPath": "system.componentmodel.annotations.5.0.0.nupkg.sha512"
-    },
     "System.Configuration.ConfigurationManager/8.0.1": {
       "type": "package",
       "serviceable": true,
@@ -838,13 +823,6 @@
       "path": "system.identitymodel.tokens.jwt/7.7.1",
       "hashPath": "system.identitymodel.tokens.jwt.7.7.1.nupkg.sha512"
     },
-    "System.Memory/4.6.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-qdcDOgnFZY40+Q9876JUHnlHu7bosOHX8XISRoH94fwk6hgaeQGSgfZd8srWRZNt5bV9ZW2TljcegDNxsf+96A==",
-      "path": "system.memory/4.6.3",
-      "hashPath": "system.memory.4.6.3.nupkg.sha512"
-    },
     "System.Memory.Data/8.0.1": {
       "type": "package",
       "serviceable": true,
@@ -865,13 +843,6 @@
       "sha512": "sha512-+TUFINV2q2ifyXauQXRwy4CiBhqvDEDZeVJU7qfxya4aRYOKzVBpN+4acx25VcPB9ywUN6C0n8drWl110PhZEg==",
       "path": "system.security.cryptography.protecteddata/8.0.0",
       "hashPath": "system.security.cryptography.protecteddata.8.0.0.nupkg.sha512"
-    },
-    "System.ValueTuple/4.5.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-okurQJO6NRE/apDIP23ajJ0hpiNmJ+f0BwOlB/cSqTLQlw5upkf+5+96+iG2Jw40G1fCVCyPz/FhIABUjMR+RQ==",
-      "path": "system.valuetuple/4.5.0",
-      "hashPath": "system.valuetuple.4.5.0.nupkg.sha512"
     },
     "SV22T1020261.Models/1.0.0": {
       "type": "project",
