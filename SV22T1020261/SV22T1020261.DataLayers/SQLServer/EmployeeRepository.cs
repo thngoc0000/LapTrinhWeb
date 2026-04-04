@@ -237,5 +237,25 @@ namespace SV22T1020261.DataLayers.SQLServer
                 return count == 0;
             }
         }
+
+        public async Task<bool> UpdateRolesAsync(int id, string roleString)
+        {
+            using var connection = GetConnection();
+
+            // Câu lệnh SQL để cập nhật chuỗi quyền cho nhân viên
+            string sql = @"UPDATE Employees 
+                   SET RoleNames = @RoleNames 
+                   WHERE EmployeeID = @Id";
+
+            // Thực thi câu lệnh và trả về số dòng bị tác động (rows affected)
+            int rowsAffected = await connection.ExecuteAsync(sql, new
+            {
+                Id = id,
+                RoleNames = roleString
+            });
+
+            // Nếu rowsAffected > 0 tức là cập nhật thành công
+            return rowsAffected > 0;
+        }
     }
 }

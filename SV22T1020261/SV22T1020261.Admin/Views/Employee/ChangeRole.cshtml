@@ -1,5 +1,10 @@
-﻿@{
+﻿@model Employee
+@{
     ViewBag.Title = "Phân quyền nhân viên";
+    // Ép kiểu dữ liệu từ ViewBag
+    var currentRoles = ViewBag.CurrentRoles as List<string> ?? new List<string>();
+    
+    var message = ViewBag.Message as string;
 }
 
 @section PageToolBar {
@@ -22,9 +27,16 @@
                     Phân quyền cho nhân viên
                 </h5>
             </div>
-
+            @if(message != null)
+            {
+                <div class="alert alert-success m-3">
+                    @message
+                </div>
+            }
             <div class="card-body">
-                <form id="formChangeRole" method="post">
+                <form id="formChangeRole" method="post" action="~/Employee/ChangeRole">
+                    @* Giữ ID nhân viên để submit *@
+                    <input type="hidden" asp-for="EmployeeID" />
 
                     <fieldset class="mb-4">
                         <legend class="fs-6 text-muted mb-3">
@@ -34,15 +46,21 @@
 
                         <dl class="row mb-0">
                             <dt class="col-sm-3">Họ và tên</dt>
-                            <dd class="col-sm-9">Nguyễn Văn C</dd>
+                            <dd class="col-sm-9">@Model.FullName</dd>
 
                             <dt class="col-sm-3">Email</dt>
-                            <dd class="col-sm-9">nguyenvanc@company.com</dd>
+                            <dd class="col-sm-9">@Model.Email</dd>
 
                             <dt class="col-sm-3">Trạng thái</dt>
                             <dd class="col-sm-9">
-                                <span class="badge bg-success">Đang làm việc</span>
-                                <!-- <span class="badge bg-secondary">Đã nghỉ việc</span> -->
+                                @if (Model.IsWorking)
+                                {
+                                    <span class="badge bg-success">Đang làm việc</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">Đã nghỉ việc</span>
+                                }
                             </dd>
                         </dl>
                     </fieldset>
@@ -63,33 +81,36 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @* Lưu ý: Phần danh sách quyền này thường sẽ lấy từ một danh sách riêng biệt 
+                                       hoặc từ thuộc tính Roles của Model nếu có. Ở đây tôi giữ nguyên các hàng tĩnh 
+                                       nhưng logic hiển thị thông tin nhân viên đã được cập nhật theo Model.
+                                    *@                                    
                                     <tr>
                                         <td class="text-center">
-                                            <input class="form-check-input" type="checkbox" checked />
-                                        </td>
-                                        <td>Quản lý khách hàng</td>
-                                        <td>Thêm, sửa, xóa và xem danh sách khách hàng</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">
-                                            <input class="form-check-input" type="checkbox" />
-                                        </td>
-                                        <td>Quản lý mặt hàng</td>
-                                        <td>Quản lý thông tin sản phẩm, giá bán, trạng thái</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">
-                                            <input class="form-check-input" type="checkbox" />
-                                        </td>
-                                        <td>Quản lý đơn hàng</td>
-                                        <td>Tạo, xử lý và theo dõi đơn hàng</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">
-                                            <input class="form-check-input" type="checkbox" />
+                                            <input class="form-check-input" type="checkbox" name="roles"
+                                                   value="@WebUserRoles.Administrator"
+                                            @(currentRoles.Contains(WebUserRoles.Administrator) ? "checked" : "") />
                                         </td>
                                         <td>Quản trị hệ thống</td>
-                                        <td>Quản lý người dùng, phân quyền, cấu hình hệ thống</td>
+                                            <td>Quản lý người dùng, phân quyền, cấu hình hệ thống</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <input class="form-check-input" type="checkbox" name="roles"
+                                                   value="@WebUserRoles.DataManager"
+                                            @(currentRoles.Contains(WebUserRoles.DataManager) ? "checked" : "") />
+                                        </td>
+                                        <td>Quản lý dữ liệu</td>
+                                        <td>Quản lý sản phẩm, mặt hàng, ...</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <input class="form-check-input" type="checkbox" name="roles"
+                                                   value="@WebUserRoles.Sales"
+                                            @(currentRoles.Contains(WebUserRoles.Sales) || currentRoles.Contains("employee") ? "checked" : "") />
+                                        </td>
+                                        <td>Quản lý bán hàng</td>
+                                        <td>Tạo hoá đơn, tư vấn, bán hàng,...</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -90,5 +90,10 @@ namespace SV22T1020261.DataLayers.SQLServer
 
             return rows > 0;
         }
+
+        public Task<List<string>> GetRoleNamesAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

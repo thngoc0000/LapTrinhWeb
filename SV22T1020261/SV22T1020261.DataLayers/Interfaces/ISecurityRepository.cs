@@ -31,5 +31,6 @@ namespace SV22T1020261.DataLayers.Interfaces
         /// <param name="account"></param>
         /// <returns></returns>
         Task<bool> RegisterAsync(T account);
+        Task<List<string>> GetRoleNamesAsync(int id);
     }
 }

@@ -373,5 +373,6 @@ namespace SV22T1020261.Shop.Controllers
             return new string(Enumerable.Repeat(chars, 8)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
+
     }
 }

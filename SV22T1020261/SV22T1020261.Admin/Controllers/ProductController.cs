@@ -1,13 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SV22T1020261.BusinessLayers;
-using SV22T1020261.Models.Common;
 using SV22T1020261.Models.Catalog;
+using SV22T1020261.Models.Common;
 
 namespace SV22T1020261.Admin.Controllers
 {
     /// <summary>
     /// Các chức năng liên quan đến mặt hàng
     /// </summary>
+    [Authorize]
     public class ProductController : Controller
     {
         /// <summary>

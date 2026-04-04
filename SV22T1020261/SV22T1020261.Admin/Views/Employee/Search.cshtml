@@ -4,7 +4,7 @@
 }
 
 <div class="mb-2 text-muted">
-    Danh sách này có <strong>@Model.RowCount</strong> nhân viên
+    Danh sách này có <strong>@Model.RowCount - 1</strong> nhân viên
 </div>
 
 <div class="card">
@@ -24,6 +24,11 @@
             <tbody>
                 @foreach (var item in Model.DataItems)
                 {
+                    var id = User.GetUserData()?.UserId;
+                    if (id != null && int.Parse(id) == item.EmployeeID)
+                    {
+                        continue;
+                    }
                     <tr>
                         <td>@item.FullName</td>
                         <td>@item.BirthDate?.ToString("dd/MM/yyyy")</td>

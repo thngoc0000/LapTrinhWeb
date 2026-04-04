@@ -1,4 +1,6 @@
-﻿namespace SV22T1020261.BusinessLayers
+﻿using SV22T1020261.DataLayers.Interfaces;
+
+namespace SV22T1020261.BusinessLayers
 {
     /// <summary>
     /// Lớp lưu giữ các thông tin cấu hình sử dụng cho BusinessLayer

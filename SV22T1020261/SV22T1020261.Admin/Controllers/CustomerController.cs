@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using SV22T1020261.BusinessLayers;
 using SV22T1020261.Models.Common;
 using SV22T1020261.Models.Partner;
 using System.Threading.Tasks;
@@ -8,6 +10,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến Khách hàng
     /// </summary>
+    [Authorize]
     public class CustomerController : Controller
     {
         //private const int PAGE_SIZE = 10; // Hard code: code bị cứng, khó sửa. Nếu muốn sửa, phải sửa lại code, sau đó biên dịch lại. Cách làm này không tốt.
@@ -163,9 +166,53 @@ namespace SV22T1020261.Admin.Controllers
         /// </summary>
         /// <param name="id">Mã khách hàng cần đổi mật khẩu</param>
         /// <returns></returns>
-        public IActionResult ChangePassword(int id)
+        public async Task<IActionResult> ChangePassword(int id)
         {
-            return View();
+            var model = await PartnerDataService.GetCustomerAsync(id);
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(int CustomerID, string Email, string NewPassword, string ConfirmPassword)
+        {
+            var model = await PartnerDataService.GetCustomerAsync(CustomerID);
+            try
+            {
+                var kt = await PartnerDataService.ValidateCustomerEmailAsync(Email, CustomerID);
+                if (!kt)
+                {
+                    ModelState.AddModelError(nameof(Email), "Email không tồn tại hoặc đã được sử dụng bởi nhân viên khác");
+                    return View(model);
+                }
+
+                // ===== VALIDATION =====
+
+                if (string.IsNullOrWhiteSpace(NewPassword))
+                    ModelState.AddModelError("NewPassword", "Vui lòng nhập mật khẩu mới");
+
+                if (string.IsNullOrWhiteSpace(ConfirmPassword))
+                    ModelState.AddModelError("ConfirmPassword", "Vui lòng xác nhận mật khẩu");
+
+                if (NewPassword != ConfirmPassword)
+                    ModelState.AddModelError("ConfirmPassword", "Mật khẩu xác nhận không khớp");
+
+                if (!ModelState.IsValid)
+                    return View(model);
+
+                //string hashedPassword = CryptHelper.HashMD5(NewPassword);
+                var isValid = await SecurityDataService.ChangeCustomerPasswordAsync(Email, NewPassword);
+                if (!isValid)
+                {
+                    ModelState.AddModelError("NewPassword", "Mật khẩu hiện tại không đúng");
+                    return View(model);
+                }
+                ViewBag.Message = "Đổi mật khẩu thành công";
+            }
+            catch
+            {
+                //Ghi log lỗi dựa vào thông tin trong Exception (ex.Message, ex.StackTrace)
+                ModelState.AddModelError(string.Empty, "Hệ thống hiện đang bận, vui lòng thử lại sau vài phút");
+            }
+            return View(model);
         }
     }
 }

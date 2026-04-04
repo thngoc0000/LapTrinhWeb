@@ -1,15 +1,22 @@
-﻿@{
+﻿@model SV22T1020261.Models.Dashboard.DashboardInfo
+@using System.Text.Json
+
+@{
+    ViewBag.Title = "Trang chủ";
+
+    var chartLabels = Model.MonthlyRevenues.Select(x => x.MonthLabel).ToList();
+    var chartValues = Model.MonthlyRevenues.Select(x => x.Revenue).ToList();
 }
 
 <!-- Thống kê nhanh -->
 <div class="row">
     <div class="col-lg-3 col-6">
-        <div class="card text-bg-primary">
+        <div class="card text-bg-primary shadow-sm">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
                         <h6 class="card-title">Doanh thu hôm nay</h6>
-                        <h3 class="mb-0">12.500.000 đ</h3>
+                        <h3 class="mb-0">@Model.TodayRevenue.ToString("N0") đ</h3>
                     </div>
                     <i class="bi bi-currency-dollar fs-1 opacity-50"></i>
                 </div>
@@ -18,12 +25,12 @@
     </div>
 
     <div class="col-lg-3 col-6">
-        <div class="card text-bg-success">
+        <div class="card text-bg-success shadow-sm">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
                         <h6 class="card-title">Đơn hàng</h6>
-                        <h3 class="mb-0">48</h3>
+                        <h3 class="mb-0">@Model.OrderCount</h3>
                     </div>
                     <i class="bi bi-receipt fs-1 opacity-50"></i>
                 </div>
@@ -32,12 +39,12 @@
     </div>
 
     <div class="col-lg-3 col-6">
-        <div class="card text-bg-warning">
+        <div class="card text-bg-warning shadow-sm">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
                         <h6 class="card-title">Khách hàng</h6>
-                        <h3 class="mb-0">320</h3>
+                        <h3 class="mb-0">@Model.CustomerCount</h3>
                     </div>
                     <i class="bi bi-people fs-1 opacity-50"></i>
                 </div>
@@ -46,12 +53,12 @@
     </div>
 
     <div class="col-lg-3 col-6">
-        <div class="card text-bg-danger">
+        <div class="card text-bg-danger shadow-sm">
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div>
                         <h6 class="card-title">Sản phẩm</h6>
-                        <h3 class="mb-0">128</h3>
+                        <h3 class="mb-0">@Model.ProductCount</h3>
                     </div>
                     <i class="bi bi-box-seam fs-1 opacity-50"></i>
                 </div>
@@ -63,7 +70,7 @@
 <!-- Biểu đồ & thống kê -->
 <div class="row mt-3">
     <div class="col-lg-8">
-        <div class="card card-success card-outline">
+        <div class="card shadow-sm">
             <div class="card-header">
                 <h5 class="card-title mb-0">
                     <i class="bi bi-bar-chart me-1"></i>
@@ -71,13 +78,15 @@
                 </h5>
             </div>
             <div class="card-body">
-                <canvas id="revenueChart" height="150"></canvas>
+                <div style="height: 320px;">
+                    <canvas id="revenueChart"></canvas>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="col-lg-4">
-        <div class="card card-info card-outline">
+        <div class="card shadow-sm">
             <div class="card-header">
                 <h5 class="card-title mb-0">
                     <i class="bi bi-star me-1"></i>
@@ -86,22 +95,22 @@
             </div>
             <div class="card-body p-0">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item d-flex justify-content-between">
-                        Laptop Dell
-                        <span class="badge bg-success">120</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        iPhone 15
-                        <span class="badge bg-success">98</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        Tai nghe Sony
-                        <span class="badge bg-success">76</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between">
-                        Chuột Logitech
-                        <span class="badge bg-success">65</span>
-                    </li>
+                    @if (Model.TopSellingProducts.Any())
+                    {
+                        foreach (var item in Model.TopSellingProducts)
+                        {
+                            <li class="list-group-item d-flex justify-content-between">
+                                @item.ProductName
+                                <span class="badge bg-success">@item.QuantitySold</span>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="list-group-item text-muted text-center">
+                            Chưa có dữ liệu
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
@@ -111,7 +120,7 @@
 <!-- Đơn hàng cần xử lý -->
 <div class="row mt-3">
     <div class="col-12">
-        <div class="card card-primary card-outline">
+        <div class="card shadow-sm">
             <div class="card-header">
                 <h5 class="card-title mb-0">
                     <i class="bi bi-clock-history me-1"></i>
@@ -130,27 +139,42 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>#DH00125</td>
-                            <td>Nguyễn Văn A</td>
-                            <td>01/02/2026</td>
-                            <td class="text-end">3.500.000 đ</td>
-                            <td><span class="badge bg-danger">Đang chờ duyệt</span></td>
-                        </tr>
-                        <tr>
-                            <td>#DH00126</td>
-                            <td>Trần Thị B</td>
-                            <td>01/02/2026</td>
-                            <td class="text-end">1.200.000 đ</td>
-                            <td><span class="badge bg-warning">Chờ giao hàng</span></td>
-                        </tr>
-                        <tr>
-                            <td>#DH00127</td>
-                            <td>Lê Văn C</td>
-                            <td>31/01/2026</td>
-                            <td class="text-end">8.900.000 đ</td>
-                            <td><span class="badge bg-warning">Chờ giao hàng</span></td>
-                        </tr>
+                        @if (Model.PendingOrders.Any())
+                        {
+                            foreach (var item in Model.PendingOrders)
+                            {
+                                var badgeClass = "bg-secondary";
+
+                                if (item.StatusDescription.Contains("chờ", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    badgeClass = "bg-danger";
+                                }
+                                else if (item.StatusDescription.Contains("giao", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    badgeClass = "bg-warning text-dark";
+                                }
+                                else if (item.StatusDescription.Contains("duyệt", StringComparison.OrdinalIgnoreCase))
+                                {
+                                    badgeClass = "bg-primary";
+                                }
+
+                                <tr>
+                                    <td>#DH@(item.OrderID.ToString("D5"))</td>
+                                    <td>@item.CustomerName</td>
+                                    <td>@item.OrderTime.ToString("dd/MM/yyyy")</td>
+                                    <td class="text-end">@item.TotalAmount.ToString("N0") đ</td>
+                                    <td><span class="badge @badgeClass">@item.StatusDescription</span></td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-4">
+                                    Không có đơn hàng cần xử lý
+                                </td>
+                            </tr>
+                        }
                     </tbody>
                 </table>
             </div>
@@ -158,47 +182,52 @@
     </div>
 </div>
 
-
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        const labels = @Html.Raw(JsonSerializer.Serialize(chartLabels));
+        const values = @Html.Raw(JsonSerializer.Serialize(chartValues));
+
         const ctx = document.getElementById('revenueChart');
 
         new Chart(ctx, {
-            type: 'bar', // bar | line | pie | doughnut
-            data: {
-                labels: [
-                    'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6'
-                ],
-                datasets: [{
-                    label: 'Doanh thu (triệu đồng)',
-                    data: [120, 150, 180, 140, 200, 220],
-                    backgroundColor: 'rgba(13,110,253,0.7)',
-                    borderRadius: 6
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'top'
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function (context) {
-                                return context.raw + ' triệu đồng';
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
+        type: 'bar',
+        data: {
+        labels: labels,
+        datasets: [{
+        label: 'Doanh thu (VNĐ)',
+        data: values,
+        backgroundColor: 'rgba(13,110,253,0.7)',
+        borderRadius: 6
+        }]
+        },
+        options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+        legend: {
+        display: true,
+        position: 'top'
+        },
+        tooltip: {
+        callbacks: {
+        label: function (context) {
+        return new Intl.NumberFormat('vi-VN').format(context.raw) + ' đ';
+        }
+        }
+        }
+        },
+        scales: {
+        y: {
+        beginAtZero: true,
+        ticks: {
+        callback: function(value) {
+        return new Intl.NumberFormat('vi-VN').format(value) + ' đ';
+        }
+        }
+        }
+        }
+        }
         });
     </script>
 }

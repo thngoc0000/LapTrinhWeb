@@ -9,10 +9,11 @@
         /// Mã tài khoản
         /// </summary>
         public string UserId { get; set; } = "";
+        public string UserName { get; set; } = "";
         /// <summary>
         /// Tên đăng nhập
         /// </summary>
-        public string UserName { get; set; } = "";
+        public string FullName { get; set; } = "";
         /// <summary>
         /// Tên hiển thị (thường là họ tên của người dùng, hoặc có thể là tên đăng nhập nếu không có họ tên)
         /// </summary>

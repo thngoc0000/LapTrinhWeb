@@ -28,14 +28,13 @@ namespace SV22T1020261.DataLayers.SQLServer
 
             string sql = @"
                 SELECT
-                    UserId,
-                    UserName,
-                    DisplayName,
+                    CAST(EmployeeID AS nvarchar(50)) AS UserId,
+                    FullName,
                     Email,
                     Photo,
                     RoleNames
-                FROM Users
-                WHERE UserName = @userName
+                FROM Employees
+                WHERE Email = @userName
                 AND Password = @password";
 
             return await connection.QueryFirstOrDefaultAsync<UserAccount>(
@@ -52,9 +51,9 @@ namespace SV22T1020261.DataLayers.SQLServer
             using var connection = GetConnection();
 
             string sql = @"
-                UPDATE Users
+                UPDATE Employees
                 SET Password = @password
-                WHERE UserName = @userName";
+                WHERE Email = @userName";
 
             int rows = await connection.ExecuteAsync(
                 sql,
@@ -67,6 +66,27 @@ namespace SV22T1020261.DataLayers.SQLServer
         public Task<bool> RegisterAsync(UserAccount account)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<List<string>> GetRoleNamesAsync(int id)
+        {
+            using var connection = GetConnection();
+
+            // Chỉ cần lấy cột RoleNames từ DB
+            string sql = "SELECT RoleNames FROM Employees WHERE EmployeeID = @id";
+
+            // Lấy chuỗi thô (ví dụ: "admin,sales")
+            string? roleString = await connection.ExecuteScalarAsync<string>(sql, new { id });
+
+            // Nếu chuỗi rỗng hoặc null thì trả về danh sách trống
+            if (string.IsNullOrEmpty(roleString))
+                return new List<string>();
+
+            // Cắt chuỗi thành List và dọn dẹp khoảng trắng
+            return roleString.Split(',')
+                             .Select(r => r.Trim())
+                             .Where(r => !string.IsNullOrEmpty(r))
+                             .ToList();
         }
     }
 }

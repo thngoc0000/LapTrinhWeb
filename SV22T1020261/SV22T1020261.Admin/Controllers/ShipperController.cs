@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SV22T1020261.Models.Common;
 using SV22T1020261.Models.Partner;
 
@@ -7,6 +8,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến người giao hàng
     /// </summary>
+    [Authorize]
     public class ShipperController : BaseSearchController
     {
         /// <summary>

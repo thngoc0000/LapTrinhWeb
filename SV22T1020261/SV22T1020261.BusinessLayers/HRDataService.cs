@@ -117,7 +117,10 @@ namespace SV22T1020261.BusinessLayers
         {
             return await employeeDB.ValidateEmailAsync(email, employeeID);
         }
-
+        public static async Task<bool> UpdateUserRolesAsync(int employeeID, string roleString)
+        {
+            return await employeeDB.UpdateRolesAsync(employeeID, roleString);
+        }
         #endregion
     }
 }

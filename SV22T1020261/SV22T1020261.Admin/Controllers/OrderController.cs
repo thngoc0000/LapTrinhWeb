@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
 using SV22T1020261.BusinessLayers;
 using SV22T1020261.Models.Catalog;
@@ -12,6 +13,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến đơn hàng
     /// </summary>
+    [Authorize(Roles = $"{WebUserRoles.Sales},${WebUserRoles.Administrator}")]
     public class OrderController : BaseSearchController
     {
         /// <summary>
@@ -344,7 +346,8 @@ namespace SV22T1020261.Admin.Controllers
             {
                 // TODO: Cập nhật trạng thái sang Đã chấp nhận
                 // Lưu ý: Cần truyền thêm mã nhân viên xử lý đơn hàng vào hàm AcceptOrderAsync
-                var kt = await SalesDataService.AcceptOrderAsync(id, 1); // Hiện tại chưa có thông tin về nhân viên -> Tạm thời truyền vào mã nhân viên là 1
+                int employeeID = Convert.ToInt32(User.GetUserData()?.UserId);
+                var kt = await SalesDataService.AcceptOrderAsync(id, employeeID); 
                 if(!kt)
                     return Json(new ApiResult(0, "Không thể chấp nhận đơn hàng ở trạng thái hiện tại"));
                 return Json(new ApiResult(1));

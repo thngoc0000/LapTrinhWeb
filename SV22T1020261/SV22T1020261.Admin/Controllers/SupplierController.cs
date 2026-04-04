@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SV22T1020261.BusinessLayers;
 using SV22T1020261.Models.Common;
 using SV22T1020261.Models.Partner;
@@ -8,6 +9,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến nhà cung cấp
     /// </summary>
+    [Authorize]
     public class SupplierController : BaseSearchController
     {
         private const string SEARCH_INPUT = "SupplierSearchInput";

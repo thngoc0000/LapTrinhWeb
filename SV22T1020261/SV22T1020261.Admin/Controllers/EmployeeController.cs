@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SV22T1020261.BusinessLayers;
 using SV22T1020261.Models.Common;
 using SV22T1020261.Models.HR;
@@ -8,6 +9,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến Nhân viên
     /// </summary>
+    [Authorize]
     public class EmployeeController : BaseSearchController
     {
         /// <summary>
@@ -162,9 +164,55 @@ namespace SV22T1020261.Admin.Controllers
         /// </summary>
         /// <param name="id">Mã nhân viên cần đổi mật khẩu</param>
         /// <returns></returns>
-        public IActionResult ChangePassword(int id)
+        [HttpGet]
+        public async Task<IActionResult> ChangePassword(int id)
         {
-            return View();
+            var model = await HRDataService.GetEmployeeAsync(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(int Id, string Email, string NewPassword, string ConfirmPassword)
+        {
+            var model = await HRDataService.GetEmployeeAsync(Id);
+            try
+            {
+                var kt = await HRDataService.ValidateEmployeeEmailAsync(Email, Id);
+                if (!kt)
+                {
+                    ModelState.AddModelError(nameof(Email), "Email không tồn tại hoặc đã được sử dụng bởi nhân viên khác");
+                    return View(model);
+                }
+
+                // ===== VALIDATION =====
+
+                if (string.IsNullOrWhiteSpace(NewPassword))
+                    ModelState.AddModelError("NewPassword", "Vui lòng nhập mật khẩu mới");
+
+                if (string.IsNullOrWhiteSpace(ConfirmPassword))
+                    ModelState.AddModelError("ConfirmPassword", "Vui lòng xác nhận mật khẩu");
+
+                if (NewPassword != ConfirmPassword)
+                    ModelState.AddModelError("ConfirmPassword", "Mật khẩu xác nhận không khớp");
+
+                if (!ModelState.IsValid)
+                    return View(model);
+
+                string hashedPassword = CryptHelper.HashMD5(NewPassword);
+                var isValid = await SecurityDataService.ChangePasswordAsync(Email, hashedPassword);
+                if (!isValid)
+                {
+                    ModelState.AddModelError("NewPassword", "Mật khẩu hiện tại không đúng");
+                    return View(model);
+                }
+                ViewBag.Message = "Đổi mật khẩu thành công";
+            }
+            catch
+            {
+                //Ghi log lỗi dựa vào thông tin trong Exception (ex.Message, ex.StackTrace)
+                ModelState.AddModelError(string.Empty, "Hệ thống hiện đang bận, vui lòng thử lại sau vài phút");
+            }
+            return View(model);
         }
 
         /// <summary>
@@ -172,9 +220,39 @@ namespace SV22T1020261.Admin.Controllers
         /// </summary>
         /// <param name="id">Mã nhân viên cần đổi vai trò</param>
         /// <returns></returns>
-        public IActionResult ChangeRole(int id)
+        public async Task<IActionResult> ChangeRole(int id)
         {
-            return View();
+            var employee = await HRDataService.GetEmployeeAsync(id);
+            if (employee == null) return NotFound();
+
+            // Lấy danh sách các quyền hiện tại của nhân viên này
+            var currentRoles = await SecurityDataService.GetRoleNamesUserAsync(id);
+
+            // Truyền vào ViewBag để View sử dụng
+            ViewBag.CurrentRoles = currentRoles;
+
+            return View(employee);
         }
+        [HttpPost]
+        public async Task<IActionResult> ChangeRole(int employeeId, List<string> roles)
+        {
+            // Gộp mảng thành chuỗi: "admin,sales"
+            string roleString = string.Join(",", roles);
+
+            // Gọi service cập nhật vào Database
+            await HRDataService.UpdateUserRolesAsync(employeeId, roleString);
+
+            var employee = await HRDataService.GetEmployeeAsync(employeeId);
+            
+            // Lấy danh sách các quyền hiện tại của nhân viên này
+            var currentRoles = await SecurityDataService.GetRoleNamesUserAsync(employeeId);
+            
+            // Truyền vào ViewBag để View sử dụng
+            ViewBag.CurrentRoles = currentRoles;
+
+            ViewBag.Message = "Phân quyền thành công";
+            return View(employee);
+        }
+
     }
 }

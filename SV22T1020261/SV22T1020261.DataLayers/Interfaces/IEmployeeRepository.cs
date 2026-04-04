@@ -22,5 +22,6 @@ namespace SV22T1020261.DataLayers.Interfaces
         /// </param>
         /// <returns></returns>
         Task<bool> ValidateEmailAsync(string email, int id = 0);
+        Task<bool> UpdateRolesAsync(int id, string roleString);       
     }
 }
