@@ -9,7 +9,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến mặt hàng
     /// </summary>
-    [Authorize]
+    [Authorize(Roles = $"{WebUserRoles.DataManager},${WebUserRoles.Administrator}")]
     public class ProductController : Controller
     {
         /// <summary>

@@ -10,7 +10,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến Khách hàng
     /// </summary>
-    [Authorize]
+    [Authorize(Roles = $"{WebUserRoles.DataManager},${WebUserRoles.Administrator}")]
     public class CustomerController : Controller
     {
         //private const int PAGE_SIZE = 10; // Hard code: code bị cứng, khó sửa. Nếu muốn sửa, phải sửa lại code, sau đó biên dịch lại. Cách làm này không tốt.

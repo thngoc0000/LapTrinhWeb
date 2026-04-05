@@ -8,7 +8,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến người giao hàng
     /// </summary>
-    [Authorize]
+    [Authorize(Roles = $"{WebUserRoles.DataManager},${WebUserRoles.Administrator}")]
     public class ShipperController : BaseSearchController
     {
         /// <summary>

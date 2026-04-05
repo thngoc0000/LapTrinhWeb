@@ -1,0 +1,7 @@
+Pull:
+	- git pull origin main
+
+Push:
+	- git add .
+	- git commit -m "Nội dung thay đổi"
+	- git push origin main

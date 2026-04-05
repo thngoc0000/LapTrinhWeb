@@ -9,7 +9,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến Nhân viên
     /// </summary>
-    [Authorize]
+    [Authorize(Roles = $"{WebUserRoles.DataManager},${WebUserRoles.Administrator}")]
     public class EmployeeController : BaseSearchController
     {
         /// <summary>
