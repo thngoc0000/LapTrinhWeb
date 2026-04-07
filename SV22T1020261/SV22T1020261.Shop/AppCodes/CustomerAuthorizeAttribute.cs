@@ -7,8 +7,7 @@ public class CustomerAuthorizeAttribute : ActionFilterAttribute
 {
     public override void OnActionExecuting(ActionExecutingContext context)
     {
-        var customer = ApplicationContext.GetSessionData<CustomerAccount>(
-            ApplicationContext.CustomerSessionKey);
+        var customer = context.HttpContext.User.GetUserData();
 
         if (customer == null)
         {

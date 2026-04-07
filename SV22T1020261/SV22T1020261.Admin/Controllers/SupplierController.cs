@@ -9,7 +9,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến nhà cung cấp
     /// </summary>
-    [Authorize(Roles = $"{WebUserRoles.DataManager},${WebUserRoles.Administrator}")]
+    [Authorize(Roles = $"{WebUserRoles.DataManager},{WebUserRoles.Administrator}")]
     public class SupplierController : BaseSearchController
     {
         private const string SEARCH_INPUT = "SupplierSearchInput";

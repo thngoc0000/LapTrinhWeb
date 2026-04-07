@@ -9,7 +9,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến mặt hàng
     /// </summary>
-    [Authorize(Roles = $"{WebUserRoles.DataManager},${WebUserRoles.Administrator}")]
+    [Authorize(Roles = $"{WebUserRoles.DataManager},{WebUserRoles.Administrator}")]
     public class ProductController : Controller
     {
         /// <summary>
@@ -30,8 +30,8 @@ namespace SV22T1020261.Admin.Controllers
                     PageSize = ApplicationContext.PageSize,
                     SearchValue = ""
                 };
-            ViewBag.Categories = await CatalogDataService.ListCategoriesAsync(input);
-            ViewBag.Suppliers = await PartnerDataService.ListSuppliersAsync(input);
+            //ViewBag.Categories = await CatalogDataService.ListCategoriesAsync(input);
+            //ViewBag.Suppliers = await PartnerDataService.ListSuppliersAsync(input);
             return View(input);
         }
 
@@ -93,6 +93,14 @@ namespace SV22T1020261.Admin.Controllers
                     : "Cập nhật thông tin mặt hàng";
 
                 // ===== VALIDATION =====
+                // Bắt lỗi Loại hàng
+                if (data.CategoryID <= 0)
+                    ModelState.AddModelError(nameof(data.CategoryID), "Vui lòng chọn loại hàng");
+
+                // Bắt lỗi Nhà cung cấp
+                if (data.SupplierID <= 0)
+                    ModelState.AddModelError(nameof(data.SupplierID), "Vui lòng chọn nhà cung cấp");
+
                 if (string.IsNullOrWhiteSpace(data.ProductName))
                     ModelState.AddModelError(nameof(data.ProductName),
                         "Vui lòng nhập tên mặt hàng");
@@ -255,71 +263,81 @@ namespace SV22T1020261.Admin.Controllers
         {
             try
             {
-                ViewBag.Title = data.PhotoID == 0
-                    ? "Bổ sung ảnh"
-                    : "Cập nhật ảnh";
+                ViewBag.Title = data.PhotoID == 0 ? "Bổ sung ảnh" : "Cập nhật ảnh";
 
-                // ===== VALIDATION =====
-                if (data.ProductID == 0)
-                    ModelState.AddModelError(nameof(data.ProductID),
-                        "Mặt hàng không hợp lệ");
+                // 1. Kiểm tra ID mặt hàng (Trường hợp can thiệp URL)
+                if (data.ProductID <= 0)
+                    ModelState.AddModelError(nameof(data.ProductID), "Mặt hàng không tồn tại hoặc không hợp lệ.");
 
+                // 2. Bắt lỗi bắt buộc chọn ảnh khi THÊM MỚI (PhotoID == 0)
+                if (data.PhotoID == 0 && (uploadPhoto == null || uploadPhoto.Length == 0))
+                {
+                    ModelState.AddModelError("uploadPhoto", "Vui lòng chọn file ảnh để tải lên.");
+                }
+
+                // 3. Kiểm tra định dạng file (Chỉ cho phép ảnh)
+                if (uploadPhoto != null)
+                {
+                    var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif", ".webp" };
+                    var extension = Path.GetExtension(uploadPhoto.FileName).ToLower();
+                    if (!allowedExtensions.Contains(extension))
+                    {
+                        ModelState.AddModelError("uploadPhoto", "Định dạng file không hỗ trợ. Vui lòng chọn .jpg, .png, .gif hoặc .webp");
+                    }
+
+                    // Kiểm tra dung lượng (Ví dụ tối đa 2MB)
+                    if (uploadPhoto.Length > 2 * 1024 * 1024)
+                    {
+                        ModelState.AddModelError("uploadPhoto", "Dung lượng ảnh không được vượt quá 2MB.");
+                    }
+                }
+
+                // 4. Bắt lỗi logic cho các trường khác
                 if (string.IsNullOrWhiteSpace(data.Description))
-                    data.Description = "";
+                    ModelState.AddModelError(nameof(data.Description), "Vui lòng nhập mô tả cho ảnh.");
 
-                if (uploadPhoto == null && data.PhotoID == 0)
-                    ModelState.AddModelError(nameof(uploadPhoto),
-                        "Vui lòng chọn ảnh cần upload");
+                if (data.DisplayOrder <= 0)
+                    ModelState.AddModelError(nameof(data.DisplayOrder), "Thứ tự hiển thị phải là số lớn hơn 0.");
 
+                // ===== NẾU CÓ LỖI: TRẢ VỀ VIEW NGAY =====
                 if (!ModelState.IsValid)
+                {
                     return View("EditPhoto", data);
+                }
 
-                // ===== XỬ LÝ UPLOAD ẢNH =====
+                // ===== XỬ LÝ LƯU DỮ LIỆU KHI MỌI THỨ ĐÃ HỢP LỆ =====
                 if (uploadPhoto != null && uploadPhoto.Length > 0)
                 {
-                    // Xử lý upload ảnh
                     var fileName = $"{Guid.NewGuid()}{Path.GetExtension(uploadPhoto.FileName)}";
-
-                    var filePath = Path.Combine(
-                        ApplicationContext.WWWRootPath,
-                        "images/products",
-                        fileName);
+                    var filePath = Path.Combine(ApplicationContext.WWWRootPath, "images/products", fileName);
 
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
                         await uploadPhoto.CopyToAsync(stream);
                     }
 
+                    // Nếu là cập nhật, có thể xóa file cũ ở đây để dọn dẹp bộ nhớ (tùy chọn)
                     data.Photo = fileName;
                 }
-                else
+                else if (data.PhotoID != 0)
                 {
-                    // Nếu cập nhật mà không chọn ảnh mới → giữ ảnh cũ
-                    if (data.PhotoID != 0)
-                    {
-                        var oldPhoto = await CatalogDataService.GetPhotoAsync(data.PhotoID);
-                        if (oldPhoto != null)
-                            data.Photo = oldPhoto.Photo;
-                    }
+                    // Cập nhật mà không đổi ảnh -> lấy lại tên ảnh cũ từ DB
+                    var oldPhoto = await CatalogDataService.GetPhotoAsync(data.PhotoID);
+                    data.Photo = oldPhoto?.Photo ?? "nophoto.png";
                 }
 
-                // ===== LƯU DATABASE =====
+                // Lưu vào Database
                 if (data.PhotoID == 0)
-                {
                     await CatalogDataService.AddPhotoAsync(data);
-                }
                 else
-                {
                     await CatalogDataService.UpdatePhotoAsync(data);
-                }
 
                 return RedirectToAction("Edit", new { id = data.ProductID });
             }
-            catch
+            catch (Exception ex)
             {
-                ModelState.AddModelError(string.Empty,
-                    "Hệ thống đang bận hoặc dữ liệu không hợp lệ. Vui lòng thử lại sau");
-
+                // Ghi log lỗi tại đây (ví dụ: _logger.LogError(ex, "Error saving photo"))
+                ModelState.AddModelError(string.Empty, "Đã xảy ra lỗi trong quá trình lưu dữ liệu. Vui lòng thử lại.");
                 return View("EditPhoto", data);
             }
         }
@@ -410,7 +428,7 @@ namespace SV22T1020261.Admin.Controllers
                     ModelState.AddModelError(nameof(data.AttributeValue),
                         "Vui lòng nhập giá trị thuộc tính");
 
-                if (data.DisplayOrder < 0)
+                if (data.DisplayOrder <= 0)
                     ModelState.AddModelError(nameof(data.DisplayOrder),
                         "Thứ tự hiển thị không hợp lệ");
 

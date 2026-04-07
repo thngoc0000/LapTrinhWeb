@@ -139,6 +139,10 @@ namespace SV22T1020261.Admin.Controllers
                 if (NewPassword != ConfirmPassword)
                     ModelState.AddModelError("ConfirmPassword", "Mật khẩu xác nhận không khớp");
 
+                var userAccount = await SecurityDataService.AuthorizeUserAccountAsync(Email, CurrentPassword);
+                if(userAccount == null)
+                    ModelState.AddModelError("CurrentPassword", "Mật khẩu hiện tại không đúng");
+
                 if (!ModelState.IsValid)
                     return View();
 

@@ -3,24 +3,20 @@
   "WorkspaceRootPath": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\controllers\\shippercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\controllers\\shippercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.shop\\views\\cart\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\views\\cart\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\views\\employee\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\views\\employee\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.shop\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.shop\\views\\home\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\views\\home\\search.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\controllers\\suppliercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{986259CB-F5A9-42DA-9C1C-98DDF48FBEB2}|SV22T1020261.Admin\\SV22T1020261.Admin.csproj|solutionrelative:sv22t1020261.admin\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|e:\\_hk8\\lt_web\\laptrinhweb\\sv22t1020261\\sv22t1020261.shop\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{57EEEB6F-7354-4E09-9AC9-6086B2BFEDA8}|SV22T1020261.Shop\\SV22T1020261.Shop.csproj|solutionrelative:sv22t1020261.shop\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,71 +26,58 @@
       "DocumentGroups": [
         {
           "DockedHeight": 303,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Search.cshtml",
-              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Employee\\Search.cshtml",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Views\\Employee\\Search.cshtml",
-              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Views\\Employee\\Search.cshtml",
-              "RelativeToolTip": "SV22T1020261.Admin\\Views\\Employee\\Search.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-05T10:20:45.395Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SupplierController.cs",
-              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\SupplierController.cs",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Controllers\\SupplierController.cs",
-              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\SupplierController.cs",
-              "RelativeToolTip": "SV22T1020261.Admin\\Controllers\\SupplierController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-05T10:17:21.436Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ShipperController.cs",
-              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\ShipperController.cs",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Controllers\\ShipperController.cs",
-              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\ShipperController.cs",
-              "RelativeToolTip": "SV22T1020261.Admin\\Controllers\\ShipperController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-05T10:17:16.385Z",
+              "Title": "Checkout.cshtml",
+              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Cart\\Checkout.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020261.Shop\\Views\\Cart\\Checkout.cshtml",
+              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Cart\\Checkout.cshtml*",
+              "RelativeToolTip": "SV22T1020261.Shop\\Views\\Cart\\Checkout.cshtml*",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-07T04:05:42.639Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProductController.cs",
-              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\ProductController.cs",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Controllers\\ProductController.cs",
-              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\ProductController.cs",
-              "RelativeToolTip": "SV22T1020261.Admin\\Controllers\\ProductController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-05T10:17:11.249Z",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020261.Shop\\Views\\Cart\\Index.cshtml",
+              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "SV22T1020261.Shop\\Views\\Cart\\Index.cshtml",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAIAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-07T04:02:19.17Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "SV22T1020261.Admin\\Controllers\\HomeController.cs",
-              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Admin\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "SV22T1020261.Admin\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-05T10:15:23.49Z",
+              "Title": "Search.cshtml",
+              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Home\\Search.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020261.Shop\\Views\\Home\\Search.cshtml",
+              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Home\\Search.cshtml",
+              "RelativeToolTip": "SV22T1020261.Shop\\Views\\Home\\Search.cshtml",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAowA4AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-07T03:51:39.576Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "SV22T1020261.Shop\\Views\\Account\\Register.cshtml",
+              "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "SV22T1020261.Shop\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAEwAAABvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-04-07T03:41:59.933Z",
               "EditorCaption": ""
             },
             {

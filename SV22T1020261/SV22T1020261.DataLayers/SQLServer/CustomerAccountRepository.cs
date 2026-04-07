@@ -32,7 +32,7 @@ namespace SV22T1020261.DataLayers.SQLServer
             using var connection = GetConnection();
 
             string sql = @"
-                SELECT CustomerID, CustomerName, ContactName, Email, Password, IsLocked
+                SELECT CustomerID, CustomerName, ContactName, Email
                 FROM Customers
                 WHERE Email = @Email AND Password=@Password";
 

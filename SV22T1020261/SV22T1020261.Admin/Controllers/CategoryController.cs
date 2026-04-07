@@ -9,7 +9,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến loại hàng
     /// </summary>
-    [Authorize(Roles = $"{WebUserRoles.DataManager},${WebUserRoles.Administrator}")]
+    [Authorize(Roles = $"{WebUserRoles.DataManager},{WebUserRoles.Administrator}")]
     public class CategoryController : BaseSearchController
     {
         /// <summary>

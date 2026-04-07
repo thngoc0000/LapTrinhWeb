@@ -59,7 +59,8 @@
                                             <i class="bi bi-pencil"></i>
                                         </a>
                                         <a class="btn btn-sm btn-danger"
-                                               href="~/Product/DeleteAttribute/@item.ProductID?attributeId=@item.AttributeID">
+                                               href="~/Product/DeleteAttribute/@item.ProductID?attributeId=@item.AttributeID"
+                                               onclick="return confirm('Bạn có chắc chắn muốn xóa thuộc tính này không?')">
                                             <i class="bi bi-trash"></i>
                                         </a>
                                     </td>

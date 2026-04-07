@@ -1,8 +1,10 @@
 ﻿@{
-    var customerAccount = ApplicationContext
-        .GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
+    // var customerAccount = ApplicationContext
+    //     .GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
     var carts = ApplicationContext
         .GetSessionData<List<Cart>>(ApplicationContext.CartSessionKey) ?? new List<Cart>();
+
+    var customerAccount = User.GetUserData();
 }
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
@@ -39,7 +41,7 @@
             {                
                 <div class="dropdown">
                     <a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown">
-                        <strong>@customerAccount.CustomerName</strong>
+                        <strong>@customerAccount.DisplayName</strong>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="~/Account/Profile">Hồ sơ cá nhân</a></li>

@@ -44,7 +44,11 @@ namespace SV22T1020261.DataLayers.SQLServer
                 WHERE (@Status = 0 OR o.Status = @Status)
                 AND (@DateFrom IS NULL OR o.OrderTime >= @DateFrom)
                 AND (@DateTo IS NULL OR o.OrderTime <= @DateTo)
-                AND (@SearchValue IS NULL OR c.CustomerName LIKE '%' + @SearchValue + '%')";
+                AND (
+                    @SearchValue IS NULL 
+                    OR c.CustomerName LIKE '%' + @SearchValue + '%'
+                    OR c.CustomerID IS NULL
+                )";
 
             result.RowCount = await connection.ExecuteScalarAsync<int>(countSql, input);
 
@@ -84,7 +88,11 @@ namespace SV22T1020261.DataLayers.SQLServer
                     WHERE (@Status = 0 OR o.Status = @Status)
                     AND (@DateFrom IS NULL OR o.OrderTime >= @DateFrom)
                     AND (@DateTo IS NULL OR o.OrderTime <= @DateTo)
-                    AND (@SearchValue IS NULL OR c.CustomerName LIKE '%' + @SearchValue + '%')
+                    AND (
+                        @SearchValue IS NULL 
+                        OR c.CustomerName LIKE '%' + @SearchValue + '%'
+                        OR c.CustomerID IS NULL
+                    )
 
                     GROUP BY 
                         o.OrderID,

@@ -33,6 +33,7 @@
                         <div class="col-sm-9">
                             <input asp-for="AttributeName"
                                    class="form-control" />
+                            <span asp-validation-for="AttributeName" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -41,6 +42,7 @@
                         <div class="col-sm-9">
                             <input asp-for="AttributeValue"
                                    class="form-control" />
+                            <span asp-validation-for="AttributeValue" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -50,6 +52,7 @@
                             <input asp-for="DisplayOrder"
                                    type="number"
                                    class="form-control" />
+                            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
                         </div>
                     </div>
 

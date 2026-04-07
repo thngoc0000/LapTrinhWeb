@@ -110,7 +110,8 @@ else
                                             </td>
                                         <td class="p-3 text-center fw-bold text-dark">@((item.Price * item.Quantity).ToString("N0"))đ</td>
                                         <td class="p-3 text-center">
-                                            <a href="@Url.Action("Remove","Cart", new { id = item.ProductID})" class="btn btn-outline-danger btn-sm border-0" title="Xóa mặt hàng">
+                                            <a href="@Url.Action("Remove","Cart", new { id = item.ProductID})" class="btn btn-outline-danger btn-sm border-0" title="Xóa mặt hàng"
+                                                       onclick="return confirm('Bạn có chắc chắn muốn xóa không?')">
                                                 <i class="bi bi-trash"></i>
                                             </a>
                                         </td>
@@ -122,7 +123,8 @@ else
                     </div>
                 
                     <div class="card-footer bg-white p-3 border-0 border-top">
-                        <a href="@Url.Action("Clear","Cart")" class="btn btn-link text-danger text-decoration-none btn-sm fw-bold">
+                        <a href="@Url.Action("Clear","Cart")" class="btn btn-link text-danger text-decoration-none btn-sm fw-bold" 
+                                   onclick="return confirm('Bạn có chắc chắn muốn xóa giỏ hàng không?')">
                             <i class="bi bi-x-circle"></i> Xoá toàn bộ giỏ hàng
                         </a>
                     </div>

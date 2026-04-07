@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using SV22T1020261.BusinessLayers;
 using SV22T1020261.Models.Catalog;
@@ -11,6 +12,7 @@ namespace SV22T1020261.Shop.Controllers
     /// <summary>
     /// Các chức năng liên quan đến giỏ hàng
     /// </summary>
+    [Authorize]
     public class CartController : Controller
     {
         /// <summary>
@@ -107,7 +109,6 @@ namespace SV22T1020261.Shop.Controllers
         }
 
         [HttpPost]
-        [CustomerAuthorize]
         public async Task<IActionResult> Checkout(Customer model)
         {
             var carts = ApplicationContext
@@ -116,16 +117,25 @@ namespace SV22T1020261.Shop.Controllers
             if (carts == null || !carts.Any())
                 return RedirectToAction("Index");
 
+            // Kiểm tra thông tin người dùng từ Cookie
+            var userData = User.GetUserData();
+            if (userData == null || userData.UserId == null)
+            {
+                // Nếu không có thông tin user, yêu cầu đăng nhập lại
+                return RedirectToAction("Login", "Account");
+            }
+
             if (string.IsNullOrWhiteSpace(model.CustomerName))
             {
                 ModelState.AddModelError(nameof(model.CustomerName), "Vui lòng nhập tên khách hàng");
             }
 
-            if(string.IsNullOrWhiteSpace(model.Phone)){
+            if (string.IsNullOrWhiteSpace(model.Phone))
+            {
                 ModelState.AddModelError(nameof(model.Phone), "Vui lòng nhập số điện thoại");
             }
 
-            if(string.IsNullOrWhiteSpace(model.Address))
+            if (string.IsNullOrWhiteSpace(model.Address))
             {
                 ModelState.AddModelError(nameof(model.Address), "Vui lòng nhập địa chỉ");
             }
@@ -133,16 +143,19 @@ namespace SV22T1020261.Shop.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            // TODO: Lưu đơn hàng vào database ở đây
+            // Cập nhật thông tin khách hàng (nếu cần)
             await PartnerDataService.UpdateDeliveryCustomerAsync(model);
 
-
+            // Gán CustomerID từ Cookie vào Order
             var order = new Order
             {
-                CustomerID = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey)?.CustomerID
+                CustomerID = userData.UserId
             };
 
-            var orderID = await SalesDataService.AddOrderAsync(order.CustomerID ?? 0, order.DeliveryProvince ?? "", order.DeliveryAddress ?? "");
+            // Lưu đơn hàng vào database
+            var orderID = await SalesDataService.AddOrderAsync(order.CustomerID ?? 0,
+                                                               model.Province ?? "",
+                                                               model.Address ?? "");
 
             try
             {
@@ -168,7 +181,6 @@ namespace SV22T1020261.Shop.Controllers
             return RedirectToAction("Success");
         }
 
-        [CustomerAuthorize]
         public async Task<IActionResult> Checkout()
         {
             var carts = ApplicationContext
@@ -177,14 +189,22 @@ namespace SV22T1020261.Shop.Controllers
             if (carts == null || !carts.Any())
                 return RedirectToAction("Index");
 
-            var customerAccount = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
+            // Lấy thông tin User từ Cookie thay vì Session
+            var userData = User.GetUserData();
+            if (userData == null || userData.UserId == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
 
-            var model = await PartnerDataService.GetCustomerAsync(customerAccount?.CustomerID ?? -1);
+            // Lấy chi tiết thông tin khách hàng từ Database dựa trên UserId trong Cookie
+            var model = await PartnerDataService.GetCustomerAsync(userData.UserId.Value);
+
+            if (model == null)
+                return RedirectToAction("Index", "Home");
 
             return View(model);
         }
 
-        [CustomerAuthorize]
         public IActionResult Success()
         {
             return View();

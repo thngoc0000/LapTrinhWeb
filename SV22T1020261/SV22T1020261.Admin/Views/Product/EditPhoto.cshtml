@@ -21,7 +21,7 @@
             </div>
 
             <div class="card-body">
-
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <form id="formEdit" method="post"
                       enctype="multipart/form-data"
                       action="~/Product/SavePhoto">
@@ -44,6 +44,7 @@
                                    data-img-preview="imgPreview"
                                    onchange="previewImage(this)" />
 
+                            @Html.ValidationMessage("uploadPhoto", new { @class = "text-danger" })
                             <div class="mt-2">
                                 <img id="imgPreview"
                                      src="~/images/productphotos/@(string.IsNullOrEmpty(Model.Photo) ? "nophoto.png" : Model.Photo)"
@@ -58,6 +59,7 @@
                         <div class="col-sm-9">
                             <input asp-for="Description"
                                    class="form-control" />
+                            <span asp-validation-for="Description" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -67,6 +69,7 @@
                             <input asp-for="DisplayOrder"
                                    type="number"
                                    class="form-control" />
+                            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
                         </div>
                     </div>
 

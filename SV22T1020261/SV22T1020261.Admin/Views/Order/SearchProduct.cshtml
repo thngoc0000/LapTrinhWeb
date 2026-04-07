@@ -2,6 +2,13 @@
 @{
     Layout = null;
 }
+@if (!Model.DataItems.Any())
+{
+    <div class="alert alert-info mt-3 text-center">
+        <i class="bi bi-info-circle-fill"></i>
+        Không tìm thấy mặt hàng nào phù hợp với điều kiện lọc.
+    </div>
+}
 <!-- Danh sách mặt hàng -->
 @foreach (var item in Model.DataItems)
 {

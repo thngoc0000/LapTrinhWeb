@@ -39,14 +39,14 @@
                                     <label class="form-label small fw-bold">Họ và Tên</label>
                                     <input type="text" class="form-control bg-light border-0 rounded-3 shadow-none"
                                            asp-for="CustomerName"
-                                           placeholder="Nguyễn Văn A" required>
+                                           placeholder="Nguyễn Văn A">
                                         <span asp-validation-for="CustomerName" class="text-danger"></span>
                                 </div>
 
                                 <div class="col-md-12">
                                     <label class="form-label small fw-bold">Email</label>
                                     <input type="email" class="form-control bg-light border-0 rounded-3 shadow-none"
-                                               asp-for="Email" placeholder="example@mail.com" required>
+                                               asp-for="Email" placeholder="example@mail.com">
                                             <span asp-validation-for="Email" class="text-danger"></span>
                                 </div>
                                 @* <div class="col-md-6">
@@ -76,7 +76,7 @@
                                             <input type="password"
                                                    class="form-control bg-light border-0 rounded-3 shadow-none"
                                                    asp-for="Password"
-                                                   required>
+                                                   >
                                                 <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
                                 @* <div class="col-md-6">

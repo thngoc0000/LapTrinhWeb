@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using SV22T1020261.BusinessLayers;
 using SV22T1020261.Models.Sales;
 using SV22T1020261.Models.Security;
@@ -8,13 +9,12 @@ namespace SV22T1020261.Shop.Controllers
     /// <summary>
     /// Các chức năng liên quan đến đơn hàng
     /// </summary>
-    [CustomerAuthorize]
+    [Authorize]
     public class OrderController : Controller
     {
         /// <summary>
         /// Lịch sử mua hàng
         /// </summary>
-        /// <returns></returns>
         public async Task<IActionResult> History()
         {
             var input = ApplicationContext.GetSessionData<OrderSearchInput>(ApplicationContext.OrderSessionKey);
@@ -30,12 +30,24 @@ namespace SV22T1020261.Shop.Controllers
             return View(input);
         }
 
+        /// <summary>
+        /// Tìm kiếm đơn hàng của khách hàng hiện tại
+        /// </summary>
         public async Task<IActionResult> Search(OrderSearchInput input)
         {
-            var customerID = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey)?.CustomerID;
-            
-            var model = await SalesDataService.ListOrdersAsync(input, customerID ?? 0);
+            // Lấy thông tin người dùng từ Cookie
+            var userData = User.GetUserData();
 
+            // Kiểm tra lỗi null và lấy UserId (mặc định là 0 nếu không tìm thấy)
+            int customerID = userData?.UserId ?? 0;
+
+            // Nếu không có ID hợp lệ, có thể yêu cầu đăng nhập lại hoặc trả về danh sách trống
+            if (customerID == 0)
+                return RedirectToAction("Login", "Account");
+
+            var model = await SalesDataService.ListOrdersAsync(input, customerID);
+
+            // Lưu lại tham số tìm kiếm vào session để dùng cho lần sau
             ApplicationContext.SetSessionData(ApplicationContext.OrderSessionKey, input);
 
             return View(model);
@@ -44,13 +56,15 @@ namespace SV22T1020261.Shop.Controllers
         /// <summary>
         /// Theo dõi trạng thái xử lý của đơn hàng
         /// </summary>
-        /// <returns></returns>
         public async Task<IActionResult> Tracking()
         {
-            // GET: 4 trạng thái xử lý của đơn hàng: Đang xử lý, Đang giao hàng, Đã giao hàng, Đã hủy
-            // Các thông tin: orderId, orderDate, status, DeliveryAdress, DeliveryProvice, tổng tiền thanh toán
-            var customerID = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey)?.CustomerID;
-            var model = await SalesDataService.ListOrderByAccountAsync(customerID ?? 0);
+            var userData = User.GetUserData();
+            int customerID = userData?.UserId ?? 0;
+
+            if (customerID == 0)
+                return RedirectToAction("Login", "Account");
+
+            var model = await SalesDataService.ListOrderByAccountAsync(customerID);
 
             return View(model);
         }
@@ -58,11 +72,19 @@ namespace SV22T1020261.Shop.Controllers
         /// <summary>
         /// Chi tiết đơn hàng
         /// </summary>
-        /// <returns></returns>
         public async Task<IActionResult> Detail(int id)
         {
+            var order = await SalesDataService.GetOrderAsync(id);
+
+            // Kiểm tra bảo mật: Đảm bảo khách hàng chỉ xem được đơn hàng của chính mình
+            var userData = User.GetUserData();
+            if (order == null || order.CustomerID != (userData?.UserId ?? 0))
+            {
+                return RedirectToAction("History");
+            }
+
             var model = await SalesDataService.ListDetailsAsync(id);
-            ViewBag.Order = await SalesDataService.GetOrderAsync(id);
+            ViewBag.Order = order;
             return View(model);
         }
     }

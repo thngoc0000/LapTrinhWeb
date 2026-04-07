@@ -32,7 +32,7 @@
                 <form id="formEdit" method="post"
                       action="~/Product/SaveData"
                       enctype="multipart/form-data">
-
+                    <div asp-validation-summary="All" class="text-danger"></div>
                     <input type="hidden" asp-for="ProductID" />
 
                     <div class="row mb-3">
@@ -53,6 +53,7 @@
                                     asp-for="CategoryID"
                                     asp-items="await SelectListHelper.Categories()">
                             </select>
+                            <span asp-validation-for="CategoryID" class="text-danger"></span>
                         </div>
 
                         <label class="col-sm-2 col-form-label text-end">Nhà cung cấp</label>
@@ -61,6 +62,7 @@
                                     asp-for="SupplierID"
                                     asp-items="await SelectListHelper.Suppliers()">
                             </select>
+                            <span asp-validation-for="SupplierID" class="text-danger"></span>
                         </div>
                     </div>
 
@@ -70,6 +72,7 @@
                             <input type="text"
                                    asp-for="Unit"
                                    class="form-control" />
+                            <span asp-validation-for="Unit" class="text-danger"></span>
                         </div>
 
                         <label class="col-sm-2 col-form-label text-end">Giá</label>
@@ -78,6 +81,7 @@
                                    asp-for="Price"
                                    class="form-control"
                                    min="0" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
                         </div>
                     </div>
 

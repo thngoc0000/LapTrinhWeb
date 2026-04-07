@@ -30,7 +30,7 @@ namespace SV22T1020261.BusinessLayers
         /// <returns></returns>
         public static async Task<CustomerAccount?> AuthorizeCustomerAccountAsync(string email, string password)
         {
-            return await customerAccountDB.AuthorizeAsync(email, PasswordHelper.HashSHA256(password));
+            return await customerAccountDB.AuthorizeAsync(email, password);
         }
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace SV22T1020261.BusinessLayers
         /// <returns></returns>
         public static async Task<bool> ChangeCustomerPasswordAsync(string email, string password)
         {
-            return await customerAccountDB.ChangePasswordAsync(email, PasswordHelper.HashSHA256(password));
+            return await customerAccountDB.ChangePasswordAsync(email, password);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace SV22T1020261.BusinessLayers
         /// <returns></returns>
         public static async Task<bool> RegisterCustomerAccountAsync(CustomerAccount data)
         {
-            data.Password = PasswordHelper.HashSHA256(data.Password);
+            //data.Password = PasswordHelper.HashSHA256(data.Password);
             return await customerAccountDB.RegisterAsync(data);
         }
 

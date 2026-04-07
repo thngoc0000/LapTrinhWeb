@@ -41,6 +41,19 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
 }
+
+string adminProductImagesPath = Path.GetFullPath(
+    Path.Combine(app.Environment.ContentRootPath, "..", "SV22T1020261.Admin", "wwwroot", "images", "products"));
+
+if (Directory.Exists(adminProductImagesPath))
+{
+    app.UseStaticFiles(new StaticFileOptions
+    {
+        FileProvider = new PhysicalFileProvider(adminProductImagesPath),
+        RequestPath = "/images/products"
+    });
+}
+
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();

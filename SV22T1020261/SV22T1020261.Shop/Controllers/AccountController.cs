@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SV22T1020261.Admin;
 using SV22T1020261.BusinessLayers;
 using SV22T1020261.Models.Catalog;
 using SV22T1020261.Models.Partner;
@@ -11,14 +14,13 @@ namespace SV22T1020261.Shop.Controllers
     /// <summary>
     /// Các chức năng liên quan đến tài khoản
     /// </summary>
+    [Authorize]
     public class AccountController : Controller
     {
-
-        CustomerAccount? customerAccount = ApplicationContext
-            .GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
         /// <summary>
         /// Đăng ký tài khoản
         /// </summary>
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Register()
         {
@@ -33,6 +35,7 @@ namespace SV22T1020261.Shop.Controllers
         /// <summary>
         /// Lưu thông tin đăng ký
         /// </summary>
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Register(CustomerAccount data)
         {
@@ -64,7 +67,8 @@ namespace SV22T1020261.Shop.Controllers
                 data.ContactName = dataArr[dataArr.Length - 1];
 
                 // ===== LƯU DỮ LIỆU =====
-                bool result = await SecurityDataService.RegisterCustomerAccountAsync(data); // Lỗi có thể xảy ra ở đây nếu DB có vấn đề, hoặc email đã tồn tại (nếu không kiểm tra ở trên)
+                data.Password = CryptHelper.HashMD5(data.Password);
+                bool result = await SecurityDataService.RegisterCustomerAccountAsync(data); 
 
                 if (!result)
                 {
@@ -86,51 +90,98 @@ namespace SV22T1020261.Shop.Controllers
         /// <summary>
         /// Hiển thị trang đăng nhập
         /// </summary>
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Login()
         {
-            ViewBag.Title = "Đăng nhập";
             return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> Login(string username, string password)
+        {
+            ViewBag.UserName = username;
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                ModelState.AddModelError("Error", "Tên đăng nhập và mật khẩu không được để trống");
+                return View();
+            }
+
+            string hasedPassword = CryptHelper.HashMD5(password);
+
+            //TODO: Kiểm tra username và password trong database
+            var userAccount = await SecurityDataService.AuthorizeCustomerAccountAsync(username, hasedPassword);
+
+            //if (userAccount != null)
+            //{
+            //    userAccount.CustomerName = userAccount.CustomerName ?? "";
+            //    userAccount.Email = userAccount.Email ?? "";
+            //}
+
+            if (userAccount == null)
+            {
+                ModelState.AddModelError("Error", "Tên đăng nhập hoặc mật khẩu không đúng");
+                return View();
+            }
+
+            //Chuẩn bị thông tin để ghi lên "giấy chứng nhận"
+            var userData = new WebUserData()
+            {
+                UserId = userAccount.CustomerID,
+                UserName = userAccount.CustomerName,
+                DisplayName = userAccount.ContactName,
+                Email = userAccount.Email,
+            };
+
+            //Tạo giấy chứng nhận (ClaimsPrincipal)
+            var principal = userData.CreatePrincipal();
+
+            //Cấp giấy chứng nhận cho người dùng (đăng nhập)
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>
         /// Xử lý đăng nhập
         /// </summary>
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(CustomerAccount data)
-        {
-            ViewBag.Title = "Đăng nhập";
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Login(CustomerAccount data)
+        //{
+        //    ViewBag.Title = "Đăng nhập";
 
-            try
-            {
-                var customerAccount =
-                    await SecurityDataService.AuthorizeCustomerAccountAsync(data.Email, data.Password);
+        //    try
+        //    {
+        //        var customerAccount =
+        //            await SecurityDataService.AuthorizeCustomerAccountAsync(data.Email, data.Password);
 
-                if (customerAccount != null)
-                {
-                    ApplicationContext.SetSessionData(ApplicationContext.CustomerSessionKey, customerAccount);
-                    return RedirectToAction("Index", "Home");
-                }
+        //        if (customerAccount != null)
+        //        {
+        //            ApplicationContext.SetSessionData(ApplicationContext.CustomerSessionKey, customerAccount);
+        //            return RedirectToAction("Index", "Home");
+        //        }
 
-                ViewBag.Error = "Đăng nhập thất bại. Vui lòng kiểm tra lại email và mật khẩu.";
-            }
-            catch (Exception)
-            {
-                ModelState.AddModelError("Error",
-                    "Hệ thống hiện đang bận, vui lòng thử lại sau vài phút");
-            }
+        //        ViewBag.Error = "Đăng nhập thất bại. Vui lòng kiểm tra lại email và mật khẩu.";
+        //    }
+        //    catch (Exception)
+        //    {
+        //        ModelState.AddModelError("Error",
+        //            "Hệ thống hiện đang bận, vui lòng thử lại sau vài phút");
+        //    }
 
-            return View();
-        }
+        //    return View();
+        //}
 
         /// <summary>
         /// Đăng xuất
         /// </summary>
         /// <returns></returns>
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
-            ApplicationContext.RemoveSessionData(ApplicationContext.CustomerSessionKey);
+            //ApplicationContext.RemoveSessionData(ApplicationContext.CustomerSessionKey);
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login");
         }
 
@@ -138,14 +189,15 @@ namespace SV22T1020261.Shop.Controllers
         /// Hồ sơ cá nhân
         /// </summary>
         /// <returns></returns>
-        [CustomerAuthorize]
+        //[CustomerAuthorize]
         public async Task<IActionResult> Profile()
         {
-            var customerAccount = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
+            //var customerAccount = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
+            var customerAccount = User.GetUserData();
 
             if (customerAccount != null)
             {
-                var model = await PartnerDataService.GetCustomerAsync(customerAccount.CustomerID);
+                var model = await PartnerDataService.GetCustomerAsync(customerAccount.UserId ?? 0);
                 return View(model);
             }
 
@@ -157,14 +209,15 @@ namespace SV22T1020261.Shop.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [CustomerAuthorize]
+        //[CustomerAuthorize]
         public async Task<IActionResult> EditProfile()
         {
-            var customerAccount = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
+            //var customerAccount = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
+            var customerAccount = User.GetUserData();
 
             if (customerAccount != null)
             {
-                var model = await PartnerDataService.GetCustomerAsync(customerAccount.CustomerID);
+                var model = await PartnerDataService.GetCustomerAsync(customerAccount.UserId ?? 0);
                 return View(model);
             }
 
@@ -176,7 +229,7 @@ namespace SV22T1020261.Shop.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        [CustomerAuthorize]
+        //[CustomerAuthorize]
         public async Task<IActionResult> EditProfile(Customer data)
         {
             try
@@ -208,9 +261,10 @@ namespace SV22T1020261.Shop.Controllers
 
                 var dataArr = data.CustomerName.Split(' ');
                 data.ContactName = dataArr[dataArr.Length - 1];
-                var customerAccount = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
+                //var customerAccount = ApplicationContext.GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
+                var customerAccount = User.GetUserData();
                 if (customerAccount != null)
-                    data.Email = customerAccount.Email.Trim();
+                    data.Email = (customerAccount.Email??"").Trim();
 
                 await PartnerDataService.UpdateCustomerAsync(data);
                 return RedirectToAction("Profile");
@@ -228,7 +282,7 @@ namespace SV22T1020261.Shop.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [CustomerAuthorize]
+        //[CustomerAuthorize]
         public IActionResult ChangePassword()
         {
             return View();
@@ -236,13 +290,12 @@ namespace SV22T1020261.Shop.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [CustomerAuthorize]
+        //[CustomerAuthorize]
         public async Task<IActionResult> ChangePassword(string CurrentPassword, string NewPassword, string ConfirmPassword)
         {
             try
             {
-                var customerAccount = ApplicationContext
-                    .GetSessionData<CustomerAccount>(ApplicationContext.CustomerSessionKey);
+                var customerAccount = User.GetUserData();
 
                 if (customerAccount == null)
                     return RedirectToAction("Login");
@@ -268,7 +321,7 @@ namespace SV22T1020261.Shop.Controllers
                     return View();
 
                 // ===== KIỂM TRA MẬT KHẨU CŨ =====
-
+                CurrentPassword = CryptHelper.HashMD5(CurrentPassword);
                 var isValid = await SecurityDataService
                     .AuthorizeCustomerAccountAsync(customerAccount.Email, CurrentPassword);
 
@@ -279,6 +332,7 @@ namespace SV22T1020261.Shop.Controllers
                 }
 
                 // ===== CẬP NHẬT MẬT KHẨU =====
+                NewPassword = CryptHelper.HashMD5(NewPassword);
 
                 bool result = await SecurityDataService
                     .ChangeCustomerPasswordAsync(customerAccount.Email, NewPassword);
@@ -305,6 +359,7 @@ namespace SV22T1020261.Shop.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult ForgotPassword()
         {
             return View();
@@ -316,6 +371,7 @@ namespace SV22T1020261.Shop.Controllers
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public async Task<IActionResult> ForgotPassword(string Email)
         {
             try
@@ -341,6 +397,9 @@ namespace SV22T1020261.Shop.Controllers
 
                 // ===== TẠO MẬT KHẨU MỚI =====
                 string newPassword = GenerateRandomPassword();
+                ViewBag.NewPassword = newPassword;
+
+                newPassword = CryptHelper.HashMD5(newPassword);
 
                 bool result = await SecurityDataService
                     .ChangeCustomerPasswordAsync(customer.Email, newPassword);
@@ -351,10 +410,7 @@ namespace SV22T1020261.Shop.Controllers
                     return View();
                 }
 
-                ViewBag.NewPassword = newPassword;
                 ViewBag.Success = true;
-
-                ApplicationContext.RemoveSessionData(ApplicationContext.CustomerSessionKey);
 
                 return View();
             }

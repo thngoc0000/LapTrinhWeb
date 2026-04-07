@@ -13,7 +13,7 @@ namespace SV22T1020261.Admin.Controllers
     /// <summary>
     /// Các chức năng liên quan đến đơn hàng
     /// </summary>
-    [Authorize(Roles = $"{WebUserRoles.Sales},${WebUserRoles.Administrator}")]
+    [Authorize(Roles = $"{WebUserRoles.Sales},{WebUserRoles.Administrator}")]
     public class OrderController : BaseSearchController
     {
         /// <summary>
