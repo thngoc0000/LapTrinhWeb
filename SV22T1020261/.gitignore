@@ -1,0 +1,19 @@
+# Build
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Logs
+*.log
+
+# Environment
+.env
+appsettings.Development.json
+
+# Node (nếu có frontend)
+node_modules/
+dist/
