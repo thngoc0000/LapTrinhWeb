@@ -26,8 +26,16 @@
       "DocumentGroups": [
         {
           "DockedHeight": 303,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -36,7 +44,7 @@
               "RelativeDocumentMoniker": "SV22T1020261.Shop\\Views\\Cart\\Checkout.cshtml",
               "ToolTip": "E:\\_HK8\\LT_Web\\LapTrinhWeb\\SV22T1020261\\SV22T1020261.Shop\\Views\\Cart\\Checkout.cshtml",
               "RelativeToolTip": "SV22T1020261.Shop\\Views\\Cart\\Checkout.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAABLAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-04-07T04:05:42.639Z",
               "EditorCaption": ""
@@ -51,8 +59,7 @@
               "RelativeToolTip": "SV22T1020261.Shop\\Views\\Cart\\Index.cshtml",
               "ViewState": "AgIAAGMAAAAAAAAAAAAAAIAAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-07T04:02:19.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-07T04:02:19.17Z"
             },
             {
               "$type": "Document",
@@ -64,8 +71,7 @@
               "RelativeToolTip": "SV22T1020261.Shop\\Views\\Home\\Search.cshtml",
               "ViewState": "AgIAAAEAAAAAAAAAAAAowA4AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-07T03:51:39.576Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-07T03:51:39.576Z"
             },
             {
               "$type": "Document",
@@ -77,16 +83,7 @@
               "RelativeToolTip": "SV22T1020261.Shop\\Views\\Account\\Register.cshtml",
               "ViewState": "AgIAADkAAAAAAAAAAAAAAEwAAABvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-04-07T03:41:59.933Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+              "WhenOpened": "2026-04-07T03:41:59.933Z"
             }
           ]
         }
